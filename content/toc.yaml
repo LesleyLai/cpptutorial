@@ -1,0 +1,121 @@
+- url: "/"
+  title: "Introduction"
+- url: "/preliminary"
+  title: "Part 0: Up and Running"
+  items:
+    - upcoming: true
+      items:
+        - url: "/qt_creator"
+          title: "Using Qt Creator"
+          upcoming: true
+- url: "/fundamentals"
+  title: "Part 1: Start Writing C++"
+  items:
+    - url: "/fundamentals/basics"
+      title: "Chapter 1: Basic Concepts"
+      upcoming: true
+      items:
+        - url: "/variables"
+          title: "Variables and Fundamentals Types"
+          upcoming: true
+        - url: "/control_flow"
+          title: "Control Flow"
+          upcoming: true
+        - url: "/control_flow"
+          title: "Functions"
+          upcoming: true
+        - url: "/operators"
+          title: "Operators"
+          upcoming: true
+    - url: "/fundamentals/testing"
+      title: "Chapter 2: Testing"
+      upcoming: true
+    - url: "/testing"
+      title: "Chapter 3: Error-handling"
+      upcoming: true
+- url: "/lang"
+  title: "Part 2: The C++ Core Language"
+  upcoming: true
+  items:
+    - url: "/lang/expressions"
+      title: "Expressions"
+      upcoming: true
+    - url: "/lang/statements"
+      title: "Statements"
+      upcoming: true
+    - url: "/lang/functions"
+      title: "Functions and Program Structure"
+      upcoming: true
+    - url: "/lang/reference"
+      title: "References and Pointers"
+      upcoming: true
+    - url: "/lang/classes"
+      title: "Classes"
+      upcoming: true
+- url: "/std"
+  title: "Part 3: Standard Library"
+  upcoming: true
+  items:
+    - url: "/std/containers"
+      title: "STL Containers"
+      upcoming: true
+    - url: "/std/iterators"
+      title: "STL Iterators"
+      upcoming: true
+    - url: "/std/algorithms"
+      title: "STL Algorithms"
+      upcoming: true
+    - url: "/std/vocabulary"
+      title: "Vocabulary"
+      upcoming: true
+    - url: "/utilities"
+      title: "Utilities"
+      upcoming: true
+      items:
+      - url: "/random"
+        title: "Pseudo-random number generation"
+        upcoming: true
+      - url: "/chrono"
+        title: "Time manipulation with the chrono library"
+        upcoming: true
+      - url: "/filesystem"
+        title: "Filesystem"
+        upcoming: true
+    - url: "/std/string"
+      title: "String"
+      upcoming: true
+- url: "/resource"
+  title: "Part 4: Resource Management"
+  upcoming: true
+  items:
+    - url: "/resource/lifetime"
+      title: "The Object lifetime cycle"
+      upcoming: true
+    - url: "/resource/smart_ptr"
+      title: "Smart Pointers"
+      upcoming: true
+- url: "/generic"
+  title: "Part 5: Generic Programming"
+  upcoming: true
+- url: "/oop"
+  title: "Part 7: Object-oriented Programming"
+  upcoming: true
+  items:
+  - url: "/oop/inheritance"
+    title: "Inheritance"
+    upcoming: true
+  - url: "/oop/virtual"
+    title: "Virtual Functions"
+    upcoming: true
+- url: "/concurrency"
+  title: "Part 8: Concurrency and Parallelism"
+  upcoming: true
+- url: "/real-world"
+  title: "Part 9: Writing \"Real-world\" Application"
+  upcoming: true
+- url: "/afterward"
+  title: "Where to go from here"
+  upcoming: true
+- url: "/appendix"
+  title: "Appendix"
+  upcoming: true
