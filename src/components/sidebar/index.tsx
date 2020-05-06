@@ -1,6 +1,5 @@
 import React from "react";
 import Tree from "./tree";
-import { StaticQuery, graphql } from "gatsby";
 import styled from "@emotion/styled";
 import { ExternalLink } from "react-feather";
 import config from "../../../config";
@@ -92,11 +91,7 @@ const Divider = styled(props => (
   }
 `;
 
-interface SiderbarLayoutProps {
-  location: any;
-}
-
-const SidebarLayout = ({ location }: SiderbarLayoutProps) => (
+const SidebarLayout = () => (
   <Sidebar>
     <ul className={"sideBarUL"}>
       <Tree />

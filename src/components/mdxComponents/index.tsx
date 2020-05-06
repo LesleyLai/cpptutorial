@@ -4,7 +4,9 @@ import styled from "@emotion/styled";
 import CodeBlock from "./codeBlock";
 import AnchorTag from "./anchor";
 
-const StyledPre = styled("pre")<{ theme: any }>`
+import { Theme } from "../theme";
+
+const StyledPre = styled("pre")<{ theme: Theme }>`
   padding: 16px;
   background: ${props => props.theme.colors.preFormattedText};
 `;

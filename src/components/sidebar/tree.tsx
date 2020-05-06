@@ -3,7 +3,7 @@ import { StaticQuery, graphql } from "gatsby";
 import TreeNode, { TreeNodeData } from "./treeNode";
 
 const Tree = () => {
-  const defaultCollapsed = new Map();
+  const defaultCollapsed: { [key: string]: boolean } = {};
 
   const [collapsed, setCollapsed] = useState(defaultCollapsed);
 

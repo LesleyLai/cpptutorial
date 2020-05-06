@@ -3,7 +3,6 @@ import GitHubButton from "react-github-btn";
 
 import config from "../../../config";
 import { DarkModeSwitch } from "../DarkModeSwitch";
-import Loc from "../../types/location";
 
 import Sidebar from "../sidebar";
 
@@ -33,12 +32,11 @@ function toggleNav() {
 }
 
 interface HeaderProps {
-  location: Loc;
   isDarkThemeActive?: boolean;
   toggleActiveTheme?: any;
 }
 
-const Header = ({ location, isDarkThemeActive = false, toggleActiveTheme }: HeaderProps) => {
+const Header = ({ isDarkThemeActive = false, toggleActiveTheme }: HeaderProps) => {
   const githubUrl = config.githubUrl;
 
   return (
@@ -52,7 +50,7 @@ const Header = ({ location, isDarkThemeActive = false, toggleActiveTheme }: Head
 
         <div id="navbar" className={"topnav"}>
           <div className={"visibleMobile"}>
-            <Sidebar location={location} />
+            <Sidebar />
             <hr />
           </div>
 

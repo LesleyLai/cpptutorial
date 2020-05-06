@@ -1,5 +1,5 @@
 import * as React from "react";
-import Highlight, { defaultProps } from "prism-react-renderer";
+import Highlight, { defaultProps, Language } from "prism-react-renderer";
 import prismTheme from "prism-react-renderer/themes/vsDark";
 
 import styled from "@emotion/styled";
@@ -90,11 +90,16 @@ function cleanTokens(tokens: Token[][]) {
   return tokens;
 }
 
+interface CodeBlockProps {
+  className: string;
+  children: string;
+}
+
 /* eslint-disable react/jsx-key */
-const CodeBlock = ({ children: exampleCode, className, ...props }) => {
+const CodeBlock = ({ children: code, className }: CodeBlockProps) => {
   const language = className ? className.replace(/language-/, "") : "";
   return (
-    <Highlight {...defaultProps} code={exampleCode} language={language} theme={prismTheme}>
+    <Highlight {...defaultProps} code={code} language={language as Language} theme={prismTheme}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre className={className + " pre"} style={style}>
           {cleanTokens(tokens).map((line, i) => {

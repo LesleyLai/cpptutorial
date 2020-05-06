@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Helmet from "react-helmet";
 import { graphql } from "gatsby";
-import MDXRenderer from "gatsby-plugin-mdx/mdx-renderer";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 
 import { PageQuery, Mdx, Maybe } from "../../graphql-types";
 
@@ -15,7 +15,6 @@ import { Edit, StyledHeading, StyledMainWrapper } from "../components/styles/Doc
 import { TreeNodeData } from "../components/sidebar/treeNode";
 
 interface DocProps {
-  location: any;
   data: PageQuery;
 }
 
@@ -63,7 +62,7 @@ export default class MDXRuntimeTest extends Component<DocProps> {
     canonicalUrl = canonicalUrl + mdx.fields!.slug;
 
     return (
-      <Layout location={location} toc={data.mdx?.tableOfContents}>
+      <Layout toc={data.mdx?.tableOfContents}>
         <Helmet>
           {metaTitle && <title>{metaTitle}</title>}
           {metaTitle && <meta name="title" content={metaTitle} />}

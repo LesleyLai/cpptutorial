@@ -7,7 +7,6 @@ import ThemeProvider from "./theme/themeProvider";
 import mdxComponents from "./mdxComponents";
 import Sidebar from "./sidebar";
 import RightSidebar from "./rightSidebar";
-import Loc from "../types/location";
 import Toc from "../types/toc";
 
 const Wrapper = styled("div")<{ theme: Theme }>`
@@ -64,16 +63,15 @@ const RightSideBarWidth = styled("div")`
 
 interface LayoutProps {
   children: React.ReactNode;
-  location: Loc;
   toc: Toc;
 }
 
-const Layout = ({ children, location, toc }: LayoutProps) => (
-  <ThemeProvider location={location}>
+const Layout = ({ children, toc }: LayoutProps) => (
+  <ThemeProvider>
     <MDXProvider components={mdxComponents}>
       <Wrapper>
         <LeftSideBarWidth className={"hiddenMobile"}>
-          <Sidebar location={location} />
+          <Sidebar />
         </LeftSideBarWidth>
         <Content>
           <MaxWidth>{children}</MaxWidth>

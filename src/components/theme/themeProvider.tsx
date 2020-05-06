@@ -7,7 +7,6 @@ import "../styles/GlobalStyles";
 
 interface ThemeProviderProps {
   children: React.ReactNode;
-  location: any;
 }
 
 interface ThemeProviderState {
@@ -38,7 +37,7 @@ class ThemeProvider extends React.Component<ThemeProviderProps, ThemeProviderSta
   };
 
   render() {
-    const { children, location } = this.props;
+    const { children } = this.props;
 
     const { isDarkThemeActive } = this.state;
 
@@ -48,7 +47,6 @@ class ThemeProvider extends React.Component<ThemeProviderProps, ThemeProviderSta
       <div>
         <EmotionThemeProvider theme={currentActiveTheme}>
           <Header
-            location={location}
             isDarkThemeActive={isDarkThemeActive}
             toggleActiveTheme={this.toggleActiveTheme}
           />

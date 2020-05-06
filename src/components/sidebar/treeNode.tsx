@@ -21,7 +21,7 @@ export interface TreeNodeData {
 interface TreeNodeProps {
   className?: string;
   setCollapsed: (url: string) => void;
-  collapsed: Map<string, boolean>;
+  collapsed: { [key: string]: boolean };
   url?: string;
   title?: Maybe<string>;
   upcoming?: Maybe<boolean>;
