@@ -4,7 +4,6 @@ import breakpoints from "../../styles/breakpoints";
 import { Link } from "gatsby";
 
 import { Theme } from "../theme";
-import theme from "prism-react-renderer/themes/*";
 
 export const StyledNavBar = styled.nav<{ theme: Theme }>`
   background-color: ${({ theme }) => theme.colors.headerBg};

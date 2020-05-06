@@ -3,51 +3,35 @@ import Helmet from "react-helmet";
 import { graphql } from "gatsby";
 import MDXRenderer from "gatsby-plugin-mdx/mdx-renderer";
 
+import { PageQuery, Mdx, Maybe } from "../../graphql-types";
+
 import Layout from "../components/layout";
 import Link from "../components/link";
 
 import NextPrevious from "../components/NextPrevious";
 import config from "../../config";
 import { Edit, StyledHeading, StyledMainWrapper } from "../components/styles/Docs";
-import Mdx from "../types/mdx";
 
 import { TreeNodeData } from "../components/sidebar/treeNode";
 
-import fp from "lodash/fp";
-
-interface MdxEdge {
-  node: {
-    fields: {
-      slug: string;
-      title: string;
-    };
-  };
-}
-
 interface DocProps {
   location: any;
-  data: {
-    mdx: Mdx;
-    allMdx: {
-      edges: Array<MdxEdge>;
-    };
-    allTocYaml: {
-      edges: Array<{
-        node: TreeNodeData;
-      }>;
-    };
-  };
+  data: PageQuery;
 }
 
 interface NavItem {
-  title?: string;
+  title?: Maybe<string>;
   url: string;
 }
 
-const flattenTree = (node: TreeNodeData): Array<NavItem | undefined> => [
-  node.url ? (fp.flow(fp.clone, fp.unset("items"))(node) as NavItem) : undefined,
-  ...fp.flatMap(flattenTree)(node.items),
-];
+const flattenTree = (node: TreeNodeData): Array<NavItem | undefined> => {
+  const { items, ...clone } = node;
+
+  return [
+    clone.url ? { title: clone.title, url: clone.url } : undefined,
+    ...(items ? items.flatMap(flattenTree) : []),
+  ];
+};
 
 export default class MDXRuntimeTest extends Component<DocProps> {
   render() {
@@ -56,28 +40,27 @@ export default class MDXRuntimeTest extends Component<DocProps> {
     if (!data) {
       return null;
     }
-    const { allMdx, mdx } = data;
+
+    const mdx = data.mdx!;
+    const allMdx = data.allMdx;
 
     const gitHub = require("../components/images/github.svg");
     const githubUrl = config.githubUrl;
 
-    const existingPageUrls = new Set(allMdx.edges.map(edge => edge.node.fields.slug));
+    const existingPageUrls = new Set(allMdx.edges.map(edge => edge.node.fields?.slug));
 
-    const nav: NavItem[] = fp.flow(
-      fp.flatMap(({ node }) => flattenTree(node)),
-      fp.filter((item): item is NavItem => item != undefined),
-      fp.filter(item => existingPageUrls.has(item.url))
-    )(data.allTocYaml.edges);
-
+    const nav: NavItem[] = data.allTocYaml.edges
+      ?.flatMap(({ node }) => flattenTree(node))
+      .filter(item => !!item)
+      .filter((item): item is NavItem => existingPageUrls.has(item?.url));
     // meta tags
-    const metaTitle = mdx.frontmatter.metaTitle;
-
-    const metaDescription = mdx.frontmatter.metaDescription;
+    const metaTitle = mdx?.frontmatter?.metaTitle;
+    const metaDescription = mdx.frontmatter?.metaDescription;
 
     let canonicalUrl = config.gatsby.siteUrl;
     canonicalUrl =
       config.gatsby.pathPrefix !== "/" ? canonicalUrl + config.gatsby.pathPrefix : canonicalUrl;
-    canonicalUrl = canonicalUrl + mdx.fields.slug;
+    canonicalUrl = canonicalUrl + mdx.fields!.slug;
 
     return (
       <Layout {...this.props}>
@@ -92,12 +75,12 @@ export default class MDXRuntimeTest extends Component<DocProps> {
           <link rel="canonical" href={canonicalUrl} />
         </Helmet>
         <div className={"titleWrapper"}>
-          <StyledHeading>{mdx.fields.title}</StyledHeading>
+          <StyledHeading>{mdx.fields!.title}</StyledHeading>
           <Edit className={"mobileView"}>
             {githubUrl && (
               <Link
                 className={"gitBtn"}
-                to={`${githubUrl}/tree/master/content/${mdx.parent.relativePath}`}
+                to={`${githubUrl}/tree/master/content/${mdx.parent!.relativePath}`}
               >
                 <img src={gitHub} alt={"Github logo"} /> Edit on GitHub
               </Link>
@@ -108,7 +91,7 @@ export default class MDXRuntimeTest extends Component<DocProps> {
           <MDXRenderer>{mdx.body}</MDXRenderer>
         </StyledMainWrapper>
         <div className={"addPaddTopBottom"}>
-          <NextPrevious mdx={mdx} nav={nav} />
+          <NextPrevious mdx={mdx as Mdx} nav={nav} />
         </div>
       </Layout>
     );
@@ -116,7 +99,7 @@ export default class MDXRuntimeTest extends Component<DocProps> {
 }
 
 export const pageQuery = graphql`
-  query($id: String!) {
+  query Page($id: String!) {
     mdx(fields: { id: { eq: $id } }) {
       fields {
         id

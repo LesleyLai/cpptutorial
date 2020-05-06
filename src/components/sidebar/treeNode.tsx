@@ -9,11 +9,13 @@ import { useTheme } from "emotion-theming";
 import { Theme } from "../theme";
 import { jsx, css } from "@emotion/core";
 
+import { Maybe } from "../../../graphql-types";
+
 export interface TreeNodeData {
-  url?: string;
-  title?: string;
-  upcoming?: boolean;
-  items: TreeNodeData[];
+  url?: Maybe<string>;
+  title?: Maybe<string>;
+  upcoming?: Maybe<boolean>;
+  items?: TreeNodeData[];
 }
 
 interface TreeNodeProps {
@@ -21,9 +23,9 @@ interface TreeNodeProps {
   setCollapsed: (url: string) => void;
   collapsed: Map<string, boolean>;
   url?: string;
-  title?: string;
-  upcoming?: boolean;
-  items: TreeNodeData[];
+  title?: Maybe<string>;
+  upcoming?: Maybe<boolean>;
+  items?: Maybe<TreeNodeData[]>;
   depth?: number; // Recursion depth of the tree node
 }
 
@@ -141,7 +143,7 @@ const TreeNode = ({
 
       {!isCollapsed && hasChildren && (
         <ul>
-          {items.map((item: TreeNodeData, index: number) => (
+          {items?.map((item: TreeNodeData, index: number) => (
             <TreeNode
               key={item.url + index.toString()}
               setCollapsed={setCollapsed}

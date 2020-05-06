@@ -5,18 +5,18 @@ import { StyledNextPrevious } from "./styles/PageNavigationButtons";
 
 import _ from "lodash";
 
-import Mdx from "../types/mdx";
+import { Maybe, Mdx } from "../../graphql-types";
 
 interface NextPreviousProps {
   mdx: Mdx;
   nav: Array<{
-    title?: string;
+    title?: Maybe<string>;
     url: string;
   }>;
 }
 
 const NextPrevious = ({ mdx, nav }: NextPreviousProps) => {
-  const currentIndex = nav.findIndex((el, index) => el && el.url === mdx.fields.slug);
+  const currentIndex = nav.findIndex(el => el && el.url === mdx.fields!.slug);
 
   const nextInfo: any = {};
   const previousInfo: any = {};
@@ -53,7 +53,7 @@ const NextPrevious = ({ mdx, nav }: NextPreviousProps) => {
 
   return (
     <StyledNextPrevious>
-      {previousInfo.url && currentIndex >= 0 ? (
+      {previousInfo.url && currentIndex >= 0 && (
         <Link to={nav[currentIndex - 1].url} className={"previousBtn"}>
           <div className={"leftArrow"}>
             <svg
@@ -83,8 +83,8 @@ const NextPrevious = ({ mdx, nav }: NextPreviousProps) => {
             </div>
           </div>
         </Link>
-      ) : null}
-      {nextInfo.url && currentIndex >= 0 ? (
+      )}
+      {nextInfo.url && currentIndex >= 0 && (
         <Link to={nav[currentIndex + 1].url} className={"nextBtn"}>
           <div className={"nextRightWrapper"}>
             <div className={"smallContent"}>
@@ -114,7 +114,7 @@ const NextPrevious = ({ mdx, nav }: NextPreviousProps) => {
             </svg>
           </div>
         </Link>
-      ) : null}
+      )}
     </StyledNextPrevious>
   );
 };

@@ -2469,21 +2469,17 @@ export type SidebarTreeQuery = {
   };
 };
 
-export type Unnamed_2_QueryVariables = {};
+export type PagesQueryVariables = {};
 
-export type Unnamed_2_Query = {
-  allMdx: {
-    edges: Array<{
-      node: Pick<Mdx, "tableOfContents"> & { fields?: Maybe<Pick<MdxFields, "id" | "slug">> };
-    }>;
-  };
+export type PagesQuery = {
+  allMdx: { edges: Array<{ node: { fields?: Maybe<Pick<MdxFields, "id" | "slug">> } }> };
 };
 
-export type Unnamed_3_QueryVariables = {
+export type PageQueryVariables = {
   id: Scalars["String"];
 };
 
-export type Unnamed_3_Query = {
+export type PageQuery = {
   mdx?: Maybe<
     Pick<Mdx, "body" | "tableOfContents"> & {
       fields?: Maybe<Pick<MdxFields, "id" | "title" | "slug">>;

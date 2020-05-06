@@ -3,28 +3,16 @@ import path from "path";
 import _ from "lodash";
 import config from "../config";
 
+import { PagesQuery } from "../graphql-types";
+
 export const createPages: GatsbyNode["createPages"] = ({ graphql, actions }) => {
   const { createPage } = actions;
-
-  interface Data {
-    allMdx: {
-      edges: Array<{
-        node: {
-          fields: {
-            id: string;
-            slug: string;
-          };
-          tableOfContents: any;
-        };
-      }>;
-    };
-  }
 
   return new Promise((resolve, reject) => {
     resolve(
       graphql(
         `
-          {
+          query Pages {
             allMdx {
               edges {
                 node {
@@ -32,7 +20,6 @@ export const createPages: GatsbyNode["createPages"] = ({ graphql, actions }) => 
                     id
                     slug
                   }
-                  tableOfContents
                 }
               }
             }
@@ -45,14 +32,16 @@ export const createPages: GatsbyNode["createPages"] = ({ graphql, actions }) => 
         }
 
         // Create blog posts pages.
-        (result.data as Data).allMdx.edges.forEach(({ node }) => {
-          createPage({
-            path: node.fields.slug ? node.fields.slug : "/",
-            component: path.resolve("./src/templates/docs.tsx"),
-            context: {
-              id: node.fields.id,
-            },
-          });
+        (result.data as PagesQuery).allMdx.edges.forEach(({ node }) => {
+          if (node.fields) {
+            createPage({
+              path: node.fields.slug ? node.fields.slug : "/",
+              component: path.resolve("./src/templates/docs.tsx"),
+              context: {
+                id: node.fields.id,
+              },
+            });
+          }
         });
       })
     );
