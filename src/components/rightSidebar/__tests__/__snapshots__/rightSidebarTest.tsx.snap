@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RightSidebar renders correctly 1`] = `
+<aside
+  className="css-2y9pvw-StyledRightSidebar e64ipg92"
+>
+  <ul
+    className="css-1a277nu-UL e64ipg90"
+  >
+    <li
+      className="css-roxtvf-RightSidebarTitle e64ipg91"
+    >
+      CONTENTS
+    </li>
+    <li
+      className="css-bz0vey-ListItem e64ipg93"
+    >
+      <a
+        href="level-1-heading-1"
+        to="level-1-heading-1"
+      >
+        Level 1 heading 1
+      </a>
+    </li>
+    <li
+      className="css-bz0vey-ListItem e64ipg93"
+    >
+      <a
+        href="level-1-heading-1"
+        to="level-1-heading-1"
+      >
+        Level 1 heading 1
+      </a>
+    </li>
+  </ul>
+</aside>
+`;

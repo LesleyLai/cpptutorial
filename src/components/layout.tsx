@@ -7,6 +7,8 @@ import ThemeProvider from "./theme/themeProvider";
 import mdxComponents from "./mdxComponents";
 import Sidebar from "./sidebar";
 import RightSidebar from "./rightSidebar";
+import Loc from "../types/location";
+import Toc from "../types/toc";
 
 const Wrapper = styled("div")<{ theme: Theme }>`
   display: flex;
@@ -60,7 +62,13 @@ const RightSideBarWidth = styled("div")`
   width: 224px;
 `;
 
-const Layout = ({ children, location }) => (
+interface LayoutProps {
+  children: React.ReactNode;
+  location: Loc;
+  toc: Toc;
+}
+
+const Layout = ({ children, location, toc }: LayoutProps) => (
   <ThemeProvider location={location}>
     <MDXProvider components={mdxComponents}>
       <Wrapper>
@@ -71,7 +79,7 @@ const Layout = ({ children, location }) => (
           <MaxWidth>{children}</MaxWidth>
         </Content>
         <RightSideBarWidth className={"hiddenMobile"}>
-          <RightSidebar location={location} />
+          <RightSidebar toc={toc} />
         </RightSideBarWidth>
       </Wrapper>
     </MDXProvider>

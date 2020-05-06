@@ -63,7 +63,7 @@ export default class MDXRuntimeTest extends Component<DocProps> {
     canonicalUrl = canonicalUrl + mdx.fields!.slug;
 
     return (
-      <Layout {...this.props}>
+      <Layout location={location} toc={data.mdx?.tableOfContents}>
         <Helmet>
           {metaTitle && <title>{metaTitle}</title>}
           {metaTitle && <meta name="title" content={metaTitle} />}
@@ -77,10 +77,10 @@ export default class MDXRuntimeTest extends Component<DocProps> {
         <div className={"titleWrapper"}>
           <StyledHeading>{mdx.fields!.title}</StyledHeading>
           <Edit className={"mobileView"}>
-            {githubUrl && (
+            {githubUrl && mdx.parent && (
               <Link
                 className={"gitBtn"}
-                to={`${githubUrl}/tree/master/content/${mdx.parent!.relativePath}`}
+                to={`${githubUrl}/tree/master/content/${mdx.parent.relativePath}`}
               >
                 <img src={gitHub} alt={"Github logo"} /> Edit on GitHub
               </Link>

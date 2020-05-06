@@ -2439,16 +2439,6 @@ export type TocYamlSortInput = {
   order?: Maybe<Array<Maybe<SortOrderEnum>>>;
 };
 
-export type Unnamed_1_QueryVariables = {};
-
-export type Unnamed_1_Query = {
-  allMdx: {
-    edges: Array<{
-      node: Pick<Mdx, "tableOfContents"> & { fields?: Maybe<Pick<MdxFields, "slug">> };
-    }>;
-  };
-};
-
 export type SidebarTreeQueryVariables = {};
 
 export type SidebarTreeQuery = {

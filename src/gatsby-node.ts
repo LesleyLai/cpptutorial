@@ -10,7 +10,7 @@ export const createPages: GatsbyNode["createPages"] = ({ graphql, actions }) => 
 
   return new Promise((resolve, reject) => {
     resolve(
-      graphql(
+      graphql<PagesQuery>(
         `
           query Pages {
             allMdx {
@@ -32,7 +32,7 @@ export const createPages: GatsbyNode["createPages"] = ({ graphql, actions }) => 
         }
 
         // Create blog posts pages.
-        (result.data as PagesQuery).allMdx.edges.forEach(({ node }) => {
+        result.data?.allMdx.edges.forEach(({ node }) => {
           if (node.fields) {
             createPage({
               path: node.fields.slug ? node.fields.slug : "/",
