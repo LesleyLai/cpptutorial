@@ -60,6 +60,12 @@ const plugins = [
   },
   `gatsby-plugin-typescript`,
   `gatsby-plugin-lodash`,
+  {
+    resolve: `gatsby-plugin-graphql-codegen`,
+    options: {
+      documentPaths: ["./src/**/*.{ts,tsx}", "./.cache/fragments/*.js"],
+    },
+  },
 ];
 
 // check and add pwa functionality

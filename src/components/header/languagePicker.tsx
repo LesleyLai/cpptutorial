@@ -13,7 +13,7 @@ import LanguageSwitchIcon from "../images/language-switch";
 const StyledLanguagePicker = styled.div<{ theme: Theme }>`
   svg {
     fill: ${({ theme }) => theme.colors.icon};
-    width: 30px;
+    width: 20px;
   }
 
   svg:hover {

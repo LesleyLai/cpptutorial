@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
 
 import { Theme } from "../theme";
-import theme from "prism-react-renderer/themes/*";
 
 const Input = styled.input<{ theme: Theme }>`
   outline: none;
@@ -10,7 +9,7 @@ const Input = styled.input<{ theme: Theme }>`
   width: 100%;
   background-color: transparent;
   color: ${({ theme }) => theme.colors.primaryText};
-  padding: 10px;
+  padding: 2px;
   padding-left: 38px;
   max-width: 600px;
 

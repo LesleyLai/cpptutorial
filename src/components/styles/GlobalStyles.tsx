@@ -123,10 +123,6 @@ injectGlobal`
   }
 
   /* Header section starts here */
-  .removePadd {
-    padding: 0 !important;
-  }
-
   .navBarUL li {
     list-style-type: none;
   }

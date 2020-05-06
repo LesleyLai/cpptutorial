@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { StaticQuery, graphql } from "gatsby";
 import TreeNode, { TreeNodeData } from "./treeNode";
 
-const Tree = ({ edges }) => {
+const Tree = () => {
   const defaultCollapsed = new Map();
 
   const [collapsed, setCollapsed] = useState(defaultCollapsed);
@@ -25,7 +25,7 @@ const Tree = ({ edges }) => {
   return (
     <StaticQuery
       query={graphql`
-        query {
+        query SidebarTree {
           allTocYaml {
             edges {
               node {

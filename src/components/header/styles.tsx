@@ -16,7 +16,7 @@ export const StyledNavBar = styled.nav<{ theme: Theme }>`
   z-index: 1;
   padding: 15px;
   position: relative;
-  height: 80px;
+  height: 60px;
 
   @media (max-width: ${breakpoints.md}) {
     display: block;
@@ -59,7 +59,6 @@ export const StyledHeaderTitle = styled(Link)<{ theme: Theme }>`
   line-height: 1.5;
   font-weight: 300;
   color: ${({ theme }) => theme.colors.primaryText};
-  margin-top: 8px;
   text-transform: uppercase;
   padding-right: 50px;
 

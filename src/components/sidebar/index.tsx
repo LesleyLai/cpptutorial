@@ -97,42 +97,22 @@ interface SiderbarLayoutProps {
 }
 
 const SidebarLayout = ({ location }: SiderbarLayoutProps) => (
-  <StaticQuery
-    query={graphql`
-      query {
-        allMdx {
-          edges {
-            node {
-              fields {
-                slug
-                title
-              }
-            }
-          }
+  <Sidebar>
+    <ul className={"sideBarUL"}>
+      <Tree />
+      {config.sidebar.links && config.sidebar.links.length > 0 && <Divider />}
+      {config.sidebar.links.map((link, key) => {
+        if (link.link !== "" && link.text !== "") {
+          return (
+            <ListItem key={key} to={link.link}>
+              {link.text}
+              <ExternalLink size={14} />
+            </ListItem>
+          );
         }
-      }
-    `}
-    render={({ allMdx }) => {
-      return (
-        <Sidebar>
-          <ul className={"sideBarUL"}>
-            <Tree edges={allMdx.edges} />
-            {config.sidebar.links && config.sidebar.links.length > 0 && <Divider />}
-            {config.sidebar.links.map((link, key) => {
-              if (link.link !== "" && link.text !== "") {
-                return (
-                  <ListItem key={key} to={link.link}>
-                    {link.text}
-                    <ExternalLink size={14} />
-                  </ListItem>
-                );
-              }
-            })}
-          </ul>
-        </Sidebar>
-      );
-    }}
-  />
+      })}
+    </ul>
+  </Sidebar>
 );
 
 export default SidebarLayout;

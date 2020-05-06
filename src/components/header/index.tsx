@@ -79,13 +79,11 @@ const Header = ({ location, isDarkThemeActive = false, toggleActiveTheme }: Head
         </div>
       </StyledNavBar>
       <StyledBgDiv isDarkThemeActive={isDarkThemeActive}>
-        <div className={"navBarDefault removePadd"}>
-          <StyledNavbarToggle onClick={toggleNav} onKeyDown={toggleNav} role="button" tabIndex={0}>
-            <span />
-            <span />
-            <span />
-          </StyledNavbarToggle>
-        </div>
+        <StyledNavbarToggle onClick={toggleNav} onKeyDown={toggleNav} role="button" tabIndex={0}>
+          <span />
+          <span />
+          <span />
+        </StyledNavbarToggle>
       </StyledBgDiv>
     </header>
   );
