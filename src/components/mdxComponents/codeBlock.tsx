@@ -14,7 +14,7 @@ type Token = {
 
 type TipData = {
   text: string;
-  cppreference: string;
+  cppreference?: string;
 };
 
 const getTip = (token: Token): TipData | undefined => {
@@ -22,7 +22,6 @@ const getTip = (token: Token): TipData | undefined => {
     return {
       text:
         "Prints a null-terminated string and one additional newline character '\\n' to standard output",
-      cppreference: "cpp/io/c/puts",
     };
   }
 };
@@ -57,16 +56,20 @@ const TokenWithTip = (props: TokenWithTipProps) => {
     }
   `;
 
+  const tip = props.tip;
+
   return (
     <Style {...props}>
       {props.children}
       <div className="codeTip">
         <h2>std::puts</h2>
-        <p>{props.tip.text}</p>
-        <text>
-          See <a href={`https://en.cppreference.com/w/${props.tip.cppreference}`}>cppreference</a>{" "}
-          for detailed documentation
-        </text>
+        <p>{tip.text}</p>
+        {tip.cppreference && (
+          <text>
+            See <a href={`https://en.cppreference.com/w/${tip.cppreference}`}>cppreference</a> for
+            detailed documentation
+          </text>
+        )}
       </div>
     </Style>
   );

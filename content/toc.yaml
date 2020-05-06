@@ -97,6 +97,19 @@
 - url: "/generic"
   title: "Part 5: Generic Programming"
   upcoming: true
+- url: "/type"
+  title: "Part 6: Type Design"
+  upcoming: true
+  items:
+    - url: "/type/move"
+      title: "Move Semantics"
+      upcoming: true
+    - url: "/type/class-design"
+      title: "Class Design"
+      upcoming: true
+    - url: "/type/exceptions"
+      title: "Exceptions"
+      upcoming: true
 - url: "/oop"
   title: "Part 7: Object-oriented Programming"
   upcoming: true
