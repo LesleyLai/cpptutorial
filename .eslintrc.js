@@ -1,19 +1,20 @@
 module.exports = {
-  "extends": [
+  ignorePatterns: ["graphql-types.ts"],
+  extends: [
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:jsx-a11y/recommended",
-    'plugin:@typescript-eslint/recommended',
-    'prettier/@typescript-eslint',
-    'plugin:prettier/recommended',
+    "plugin:@typescript-eslint/recommended",
+    "prettier/@typescript-eslint",
+    "plugin:prettier/recommended",
   ],
-  "plugins": ['@typescript-eslint', "react", "import", "jsx-a11y"],
-  "settings": {
-    "react": {
-      "version": "detect"
-    }
+  plugins: ["@typescript-eslint", "react", "import", "jsx-a11y"],
+  settings: {
+    react: {
+      version: "detect",
+    },
   },
-  "rules": {
+  rules: {
     "no-undef": "off",
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
@@ -22,32 +23,32 @@ module.exports = {
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/camelcase": "off",
     "@typescript-eslint/no-var-requires": "off",
-    "jsx-a11y/heading-has-content": "off"
+    "jsx-a11y/heading-has-content": "off",
   },
   //"parser": "babel-eslint",
-  parser: '@typescript-eslint/parser',
-  "parserOptions": {
-    "ecmaVersion": 10,
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true
-    }
+  parser: "@typescript-eslint/parser",
+  parserOptions: {
+    ecmaVersion: 10,
+    sourceType: "module",
+    ecmaFeatures: {
+      jsx: true,
+    },
   },
-  "env": {
-    "es6": true,
-    "browser": true,
-    "node": true
+  env: {
+    es6: true,
+    browser: true,
+    node: true,
   },
-  "globals": {
-    "graphql": false
+  globals: {
+    graphql: false,
   },
   overrides: [
     // Override some TypeScript rules just for .js files
     {
-      files: ['*.js'],
+      files: ["*.js"],
       rules: {
-        '@typescript-eslint/no-var-requires': 'off' //
-      }
-    }
-  ]
+        "@typescript-eslint/no-var-requires": "off", //
+      },
+    },
+  ],
 };

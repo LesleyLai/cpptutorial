@@ -34,8 +34,22 @@ export const Edit = styled("div")`
     box-shadow: rgba(116, 129, 141, 0.1) 0px 1px 1px 0px;
     height: 30px;
     padding: 5px 16px;
+    display: flex;
+    align-items: center;
+    margin: 0 15px;
+
     &:hover {
       background-color: rgb(245, 247, 249);
+    }
+
+    img {
+      width: 15px;
+      display: inline-block;
+      margin-right: 5px;
+    }
+
+    @media (max-width: 767px) {
+      display: inline-block;
     }
   }
 `;

@@ -80,11 +80,6 @@ injectGlobal`
     display: flex;
     align-items: center;
   }
-  .divider {
-    height: 30px;
-    margin: 0 15px;
-    border-right: 1px solid rgba(255, 255, 255, 0.3);
-  }
   .navBarULRight {
     /* position: absolute;
   right: 30px; */
@@ -205,19 +200,6 @@ injectGlobal`
     padding-bottom: 40px;
     border-bottom: 1px solid rgb(230, 236, 241);
     margin-bottom: 32px;
-  }
-
-  .gitBtn {
-    height: 30px;
-    min-height: 30px;
-    display: flex;
-    align-items: center;
-  }
-
-  .gitBtn img {
-    width: 15px;
-    display: inline-block;
-    margin-right: 5px;
   }
 
   .addPaddTopBottom {
@@ -418,10 +400,6 @@ injectGlobal`
       display: block;
     }
 
-    .gitBtn {
-      display: inline-block;
-    }
-
     .mobileView {
       text-align: left !important;
       padding-left: 0 !important;
@@ -429,10 +407,6 @@ injectGlobal`
   }
 
   @media (min-width: 768px) and (max-width: 991px) {
-    .divider {
-      margin: 0 5px;
-      height: 20px;
-    }
     .navBarUL li a {
       padding: 10px 5px;
     }

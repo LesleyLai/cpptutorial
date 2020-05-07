@@ -40,7 +40,7 @@ export default class MDXRuntimeTest extends Component<DocProps> {
       return null;
     }
 
-    const mdx = data.mdx!;
+    const mdx = data.mdx;
     const allMdx = data.allMdx;
 
     const gitHub = require("../components/images/github.svg");
@@ -54,12 +54,12 @@ export default class MDXRuntimeTest extends Component<DocProps> {
       .filter((item): item is NavItem => existingPageUrls.has(item?.url));
     // meta tags
     const metaTitle = mdx?.frontmatter?.metaTitle;
-    const metaDescription = mdx.frontmatter?.metaDescription;
+    const metaDescription = mdx?.frontmatter?.metaDescription;
 
     let canonicalUrl = config.gatsby.siteUrl;
     canonicalUrl =
       config.gatsby.pathPrefix !== "/" ? canonicalUrl + config.gatsby.pathPrefix : canonicalUrl;
-    canonicalUrl = canonicalUrl + mdx.fields!.slug;
+    canonicalUrl = canonicalUrl + mdx?.fields?.slug;
 
     return (
       <Layout toc={data.mdx?.tableOfContents}>
@@ -74,20 +74,17 @@ export default class MDXRuntimeTest extends Component<DocProps> {
           <link rel="canonical" href={canonicalUrl} />
         </Helmet>
         <div className={"titleWrapper"}>
-          <StyledHeading>{mdx.fields!.title}</StyledHeading>
+          <StyledHeading>{mdx?.fields?.title}</StyledHeading>
           <Edit className={"mobileView"}>
-            {githubUrl && mdx.parent && (
-              <Link
-                className={"gitBtn"}
-                to={`${githubUrl}/tree/master/content/${mdx.parent.relativePath}`}
-              >
+            {githubUrl && mdx?.parent && (
+              <Link to={`${githubUrl}/tree/master/content/${mdx.parent.relativePath}`}>
                 <img src={gitHub} alt={"Github logo"} /> Edit on GitHub
               </Link>
             )}
           </Edit>
         </div>
         <StyledMainWrapper>
-          <MDXRenderer>{mdx.body}</MDXRenderer>
+          <MDXRenderer>{mdx?.body ?? ""}</MDXRenderer>
         </StyledMainWrapper>
         <div className={"addPaddTopBottom"}>
           <NextPrevious mdx={mdx as Mdx} nav={nav} />

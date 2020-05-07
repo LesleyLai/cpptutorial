@@ -1,5 +1,4 @@
 import React from "react";
-import GitHubButton from "react-github-btn";
 
 import config from "../../../config";
 import { DarkModeSwitch } from "../DarkModeSwitch";
@@ -14,7 +13,6 @@ import {
   StyledNavBarHeader,
   StyledHeaderTitle,
   StyledBgDiv,
-  StyledGithubButtonWrapper,
 } from "./styles";
 
 import Search from "../search";
@@ -36,55 +34,42 @@ interface HeaderProps {
   toggleActiveTheme?: any;
 }
 
-const Header = ({ isDarkThemeActive = false, toggleActiveTheme }: HeaderProps) => {
-  const githubUrl = config.githubUrl;
+const Header = ({ isDarkThemeActive = false, toggleActiveTheme }: HeaderProps) => (
+  <header>
+    <StyledNavBar>
+      <StyledNavBarHeader>
+        <StyledHeaderTitle to={"/"}>{config.header.title}</StyledHeaderTitle>
+      </StyledNavBarHeader>
 
-  return (
-    <header>
-      <StyledNavBar>
-        <StyledNavBarHeader>
-          <StyledHeaderTitle to={"/"}>{config.header.title}</StyledHeaderTitle>
-        </StyledNavBarHeader>
+      <Search />
 
-        <Search />
-
-        <div id="navbar" className={"topnav"}>
-          <div className={"visibleMobile"}>
-            <Sidebar />
-            <hr />
-          </div>
-
-          <ul className={"navBarUL navBarNav navBarULRight"}>
-            <li>
-              <LanguagePicker />
-            </li>
-
-            {githubUrl !== "" && <li className="divider hiddenMobile"></li>}
-            {githubUrl !== "" && (
-              <StyledGithubButtonWrapper>
-                <GitHubButton href={githubUrl} data-show-count={true} aria-label="Star on GitHub">
-                  Star
-                </GitHubButton>
-              </StyledGithubButtonWrapper>
-            )}
-            <li>
-              <DarkModeSwitch
-                isDarkThemeActive={isDarkThemeActive}
-                toggleActiveTheme={toggleActiveTheme}
-              />
-            </li>
-          </ul>
+      <div id="navbar" className={"topnav"}>
+        <div className={"visibleMobile"}>
+          <Sidebar />
+          <hr />
         </div>
-      </StyledNavBar>
-      <StyledBgDiv isDarkThemeActive={isDarkThemeActive}>
-        <StyledNavbarToggle onClick={toggleNav} onKeyDown={toggleNav} role="button" tabIndex={0}>
-          <span />
-          <span />
-          <span />
-        </StyledNavbarToggle>
-      </StyledBgDiv>
-    </header>
-  );
-};
+
+        <ul className={"navBarUL navBarNav navBarULRight"}>
+          <li>
+            <LanguagePicker />
+          </li>
+          <li>
+            <DarkModeSwitch
+              isDarkThemeActive={isDarkThemeActive}
+              toggleActiveTheme={toggleActiveTheme}
+            />
+          </li>
+        </ul>
+      </div>
+    </StyledNavBar>
+    <StyledBgDiv isDarkThemeActive={isDarkThemeActive}>
+      <StyledNavbarToggle onClick={toggleNav} onKeyDown={toggleNav} role="button" tabIndex={0}>
+        <span />
+        <span />
+        <span />
+      </StyledNavbarToggle>
+    </StyledBgDiv>
+  </header>
+);
 
 export default Header;

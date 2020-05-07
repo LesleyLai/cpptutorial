@@ -110,21 +110,3 @@ export const StyledNavbarToggle = styled.span`
     display: none;
   }
 `;
-
-export const StyledGithubButtonWrapper = styled.li`
-  display: flex;
-  align-items: center;
-  font-size: 16px;
-  padding: 10px 0px;
-  padding-left: 15px;
-  max-height: 40px;
-
-  span span {
-    display: flex;
-    align-items: center;
-  }
-
-  @media (min-width: 768px) and (max-width: 991px) {
-    padding: 10px 10px;
-  }
-`;
