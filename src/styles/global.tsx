@@ -71,7 +71,7 @@ export default () => (
       }
       .navBarULRight {
         /* position: absolute;
-           right: 30px; */
+      right: 30px; */
       }
       .githubIcon {
         width: 15px;
@@ -237,7 +237,7 @@ export default () => (
         padding: 0;
       }
 
-      table tr:nth-child(2n) {
+      table tr:nth-of-type(2n) {
         background-color: #f8f8f8;
       }
 
@@ -256,8 +256,8 @@ export default () => (
         padding: 6px 13px;
       }
 
-      table tr th :first-child,
-      table tr td :first-child {
+      table tr th :first-of-type,
+      table tr td :first-of-type {
         margin-top: 0;
       }
 

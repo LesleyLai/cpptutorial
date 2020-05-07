@@ -8,10 +8,12 @@
         - url: "/qt_creator"
           title: "Using Qt Creator"
           upcoming: true
+        - url: "/hello"
+          title: "Hello World"
 - url: "/fundamentals"
   title: "Part 1: Start Writing C++"
   items:
-    - url: "/fundamentals/basics"
+    - url: "/basics"
       title: "Chapter 1: Basic Concepts"
       upcoming: true
       items:
@@ -132,3 +134,7 @@
 - url: "/appendix"
   title: "Appendix"
   upcoming: true
+  items:
+    - url: "/glossary"
+      title: "Glossary"
+      upcoming: true

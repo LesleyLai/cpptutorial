@@ -1,0 +1,73 @@
+---
+title: "Hello World"
+metaTitle: "Hello World in C++"
+metaDescription: "Hello World in C++"
+---
+
+Now let's look at some simple C++ code.
+Below is a C++ program that prints `"Hello world!\n"` to the standard output.
+
+```cpp
+#include <cstdio>
+
+auto main() -> int {
+  std::puts("Hello world!");
+}
+```
+
+This program already composed some fundamental concepts in C++. Don’t be overwhelmed as we will take a look at the code line by line.
+
+**`#include`**
+
+`#include` is a preprocessor instruction that includes other C++ source files into our current source file.
+In the "hello world" example, we `#include` two files, `<cstdio>` and `<iostream>`.
+The file `<cstdio>` is the C-style input/output library, and contains standard library functions `puts` and `printf` that we used later.
+And the file `<iostream>` is part of the C++ input/output library that contains `std::cout`.
+
+**`auto main() -> int`**
+
+A lot of programming languages, such as Python, Javascript, or Ocaml, interpret and execute source code from up to bottom.
+By contrast, C++ has one unique entry point called the `main()` function, and every C++ program starts to execute from here.
+
+The syntax `auto f() -> int` means we **declare** a function `f` that takes no arguments and returns `int`.
+`main()` is special because despite it returns an integer, you do not need to specify a return value; it returns `0` by default.
+The integer returns by main indicates the **exit state** of the program; a value of `0` means no error.
+Returning any numbers other than `0` tells the operating system that something is wrong when executing the program.
+For example:
+
+```cpp
+#include <cstdio>
+
+auto main() -> int {
+  if (something_is_wrong()) {
+    return 42;
+  } else {
+    return 0;
+  }
+}
+```
+
+The version of `main()` function showed above uses **trailing return type**, and this tutorial will use it consistently.
+This trailing return type version is equivalent to the following version:
+
+```cpp
+#include <cstdio>
+
+-auto main() -> int {
++int main() {
+  std::puts("Hello world!");
+}
+```
+
+The usage of the trailing return type is mainly for a stylish reason, but there are cases where you must use the trailing return type.
+
+** `{...}` **
+
+The curly braces `{` and `}` indicate the begin and end of the `main()` function.
+The pair of curly braces with function body following the function declaration turns it into a **function definition**.
+
+**`std::puts("Hello world!");`**
+
+`puts` output the string `"hello world!"` to the standard output and automatically append an end line character (`\n`) at the end of the output stream.
+`std` is a **namespace**, and all the symbols of the C++ standard library are declared within `std`.
+To call a standard library function, you need to *qualify* your function call with the namespace `std`.

@@ -102,7 +102,7 @@ export const StyledNavbarToggle = styled.span`
     background-color: #001934;
   }
 
-  span:first-child {
+  span:first-of-type {
     margin-top: 0px;
   }
 

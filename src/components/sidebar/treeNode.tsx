@@ -102,6 +102,10 @@ const TreeNode = ({
 
   const depth1Style = css`
     margin-top: 1em;
+
+    > a {
+      font-size: 30px;
+    }
   `;
 
   const depth2Style = css`
@@ -150,7 +154,7 @@ const TreeNode = ({
               collapsed={collapsed}
               depth={depth + 1}
               {...item}
-              url={url + item.url}
+              url={item.url ? url + item.url : url}
             />
           ))}
         </ul>
