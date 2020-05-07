@@ -3,7 +3,6 @@ import { ThemeProvider as EmotionThemeProvider } from "emotion-theming";
 
 import { lightTheme, darkTheme } from "./index";
 import Header from "../header";
-import "../styles/GlobalStyles";
 
 interface ThemeProviderProps {
   children: React.ReactNode;

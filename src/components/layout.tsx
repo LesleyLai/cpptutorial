@@ -9,6 +9,8 @@ import Sidebar from "./sidebar";
 import RightSidebar from "./rightSidebar";
 import Toc from "../types/toc";
 
+import GlobalStyles from "../styles/global";
+
 const Wrapper = styled("div")<{ theme: Theme }>`
   display: flex;
   justify-content: space-between;
@@ -70,6 +72,7 @@ const Layout = ({ children, toc }: LayoutProps) => (
   <ThemeProvider>
     <MDXProvider components={mdxComponents}>
       <Wrapper>
+        <GlobalStyles />
         <LeftSideBarWidth className={"hiddenMobile"}>
           <Sidebar />
         </LeftSideBarWidth>

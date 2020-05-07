@@ -7,6 +7,8 @@ import Sidebar from "../sidebar";
 
 import LanguagePicker from "./languagePicker";
 
+import { visibleMobile } from "../../styles/responsive";
+
 import {
   StyledNavBar,
   StyledNavbarToggle,
@@ -44,7 +46,7 @@ const Header = ({ isDarkThemeActive = false, toggleActiveTheme }: HeaderProps) =
       <Search />
 
       <div id="navbar" className={"topnav"}>
-        <div className={"visibleMobile"}>
+        <div css={visibleMobile}>
           <Sidebar />
           <hr />
         </div>
