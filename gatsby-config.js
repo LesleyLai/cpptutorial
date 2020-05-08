@@ -66,6 +66,7 @@ const plugins = [
       documentPaths: ["./src/**/*.{ts,tsx}", "./.cache/fragments/*.js"],
     },
   },
+  `gatsby-plugin-netlify`,
 ];
 
 // check and add pwa functionality
