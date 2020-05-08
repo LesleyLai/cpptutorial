@@ -140,7 +140,7 @@ const TreeNode = ({
           return upcoming ? (
             <span>{titleComponents}</span>
           ) : (
-            <Link to={url}>{titleComponents}</Link>
+            <Link to={`/en${url}`}>{titleComponents}</Link>
           );
         }
       })()}

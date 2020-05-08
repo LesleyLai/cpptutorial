@@ -36,7 +36,7 @@ export default class MDXRuntimeTest extends Component<DocProps> {
   render() {
     const { data } = this.props;
 
-    if (!data) {
+    if (!data || !data.mdx || !data.allMdx) {
       return null;
     }
 
@@ -46,12 +46,16 @@ export default class MDXRuntimeTest extends Component<DocProps> {
     const gitHub = require("../components/images/github.svg");
     const githubUrl = config.githubUrl;
 
-    const existingPageUrls = new Set(allMdx.edges.map(edge => edge.node.fields?.slug));
+    const existingPagePathsWithoutLang = new Set(
+      allMdx.edges.map(edge => edge.node.fields?.pathWithoutLang)
+    );
 
     const nav: NavItem[] = data.allTocYaml.edges
       ?.flatMap(({ node }) => flattenTree(node))
       .filter(item => !!item)
-      .filter((item): item is NavItem => existingPageUrls.has(item?.url));
+      .filter((item): item is NavItem => existingPagePathsWithoutLang.has(item?.url))
+      .map(item => ({ ...item, url: `/en${item.url}` }));
+
     // meta tags
     const metaTitle = mdx?.frontmatter?.metaTitle;
     const metaDescription = mdx?.frontmatter?.metaDescription;
@@ -118,8 +122,8 @@ export const pageQuery = graphql`
       edges {
         node {
           fields {
-            slug
             title
+            pathWithoutLang
           }
         }
       }

@@ -1,12 +1,21 @@
 import { GatsbyNode } from "gatsby";
 import path from "path";
 import _ from "lodash";
-import config from "../config";
 
 import { PagesQuery } from "../graphql-types";
 
+import { languages } from "./utils/translations";
+
 export const createPages: GatsbyNode["createPages"] = ({ graphql, actions }) => {
-  const { createPage } = actions;
+  const { createPage, createRedirect } = actions;
+
+  // Create redirect from root to english verison
+  createRedirect({
+    fromPath: "/",
+    toPath: "/en",
+    redirectInBrowser: true,
+    isPermanent: true,
+  });
 
   return new Promise((resolve, reject) => {
     resolve(
@@ -31,7 +40,7 @@ export const createPages: GatsbyNode["createPages"] = ({ graphql, actions }) => 
           reject(result.errors);
         }
 
-        // Create blog posts pages.
+        // Create pages.
         result.data?.allMdx.edges.forEach(({ node }) => {
           if (node.fields) {
             createPage({
@@ -54,25 +63,42 @@ export const onCreateNode: GatsbyNode["onCreateNode"] = ({ node, getNode, action
   if (node.internal.type === `Mdx`) {
     const parent = getNode(node.parent);
 
-    let value = parent.relativePath.replace(parent.ext, "");
+    let nodePath: string = parent.relativePath.replace(parent.ext, "");
 
-    if (value === "index") {
-      value = "";
-    }
-
-    if (config.gatsby && config.gatsby.trailingSlash) {
-      createNodeField({
-        name: `slug`,
-        node,
-        value: value === "" ? `/` : `/${value}/`,
-      });
+    let mdxType = "";
+    if (nodePath.startsWith("pages/")) {
+      nodePath = nodePath.substr(5);
+      mdxType = "page";
     } else {
-      createNodeField({
-        name: `slug`,
-        node,
-        value: `/${value}`,
-      });
+      throw new Error("Unsupported mdx types");
     }
+
+    const nodeLang = languages.find(lang => nodePath.endsWith(lang));
+    if (nodeLang) {
+      nodePath = nodePath.substr(0, nodePath.length - nodeLang.length);
+    } else {
+      throw new Error("Unsupported language for mdx");
+    }
+
+    nodePath = nodePath.endsWith("/") ? nodePath.slice(0, -1) : nodePath;
+
+    createNodeField({
+      name: `pathWithoutLang`,
+      node,
+      value: `${nodePath}`,
+    });
+
+    createNodeField({
+      name: `slug`,
+      node,
+      value: `/${nodeLang}${nodePath}`,
+    });
+
+    createNodeField({
+      name: `mdxType`,
+      node,
+      value: `${mdxType}`,
+    });
 
     createNodeField({
       name: "id",

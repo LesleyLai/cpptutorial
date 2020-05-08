@@ -4,7 +4,6 @@ export default {
     pathPrefix: "/",
     siteUrl: "https://cpptutorial.org",
     gaTrackingId: null,
-    trailingSlash: false,
   },
   header: {
     title: "C++ Tutorial",

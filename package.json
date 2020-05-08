@@ -63,6 +63,8 @@
   "scripts": {
     "start": "gatsby develop",
     "build": "gatsby build --prefix-paths",
+    "clean": "gatsby clean",
+    "serve": "gatsby serve",
     "test": "jest",
     "test:watch": "jest --watch",
     "format": "prettier --write \"src/**/*.{js,jsx,css,json}\"",
