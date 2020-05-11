@@ -118,7 +118,7 @@ export const pageQuery = graphql`
         metaDescription
       }
     }
-    allMdx {
+    allMdx(filter: { fields: { mdxType: { eq: "page" } } }) {
       edges {
         node {
           fields {

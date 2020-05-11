@@ -20,14 +20,15 @@ This program already composed some fundamental concepts in C++. Don’t be overw
 **`#include`**
 
 `#include` is a preprocessor instruction that includes other C++ source files into our current source file.
-In the "hello world" example, we `#include` two files, `<cstdio>` and `<iostream>`.
-The file `<cstdio>` is the C-style input/output library, and contains standard library functions `puts` and `printf` that we used later.
-And the file `<iostream>` is part of the C++ input/output library that contains `std::cout`.
+In the "hello world" example, we `#include` the file `<cstdio>`.
+`<cstdio>` is the C-style input/output library,
+and contains the standard library function `puts` among many others.
 
 **`auto main() -> int`**
 
 A lot of programming languages, such as Python, Javascript, or Ocaml, interpret and execute source code from up to bottom.
-By contrast, C++ has one unique entry point called the `main()` function, and every C++ program starts to execute from here.
+By contrast, C++ is one of those languages that has one unique entry point called the `main()` function,
+and every C++ program starts to execute from here.
 
 The syntax `auto f() -> int` means we **declare** a function `f` that takes no arguments and returns `int`.
 `main()` is special because despite it returns an integer, you do not need to specify a return value; it returns `0` by default.
@@ -35,7 +36,7 @@ The integer returns by main indicates the **exit state** of the program; a value
 Returning any numbers other than `0` tells the operating system that something is wrong when executing the program.
 For example:
 
-```cpp
+```cpp notip=true
 #include <cstdio>
 
 auto main() -> int {
@@ -50,7 +51,7 @@ auto main() -> int {
 The version of `main()` function showed above uses **trailing return type**, and this tutorial will use it consistently.
 This trailing return type version is equivalent to the following version:
 
-```cpp
+```cpp notip=true
 #include <cstdio>
 
 -auto main() -> int {

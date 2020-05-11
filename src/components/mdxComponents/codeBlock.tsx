@@ -1,8 +1,13 @@
 import * as React from "react";
 import Highlight, { defaultProps, Language } from "prism-react-renderer";
 import prismTheme from "prism-react-renderer/themes/vsDark";
+import { MDXRenderer } from "gatsby-plugin-mdx";
+import breakpoints from "../../styles/breakpoints";
 
 import styled from "@emotion/styled";
+
+import { StaticQuery, graphql } from "gatsby";
+import { Maybe } from "../../../graphql-types";
 
 import { Theme } from "../theme";
 
@@ -13,17 +18,35 @@ type Token = {
 };
 
 type TipData = {
-  text: string;
-  cppreference?: string;
+  title: string;
+  body: string;
+  type: string;
+  cppreference?: Maybe<string>;
 };
 
-const getTip = (token: Token): TipData | undefined => {
-  if (token.content.slice().trim() == "puts") {
-    return {
-      text:
-        "Prints a null-terminated string and one additional newline character '\\n' to standard output",
-    };
-  }
+interface GlossaryData {
+  body: any;
+  frontmatter: {
+    title: string;
+    type: string;
+    cppreference?: Maybe<string>;
+    token?: string;
+  };
+}
+
+const getTip = (token: Token, glossaries: GlossaryData[]): TipData | undefined => {
+  const glossary = glossaries.find(
+    glossary => glossary.frontmatter.token == token.content.slice().trim()
+  );
+
+  return (
+    glossary && {
+      title: glossary.frontmatter.title,
+      body: glossary.body,
+      type: glossary.frontmatter.type,
+      cppreference: glossary.frontmatter.cppreference,
+    }
+  );
 };
 
 interface TokenWithTipProps {
@@ -39,16 +62,46 @@ const TokenWithTip = (props: TokenWithTipProps) => {
       visibility: hidden;
       background-color: ${({ theme }) => theme.colors.background};
       color: ${({ theme }) => theme.colors.primaryText};
-      padding: 10px 20px;
       border: 5px dashed red;
       border-radius: 6px;
-      max-width: 600px;
-
+      opacity: 0.95;
       white-space: normal;
       word-wrap: break-word;
-
       position: absolute;
       z-index: 1;
+      padding: 10px 20px;
+      width: 100%;
+      left: 0;
+
+      p {
+        margin: 8px 0px;
+      }
+
+      .title {
+        h2 {
+          margin-bottom: 5px;
+        }
+        span {
+          color: ${({ theme }) => theme.colors.highlight};
+        }
+      }
+
+      @media (min-width: ${breakpoints.md}) {
+        width: auto;
+        left: auto;
+        position: absolute;
+        max-width: 600px;
+
+        .title {
+          h2 {
+            display: inline-block;
+          }
+
+          span {
+            float: right;
+          }
+        }
+      }
     }
 
     :hover .codeTip {
@@ -61,16 +114,19 @@ const TokenWithTip = (props: TokenWithTipProps) => {
   return (
     <Style {...props}>
       {props.children}
-      <div className="codeTip">
-        <h2>std::puts</h2>
-        <p>{tip.text}</p>
+      <article className="codeTip">
+        <div className="title">
+          <h2>{tip.title}</h2>
+          <span>{tip.type}</span>
+        </div>
+        <MDXRenderer>{tip.body}</MDXRenderer>
         {tip.cppreference && (
-          <text>
+          <p>
             See <a href={`https://en.cppreference.com/w/${tip.cppreference}`}>cppreference</a> for
             detailed documentation
-          </text>
+          </p>
         )}
-      </div>
+      </article>
     </Style>
   );
 };
@@ -93,61 +149,88 @@ function cleanTokens(tokens: Token[][]) {
 interface CodeBlockProps {
   className: string;
   children: string;
+  notip?: boolean;
 }
 
 /* eslint-disable react/jsx-key */
-const CodeBlock = ({ children: code, className }: CodeBlockProps) => {
-  const language = className ? className.replace(/language-/, "") : "";
-  return (
-    <Highlight {...defaultProps} code={code} language={language as Language} theme={prismTheme}>
-      {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <pre className={className + " pre"} style={style}>
-          {cleanTokens(tokens).map((line, i) => {
-            let lineClass = {};
-
-            let isDiff = false;
-            // If token is diff, set line color and trim the + or - sign
-            const isTokenDiff = (token: Token) => {
-              if (token.content[0] === "+") {
-                lineClass = { backgroundColor: "rgba(76, 175, 80, 0.3)" };
-                token.content = token.content.substring(1);
-                return true;
-              } else if (token.content[0] === "-") {
-                lineClass = { backgroundColor: "rgba(244, 67, 54, 0.3)" };
-                token.content = token.content.substring(1);
-                return true;
+const CodeBlock = ({ children: code, notip = false, className }: CodeBlockProps) => (
+  <StaticQuery
+    query={graphql`
+      query CodeBlockQuery {
+        glossary: allMdx(filter: { fields: { mdxType: { eq: "glossary" } } }) {
+          edges {
+            node {
+              frontmatter {
+                cppreference
+                title
+                type
+                token
               }
-              return false;
-            };
-
-            if (line[0]) {
-              if (line[0].content.length) {
-                isDiff = isTokenDiff(line[0]);
-              } else if (line[1]) {
-                isDiff = isTokenDiff(line[1]);
-              }
+              body
             }
+          }
+        }
+      }
+    `}
+    render={data => {
+      const language = className ? className.replace(/language-/, "") : "";
 
-            const lineProps = getLineProps({ line, key: i });
-            lineProps.style = lineClass;
+      const glossaries = data.glossary.edges
+        .filter(({ node }) => !!node)
+        .map(({ node }) => node)
+        .filter(({ frontmatter }) => !!frontmatter) as GlossaryData[];
 
-            return (
-              <div {...lineProps} key={i}>
-                {line.map((token, key) => {
-                  const tip = getTip(token);
-                  return tip ? (
-                    <TokenWithTip tip={tip} {...getTokenProps({ token, key })} />
-                  ) : (
-                    <span {...getTokenProps({ token, key })} />
-                  );
-                })}
-              </div>
-            );
-          })}
-        </pre>
-      )}
-    </Highlight>
-  );
-};
+      return (
+        <Highlight {...defaultProps} code={code} language={language as Language} theme={prismTheme}>
+          {({ className, style, tokens, getLineProps, getTokenProps }) => (
+            <pre className={className + " pre"} style={style}>
+              {cleanTokens(tokens).map((line, i) => {
+                let lineClass = {};
 
+                let isDiff = false;
+                // If token is diff, set line color and trim the + or - sign
+                const isTokenDiff = (token: Token) => {
+                  if (token.content[0] === "+") {
+                    lineClass = { backgroundColor: "rgba(76, 175, 80, 0.3)" };
+                    token.content = token.content.substring(1);
+                    return true;
+                  } else if (token.content[0] === "-") {
+                    lineClass = { backgroundColor: "rgba(244, 67, 54, 0.3)" };
+                    token.content = token.content.substring(1);
+                    return true;
+                  }
+                  return false;
+                };
+
+                if (line[0]) {
+                  if (line[0].content.length) {
+                    isDiff = isTokenDiff(line[0]);
+                  } else if (line[1]) {
+                    isDiff = isTokenDiff(line[1]);
+                  }
+                }
+
+                const lineProps = getLineProps({ line, key: i });
+                lineProps.style = lineClass;
+
+                return (
+                  <div {...lineProps} key={i}>
+                    {line.map((token, key) => {
+                      const tip = !notip && getTip(token, glossaries);
+                      return tip ? (
+                        <TokenWithTip tip={tip} {...getTokenProps({ token, key })} />
+                      ) : (
+                        <span {...getTokenProps({ token, key })} />
+                      );
+                    })}
+                  </div>
+                );
+              })}
+            </pre>
+          )}
+        </Highlight>
+      );
+    }}
+  />
+);
 export default CodeBlock;

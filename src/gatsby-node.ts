@@ -22,7 +22,7 @@ export const createPages: GatsbyNode["createPages"] = ({ graphql, actions }) => 
       graphql<PagesQuery>(
         `
           query Pages {
-            allMdx {
+            allMdx(filter: { fields: { mdxType: { eq: "page" } } }) {
               edges {
                 node {
                   fields {
@@ -69,6 +69,9 @@ export const onCreateNode: GatsbyNode["onCreateNode"] = ({ node, getNode, action
     if (nodePath.startsWith("pages/")) {
       nodePath = nodePath.substr(5);
       mdxType = "page";
+    } else if (nodePath.startsWith("glossary/")) {
+      nodePath = nodePath.substr(8);
+      mdxType = "glossary";
     } else {
       throw new Error("Unsupported mdx types");
     }
@@ -88,11 +91,13 @@ export const onCreateNode: GatsbyNode["onCreateNode"] = ({ node, getNode, action
       value: `${nodePath}`,
     });
 
-    createNodeField({
-      name: `slug`,
-      node,
-      value: `/${nodeLang}${nodePath}`,
-    });
+    if (mdxType == "page") {
+      createNodeField({
+        name: `slug`,
+        node,
+        value: `/${nodeLang}${nodePath}`,
+      });
+    }
 
     createNodeField({
       name: `mdxType`,

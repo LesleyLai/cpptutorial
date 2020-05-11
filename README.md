@@ -8,8 +8,8 @@ Get started by running the following commands:
 
 ```sh
 $ git clone https://github.com/LesleyLai/cpptutorial
-$ yarn install # or npm
-$ yarn start # or npm
+$ yarn install
+$ yarn start
 ```
 
 Visit `http://localhost:8000/` to view the app.
