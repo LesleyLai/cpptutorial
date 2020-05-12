@@ -1,8 +1,33 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Header renders correctly 1`] = `
+.emotion-0 svg {
+  fill: #3884C7;
+  width: 20px;
+}
+
+.emotion-0 svg:hover {
+  fill: #609DD2;
+}
+
+.emotion-0 ul {
+  display: none;
+  position: absolute;
+}
+
+.emotion-0:hover > ul {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background-color: #E2E4E9;
+}
+
 <div
-  className="css-2vn8se-StyledLanguagePicker eeyb89v0"
+  className="emotion-0 emotion-1"
 >
   <svg
     id="Capa_1"

@@ -4,6 +4,8 @@ import prismTheme from "prism-react-renderer/themes/vsDark";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import breakpoints from "../../styles/breakpoints";
 
+import GlossaryTooltip from "../glossaryTooltip";
+
 import styled from "@emotion/styled";
 
 import { StaticQuery, graphql } from "gatsby";
@@ -60,48 +62,6 @@ const TokenWithTip = (props: TokenWithTipProps) => {
 
     .codeTip {
       visibility: hidden;
-      background-color: ${({ theme }) => theme.colors.background};
-      color: ${({ theme }) => theme.colors.primaryText};
-      border: 5px dashed red;
-      border-radius: 6px;
-      opacity: 0.95;
-      white-space: normal;
-      word-wrap: break-word;
-      position: absolute;
-      z-index: 1;
-      padding: 10px 20px;
-      width: 100%;
-      left: 0;
-
-      p {
-        margin: 8px 0px;
-      }
-
-      .title {
-        h2 {
-          margin-bottom: 5px;
-        }
-        span {
-          color: ${({ theme }) => theme.colors.highlight};
-        }
-      }
-
-      @media (min-width: ${breakpoints.md}) {
-        width: auto;
-        left: auto;
-        position: absolute;
-        max-width: 600px;
-
-        .title {
-          h2 {
-            display: inline-block;
-          }
-
-          span {
-            float: right;
-          }
-        }
-      }
     }
 
     :hover .codeTip {
@@ -114,19 +74,9 @@ const TokenWithTip = (props: TokenWithTipProps) => {
   return (
     <Style {...props}>
       {props.children}
-      <article className="codeTip">
-        <div className="title">
-          <h2>{tip.title}</h2>
-          <span>{tip.type}</span>
-        </div>
-        <MDXRenderer>{tip.body}</MDXRenderer>
-        {tip.cppreference && (
-          <p>
-            See <a href={`https://en.cppreference.com/w/${tip.cppreference}`}>cppreference</a> for
-            detailed documentation
-          </p>
-        )}
-      </article>
+      <GlossaryTooltip className="codeTip" {...tip}>
+        {tip.body}
+      </GlossaryTooltip>
     </Style>
   );
 };

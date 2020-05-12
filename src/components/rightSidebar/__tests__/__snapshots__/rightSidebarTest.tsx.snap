@@ -1,19 +1,97 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`RightSidebar renders correctly 1`] = `
+.emotion-8 {
+  width: 100%;
+  border-right: 1px solid #ede7f3;
+  height: 100vh;
+  overflow: auto;
+  position: fixed;
+  padding-left: 24px;
+  position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background: #ffffff;
+}
+
+@media only screen and (max-width:50rem) {
+  .emotion-8 {
+    width: 100%;
+    position: relative;
+  }
+}
+
+.emotion-6 {
+  margin-top: 32px;
+}
+
+.emotion-6 li {
+  list-style-type: none;
+  border-left: 1px solid #e6ecf1;
+  border-left-color: rgb(230,236,241);
+}
+
+.emotion-6 li a {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.5;
+  padding: 7px 24px 7px 16px;
+  color: #3B454E;
+}
+
+.emotion-0 {
+  font-size: 10px;
+  line-height: 1;
+  font-weight: 700;
+  text-transform: uppercase;
+  -webkit-letter-spacing: 1.2px;
+  -moz-letter-spacing: 1.2px;
+  -ms-letter-spacing: 1.2px;
+  letter-spacing: 1.2px;
+  padding: 7px 24px 7px 16px;
+  border-left: 1px solid #e6ecf1;
+  border-left-color: rgb(230,236,241);
+  color: #3B454E;
+}
+
+.emotion-2 {
+  list-style: none;
+}
+
+.emotion-2 a {
+  color: #5c6975;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  font-weight: 400;
+  padding: 0.45rem 0 0.45rem 3rem;
+  display: block;
+  position: relative;
+}
+
+.emotion-2 a:hover {
+  color: #3884C7 !important;
+}
+
+.emotion-2 a svg {
+  float: right;
+  margin-right: 1rem;
+}
+
 <aside
-  className="css-2y9pvw-StyledRightSidebar e64ipg92"
+  className="emotion-8 emotion-9"
 >
   <ul
-    className="css-1a277nu-UL e64ipg90"
+    className="emotion-6 emotion-7"
   >
     <li
-      className="css-roxtvf-RightSidebarTitle e64ipg91"
+      className="emotion-0 emotion-1"
     >
       CONTENTS
     </li>
     <li
-      className="css-bz0vey-ListItem e64ipg93"
+      className="emotion-2 emotion-3"
     >
       <a
         href="level-1-heading-1"
@@ -23,7 +101,7 @@ exports[`RightSidebar renders correctly 1`] = `
       </a>
     </li>
     <li
-      className="css-bz0vey-ListItem e64ipg93"
+      className="emotion-2 emotion-3"
     >
       <a
         href="level-1-heading-1"

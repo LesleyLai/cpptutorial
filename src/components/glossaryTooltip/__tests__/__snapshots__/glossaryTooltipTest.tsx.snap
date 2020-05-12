@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Passes snapshot test 1`] = `
+.emotion-0 {
+  background-color: #ffffff;
+  color: #3B454E;
+  border: 5px dashed red;
+  border-radius: 6px;
+  opacity: 0.95;
+  white-space: normal;
+  word-wrap: break-word;
+  position: absolute;
+  z-index: 1;
+  padding: 10px 20px;
+  width: 100%;
+  left: 0;
+}
+
+.emotion-0 p {
+  margin: 8px 0px;
+}
+
+.emotion-0 .title h2 {
+  margin-bottom: 5px;
+}
+
+.emotion-0 .title span {
+  color: #3884C7;
+}
+
+@media (min-width:768px) {
+  .emotion-0 {
+    width: auto;
+    left: auto;
+    position: absolute;
+    max-width: 600px;
+  }
+
+  .emotion-0 .title h2 {
+    display: inline-block;
+  }
+
+  .emotion-0 .title span {
+    float: right;
+  }
+}
+
+.emotion-0:hover {
+  visibility: visible;
+}
+
+<article
+  className="emotion-0 emotion-1"
+  data-testid="glossary-tooltip"
+>
+  <div
+    data-testid="glossary-tooltip-heading"
+  >
+    <h2
+      data-testid="glossary-tooltip-title"
+    >
+      std::puts
+    </h2>
+    <span
+      data-testid="glossary-tooltip-type"
+    >
+      C-style IO Library
+    </span>
+  </div>
+  <div
+    data-testid="glossary-tooltip-body"
+  >
+    return () =&gt; React.createElement('div')
+  </div>
+  <p
+    data-testid="glossary-tooltip-cppreference"
+  >
+    See 
+    <a
+      href="https://en.cppreference.com/w/cpp/io/c/puts"
+    >
+      cppreference
+    </a>
+     for detailed documentation
+  </p>
+</article>
+`;
