@@ -1,4 +1,4 @@
-import { GatsbyNode } from "gatsby";
+import { GatsbyNode, Page } from "gatsby";
 import path from "path";
 import _ from "lodash";
 
@@ -43,13 +43,33 @@ export const createPages: GatsbyNode["createPages"] = ({ graphql, actions }) => 
         // Create pages.
         result.data?.allMdx.edges.forEach(({ node }) => {
           if (node.fields) {
-            createPage({
-              path: node.fields.slug ? node.fields.slug : "/",
+            const pagePath = node.fields.slug ? node.fields.slug : "/";
+
+            const page: Page = {
+              path: pagePath,
               component: path.resolve("./src/templates/docs.tsx"),
               context: {
                 id: node.fields.id,
               },
-            });
+            };
+
+            if (pagePath.match(/^\/[a-z]+\/404$/)) {
+              const langCode = pagePath.split(`/`)[1];
+
+              if (langCode === "en") {
+                createPage({
+                  path: "/404/",
+                  component: path.resolve("./src/templates/docs.tsx"),
+                  context: {
+                    id: node.fields.id,
+                  },
+                });
+              }
+
+              page.matchPath = `/${langCode}/*`;
+            }
+
+            createPage(page);
           }
         });
       })

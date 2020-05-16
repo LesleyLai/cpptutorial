@@ -386,8 +386,8 @@ export type File = Node & {
   parent?: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
-  childMdx?: Maybe<Mdx>;
   childrenTocYaml?: Maybe<Array<Maybe<TocYaml>>>;
+  childMdx?: Maybe<Mdx>;
 };
 
 
@@ -594,6 +594,56 @@ export type FileFieldsEnum =
   | 'internal___mediaType'
   | 'internal___owner'
   | 'internal___type'
+  | 'childrenTocYaml'
+  | 'childrenTocYaml___id'
+  | 'childrenTocYaml___parent___id'
+  | 'childrenTocYaml___parent___parent___id'
+  | 'childrenTocYaml___parent___parent___children'
+  | 'childrenTocYaml___parent___children'
+  | 'childrenTocYaml___parent___children___id'
+  | 'childrenTocYaml___parent___children___children'
+  | 'childrenTocYaml___parent___internal___content'
+  | 'childrenTocYaml___parent___internal___contentDigest'
+  | 'childrenTocYaml___parent___internal___description'
+  | 'childrenTocYaml___parent___internal___fieldOwners'
+  | 'childrenTocYaml___parent___internal___ignoreType'
+  | 'childrenTocYaml___parent___internal___mediaType'
+  | 'childrenTocYaml___parent___internal___owner'
+  | 'childrenTocYaml___parent___internal___type'
+  | 'childrenTocYaml___children'
+  | 'childrenTocYaml___children___id'
+  | 'childrenTocYaml___children___parent___id'
+  | 'childrenTocYaml___children___parent___children'
+  | 'childrenTocYaml___children___children'
+  | 'childrenTocYaml___children___children___id'
+  | 'childrenTocYaml___children___children___children'
+  | 'childrenTocYaml___children___internal___content'
+  | 'childrenTocYaml___children___internal___contentDigest'
+  | 'childrenTocYaml___children___internal___description'
+  | 'childrenTocYaml___children___internal___fieldOwners'
+  | 'childrenTocYaml___children___internal___ignoreType'
+  | 'childrenTocYaml___children___internal___mediaType'
+  | 'childrenTocYaml___children___internal___owner'
+  | 'childrenTocYaml___children___internal___type'
+  | 'childrenTocYaml___internal___content'
+  | 'childrenTocYaml___internal___contentDigest'
+  | 'childrenTocYaml___internal___description'
+  | 'childrenTocYaml___internal___fieldOwners'
+  | 'childrenTocYaml___internal___ignoreType'
+  | 'childrenTocYaml___internal___mediaType'
+  | 'childrenTocYaml___internal___owner'
+  | 'childrenTocYaml___internal___type'
+  | 'childrenTocYaml___url'
+  | 'childrenTocYaml___title'
+  | 'childrenTocYaml___items'
+  | 'childrenTocYaml___items___upcoming'
+  | 'childrenTocYaml___items___items'
+  | 'childrenTocYaml___items___items___url'
+  | 'childrenTocYaml___items___items___title'
+  | 'childrenTocYaml___items___items___upcoming'
+  | 'childrenTocYaml___items___url'
+  | 'childrenTocYaml___items___title'
+  | 'childrenTocYaml___upcoming'
   | 'childMdx___rawBody'
   | 'childMdx___fileAbsolutePath'
   | 'childMdx___frontmatter___title'
@@ -656,57 +706,7 @@ export type FileFieldsEnum =
   | 'childMdx___internal___ignoreType'
   | 'childMdx___internal___mediaType'
   | 'childMdx___internal___owner'
-  | 'childMdx___internal___type'
-  | 'childrenTocYaml'
-  | 'childrenTocYaml___id'
-  | 'childrenTocYaml___parent___id'
-  | 'childrenTocYaml___parent___parent___id'
-  | 'childrenTocYaml___parent___parent___children'
-  | 'childrenTocYaml___parent___children'
-  | 'childrenTocYaml___parent___children___id'
-  | 'childrenTocYaml___parent___children___children'
-  | 'childrenTocYaml___parent___internal___content'
-  | 'childrenTocYaml___parent___internal___contentDigest'
-  | 'childrenTocYaml___parent___internal___description'
-  | 'childrenTocYaml___parent___internal___fieldOwners'
-  | 'childrenTocYaml___parent___internal___ignoreType'
-  | 'childrenTocYaml___parent___internal___mediaType'
-  | 'childrenTocYaml___parent___internal___owner'
-  | 'childrenTocYaml___parent___internal___type'
-  | 'childrenTocYaml___children'
-  | 'childrenTocYaml___children___id'
-  | 'childrenTocYaml___children___parent___id'
-  | 'childrenTocYaml___children___parent___children'
-  | 'childrenTocYaml___children___children'
-  | 'childrenTocYaml___children___children___id'
-  | 'childrenTocYaml___children___children___children'
-  | 'childrenTocYaml___children___internal___content'
-  | 'childrenTocYaml___children___internal___contentDigest'
-  | 'childrenTocYaml___children___internal___description'
-  | 'childrenTocYaml___children___internal___fieldOwners'
-  | 'childrenTocYaml___children___internal___ignoreType'
-  | 'childrenTocYaml___children___internal___mediaType'
-  | 'childrenTocYaml___children___internal___owner'
-  | 'childrenTocYaml___children___internal___type'
-  | 'childrenTocYaml___internal___content'
-  | 'childrenTocYaml___internal___contentDigest'
-  | 'childrenTocYaml___internal___description'
-  | 'childrenTocYaml___internal___fieldOwners'
-  | 'childrenTocYaml___internal___ignoreType'
-  | 'childrenTocYaml___internal___mediaType'
-  | 'childrenTocYaml___internal___owner'
-  | 'childrenTocYaml___internal___type'
-  | 'childrenTocYaml___url'
-  | 'childrenTocYaml___title'
-  | 'childrenTocYaml___items'
-  | 'childrenTocYaml___items___upcoming'
-  | 'childrenTocYaml___items___items'
-  | 'childrenTocYaml___items___items___url'
-  | 'childrenTocYaml___items___items___title'
-  | 'childrenTocYaml___items___items___upcoming'
-  | 'childrenTocYaml___items___url'
-  | 'childrenTocYaml___items___title'
-  | 'childrenTocYaml___upcoming';
+  | 'childMdx___internal___type';
 
 export type FileFilterInput = {
   sourceInstanceName?: Maybe<StringQueryOperatorInput>;
@@ -747,8 +747,8 @@ export type FileFilterInput = {
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
-  childMdx?: Maybe<MdxFilterInput>;
   childrenTocYaml?: Maybe<TocYamlFilterListInput>;
+  childMdx?: Maybe<MdxFilterInput>;
 };
 
 export type FileGroupConnection = {
@@ -1182,8 +1182,8 @@ export type QueryFileArgs = {
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
-  childMdx?: Maybe<MdxFilterInput>;
   childrenTocYaml?: Maybe<TocYamlFilterListInput>;
+  childMdx?: Maybe<MdxFilterInput>;
 };
 
 
