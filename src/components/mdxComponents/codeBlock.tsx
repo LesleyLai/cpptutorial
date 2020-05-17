@@ -1,8 +1,6 @@
 import * as React from "react";
 import Highlight, { defaultProps, Language } from "prism-react-renderer";
 import prismTheme from "prism-react-renderer/themes/vsDark";
-import { MDXRenderer } from "gatsby-plugin-mdx";
-import breakpoints from "../../styles/breakpoints";
 
 import GlossaryTooltip from "../glossaryTooltip";
 
@@ -38,7 +36,7 @@ interface GlossaryData {
 
 const getTip = (token: Token, glossaries: GlossaryData[]): TipData | undefined => {
   const glossary = glossaries.find(
-    glossary => glossary.frontmatter.token == token.content.slice().trim()
+    (glossary) => glossary.frontmatter.token == token.content.slice().trim()
   );
 
   return (
@@ -122,7 +120,7 @@ const CodeBlock = ({ children: code, notip = false, className }: CodeBlockProps)
         }
       }
     `}
-    render={data => {
+    render={(data) => {
       const language = className ? className.replace(/language-/, "") : "";
 
       const glossaries = data.glossary.edges

@@ -10,7 +10,7 @@ export default {
 export const Node = () => (
   <ul>
     <TreeNode
-      setCollapsed={_url => {
+      setCollapsed={(_url) => {
         /*do nothing*/
       }}
       collapsed={{}}

@@ -29,8 +29,8 @@ export const StyledNextPrevious = styled("div")<{ theme: Theme }>`
     box-shadow: rgba(116, 129, 141, 0.1) 0px 3px 8px 0px;
     text-decoration: none;
 
-    background-color: ${props => props.theme.colors.background};
-    color: ${props => props.theme.colors.primaryText};
+    background-color: ${(props) => props.theme.colors.background};
+    color: ${(props) => props.theme.colors.primaryText};
   }
 
   .nextBtn {
@@ -51,19 +51,19 @@ export const StyledNextPrevious = styled("div")<{ theme: Theme }>`
     box-shadow: rgba(116, 129, 141, 0.1) 0px 3px 8px 0px;
     text-decoration: none;
 
-    background-color: ${props => props.theme.colors.background};
-    color: ${props => props.theme.colors.primaryText};
+    background-color: ${(props) => props.theme.colors.background};
+    color: ${(props) => props.theme.colors.primaryText};
   }
 
   .nextBtn:hover,
   .previousBtn:hover {
     text-decoration: none;
-    border: 1px solid ${props => props.theme.colors.highlight};
+    border: 1px solid ${(props) => props.theme.colors.highlight};
   }
 
   .nextBtn:hover .rightArrow,
   .previousBtn:hover .leftArrow {
-    color: ${props => props.theme.colors.highlight} !important;
+    color: ${(props) => props.theme.colors.highlight} !important;
   }
 
   .leftArrow {

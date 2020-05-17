@@ -8,67 +8,49 @@ import { Theme } from "../theme";
 
 const StyledPre = styled("pre")<{ theme: Theme }>`
   padding: 16px;
-  background: ${props => props.theme.colors.preFormattedText};
+  background: ${(props) => props.theme.colors.preFormattedText};
 `;
 
 export default {
   h1: (props: any) => (
     <h1
       className="heading1"
-      id={props.children
-        .toString()
-        .replace(/\s+/g, "")
-        .toLowerCase()}
+      id={props.children.toString().replace(/\s+/g, "").toLowerCase()}
       {...props}
     />
   ),
   h2: (props: any) => (
     <h2
       className="heading2"
-      id={props.children
-        .toString()
-        .replace(/\s+/g, "")
-        .toLowerCase()}
+      id={props.children.toString().replace(/\s+/g, "").toLowerCase()}
       {...props}
     />
   ),
   h3: (props: any) => (
     <h3
       className="heading3"
-      id={props.children
-        .toString()
-        .replace(/\s+/g, "")
-        .toLowerCase()}
+      id={props.children.toString().replace(/\s+/g, "").toLowerCase()}
       {...props}
     />
   ),
   h4: (props: any) => (
     <h4
       className="heading4"
-      id={props.children
-        .toString()
-        .replace(/\s+/g, "")
-        .toLowerCase()}
+      id={props.children.toString().replace(/\s+/g, "").toLowerCase()}
       {...props}
     />
   ),
   h5: (props: any) => (
     <h5
       className="heading5"
-      id={props.children
-        .toString()
-        .replace(/\s+/g, "")
-        .toLowerCase()}
+      id={props.children.toString().replace(/\s+/g, "").toLowerCase()}
       {...props}
     />
   ),
   h6: (props: any) => (
     <h6
       className="heading6"
-      id={props.children
-        .toString()
-        .replace(/\s+/g, "")
-        .toLowerCase()}
+      id={props.children.toString().replace(/\s+/g, "").toLowerCase()}
       {...props}
     />
   ),

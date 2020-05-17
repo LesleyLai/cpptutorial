@@ -52,7 +52,7 @@ const Tree = () => {
           className={"hideFrontLine"}
           setCollapsed={toggle}
           collapsed={collapsed}
-          items={data.allTocYaml.edges.map(edge => edge.node)}
+          items={data.allTocYaml.edges.map((edge) => edge.node)}
         />
       )}
     />

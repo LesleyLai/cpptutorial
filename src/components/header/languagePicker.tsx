@@ -75,7 +75,7 @@ const LanguagePicker = () => {
     <StyledLanguagePicker>
       <LanguageSwitchIcon />
       <ul>
-        {languages.map(lang => (
+        {languages.map((lang) => (
           <LanguageOption key={lang} lang={lang} active={lang == activeLang} />
         ))}
       </ul>

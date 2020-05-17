@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Helmet from "react-helmet";
+import { Helmet } from "react-helmet";
 import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 
@@ -47,14 +47,14 @@ export default class MDXRuntimeTest extends Component<DocProps> {
     const githubUrl = config.githubUrl;
 
     const existingPagePathsWithoutLang = new Set(
-      allMdx.edges.map(edge => edge.node.fields?.pathWithoutLang)
+      allMdx.edges.map((edge) => edge.node.fields?.pathWithoutLang)
     );
 
     const nav: NavItem[] = data.allTocYaml.edges
-      ?.flatMap(({ node }) => flattenTree(node))
-      .filter(item => !!item)
+      ?.flatMap(({ node }) => flattenTree(node as TreeNodeData))
+      .filter((item) => !!item)
       .filter((item): item is NavItem => existingPagePathsWithoutLang.has(item?.url))
-      .map(item => ({ ...item, url: `/en${item.url}` }));
+      .map((item) => ({ ...item, url: `/en${item.url}` }));
 
     // meta tags
     const metaTitle = mdx?.frontmatter?.metaTitle;

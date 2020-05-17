@@ -71,7 +71,7 @@ export const StyledBgDiv = styled.div<{ theme: Theme; isDarkThemeActive: boolean
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
   background-color: #f8f8f8;
   position: relative;
-  background: ${props => (props.isDarkThemeActive ? props.theme.colors.background : undefined)};
+  background: ${(props) => (props.isDarkThemeActive ? props.theme.colors.background : undefined)};
   display: block;
 
   @media (min-width: ${breakpoints.md}) {

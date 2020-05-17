@@ -16,7 +16,7 @@ interface NextPreviousProps {
 }
 
 const NextPrevious = ({ mdx, nav }: NextPreviousProps) => {
-  const currentIndex = nav.findIndex(el => el && el.url === mdx.fields!.slug);
+  const currentIndex = nav.findIndex((el) => el && el.url === mdx.fields!.slug);
 
   const nextInfo: any = {};
   const previousInfo: any = {};

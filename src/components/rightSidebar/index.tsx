@@ -21,7 +21,7 @@ const UL = styled.ul<{ theme: Theme }>`
     line-height: 1.5;
     padding: 7px 24px 7px 16px;
 
-    color: ${props => props.theme.colors.primaryText};
+    color: ${(props) => props.theme.colors.primaryText};
   }
 `;
 
@@ -35,7 +35,7 @@ const RightSidebarTitle = styled.li<{ theme: Theme }>`
   border-left: 1px solid #e6ecf1;
   border-left-color: rgb(230, 236, 241);
 
-  color: ${props => props.theme.colors.primaryText};
+  color: ${(props) => props.theme.colors.primaryText};
 `;
 
 const StyledRightSidebar = styled("aside")<{ theme: Theme }>`
@@ -49,7 +49,7 @@ const StyledRightSidebar = styled("aside")<{ theme: Theme }>`
   position: -moz-sticky;
   position: sticky;
   top: 0;
-  background: ${props => props.theme.colors.background};
+  background: ${(props) => props.theme.colors.background};
 
   @media only screen and (max-width: 50rem) {
     width: 100%;
@@ -72,15 +72,15 @@ export const ListItem = styled(({ className, active, level, ...props }) => {
     color: #5c6975;
     text-decoration: none;
     font-weight: ${({ level }) => (level === 0 ? 700 : 400)};
-    padding: 0.45rem 0 0.45rem ${props => 2 + (props.level || 0) * 1}rem;
+    padding: 0.45rem 0 0.45rem ${(props) => 2 + (props.level || 0) * 1}rem;
     display: block;
     position: relative;
 
     &:hover {
-      color: ${props => props.theme.colors.highlight} !important;
+      color: ${(props) => props.theme.colors.highlight} !important;
     }
 
-    ${props =>
+    ${(props) =>
       props.active &&
       `
 color: ${({ theme }: { theme: Theme }) => theme.colors.highlight};

@@ -34,7 +34,7 @@ export const createPages: GatsbyNode["createPages"] = ({ graphql, actions }) => 
             }
           }
         `
-      ).then(result => {
+      ).then((result) => {
         if (result.errors) {
           console.log(result.errors); // eslint-disable-line no-console
           reject(result.errors);
@@ -96,7 +96,7 @@ export const onCreateNode: GatsbyNode["onCreateNode"] = ({ node, getNode, action
       throw new Error("Unsupported mdx types");
     }
 
-    const nodeLang = languages.find(lang => nodePath.endsWith(lang));
+    const nodeLang = languages.find((lang) => nodePath.endsWith(lang));
     if (nodeLang) {
       nodePath = nodePath.substr(0, nodePath.length - nodeLang.length);
     } else {
