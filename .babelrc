@@ -2,7 +2,8 @@
   "env": {
     "production": {
       "plugins": [
-        "babel-plugin-jsx-remove-data-test-id"
+        "babel-plugin-jsx-remove-data-test-id",
+        "babel-plugin-remove-graphql-queries"
       ]
     }
   },

@@ -8,6 +8,9 @@ import GlobalStyle from "../src/styles/global";
 import { ThemeProvider } from "emotion-theming";
 import { lightTheme } from "../src/components/theme";
 
+import { MDXProvider } from "@mdx-js/react";
+import mdxComponents from "../src/components/mdxComponents";
+
 // system wide decorator that all of the stories will use
 addParameters({
   options: { panelPosition: "bottom" },
@@ -47,7 +50,9 @@ addDecorator(withA11y);
 // will inherit the styles
 addDecorator((story) => (
   <ThemeProvider theme={lightTheme}>
-    <GlobalStyle />
-    {story()}
+    <MDXProvider components={mdxComponents}>
+      <GlobalStyle />
+      {story()}
+    </MDXProvider>
   </ThemeProvider>
 ));
