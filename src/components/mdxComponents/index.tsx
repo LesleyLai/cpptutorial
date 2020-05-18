@@ -6,6 +6,8 @@ import AnchorTag from "./anchor";
 
 import { Theme } from "../theme";
 
+import { Info, Warning } from "../note";
+
 const StyledPre = styled("pre")<{ theme: Theme }>`
   padding: 16px;
   background: ${(props) => props.theme.colors.preFormattedText};
@@ -67,4 +69,6 @@ export default {
   // TODO add `ul`
   // TODO add `li`
   // TODO add `table`
+  Info: Info,
+  Warning: Warning,
 };

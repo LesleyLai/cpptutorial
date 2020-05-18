@@ -1,9 +1,3 @@
-const baseTheme = {
-  fonts: {
-    mono: '"SF Mono", "Roboto Mono", Menlo, monospace',
-  },
-};
-
 const palette = {
   white: "#ffffff",
   light: "#E2E4E9",
@@ -24,6 +18,17 @@ const palette = {
   blue7: "#88B5DD",
   blue8: "#AFCEE9",
   blue9: "#D7E6F4",
+
+  orange1: "#5A220C",
+  orange2: "#B44418",
+  orange3: "#E7774B",
+  orange4: "#F3BBA5",
+};
+
+const baseTheme = {
+  fonts: {
+    mono: '"SF Mono", "Roboto Mono", Menlo, monospace',
+  },
 };
 
 const lightTheme = {
@@ -43,6 +48,11 @@ const lightTheme = {
     sidebarHighlight: palette.blue5,
     search: palette.blue5,
     searchPlaceholder: palette.dark,
+
+    note: palette.blue9,
+    noteHighlight: palette.blue5,
+    warning: palette.orange4,
+    warningHighlight: palette.orange2,
   },
 };
 
@@ -65,6 +75,11 @@ const darkTheme: Theme = {
     sidebarHighlight: palette.blue3,
     search: palette.blue5,
     searchPlaceholder: palette.light,
+
+    note: palette.blue4,
+    noteHighlight: palette.blue5,
+    warning: palette.orange2,
+    warningHighlight: palette.orange3,
   },
 };
 
