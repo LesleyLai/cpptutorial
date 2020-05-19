@@ -21,7 +21,7 @@ const Note = ({ children, additionalStyle }: NoteProps) => {
     line-height: 18px;
     overflow: hidden;
     padding: 10px 20px;
-    margin: 0px 0px 24px;
+    margin: 12px 0px;
 
     h1,
     h2,

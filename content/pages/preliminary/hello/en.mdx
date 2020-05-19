@@ -4,7 +4,7 @@ metaTitle: "Hello World in C++"
 metaDescription: "Hello World in C++"
 ---
 
-Now let's look at some simple C++ code.
+Let's look at some simple C++ code.
 Below is a C++ program that prints `"Hello world!\n"` to the standard output.
 
 ```cpp
@@ -15,10 +15,18 @@ auto main() -> int {
 }
 ```
 
-Try to copy, compile, and run this code in your local environment.
-If you haven't set up your local environment yet, you can use [godbolt.org](https://godbolt.org/) (you need to enable "Output -> Run the compiled output" option).
+<Info>
 
-If everything is setup correctly, you should expect that the program prints
+This tutorial provides some documentation for certain terminologies and standard library facilities.
+They are always marked by an underscore.
+You can hover over `<cstdio>` or `puts` in the above snippet to see it in action.
+
+</Info>
+
+Try to copy, compile, and run this code in your local environment.
+If you haven't set up your local environment yet, use [godbolt.org](https://godbolt.org/) (you need to enable "Output -> Run the compiled output" option).
+
+If everything is set up correctly, you should expect that the program prints
 
 ```txt
 Hello world!
@@ -37,8 +45,7 @@ and contains the standard library function `puts` among many others.
 
 **`auto main() -> int`**
 
-A lot of programming languages, such as Python, Javascript, or Ocaml, interpret and execute source code from up to bottom.
-By contrast, C++ is one of those languages that has one unique entry point called the `main()` function,
+C++ has one unique entry point called the `main()` function,
 and every C++ program starts to execute from here.
 
 The syntax `auto f() -> int` means we **declare** a function `f` that takes no arguments and returns `int`.
@@ -59,7 +66,7 @@ auto main() -> int {
 }
 ```
 
-The version of `main()` function showed above uses **trailing return type**, and this tutorial will use it consistently.
+The version of `main()` function showed above uses **trailing return type** syntax, and this tutorial will use it consistently.
 This trailing return type version is equivalent to the following version:
 
 ```cpp notip=true
@@ -80,6 +87,8 @@ The pair of curly braces with function body following the function declaration t
 
 **`std::puts("Hello world!");`**
 
-`puts` output the string `"hello world!"` to the standard output and automatically append an end line character (`\n`) at the end of the output stream.
-`std` is a **namespace**, and all the symbols of the C++ standard library are declared within `std`.
+`puts` outputs the string `"hello world!"` to the standard output and automatically append an end line character (`\n`) at the end of the output stream.
+
+As for `std`, it is a **namespace**, and all the symbols of the C++ standard library are declared in `std`.
 To call a standard library function, you need to *qualify* your function call with the namespace `std`.
+We will talk about namespace in detail in later chapters.
