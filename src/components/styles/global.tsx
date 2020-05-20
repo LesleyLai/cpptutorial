@@ -33,13 +33,6 @@ export default () => (
       body {
         font-family: "Roboto";
       }
-      .visibleMobileView {
-        display: none !important;
-      }
-      .video-responsive {
-        position: relative;
-        padding-bottom: 56.2%;
-      }
       a {
         text-decoration: none;
       }
@@ -48,11 +41,6 @@ export default () => (
       }
       .displayInline {
         display: inline-block;
-      }
-      .video-responsive iframe {
-        position: absolute;
-        width: 100%;
-        height: 100%;
       }
 
       .diffNewLine {
@@ -340,18 +328,8 @@ export default () => (
         .visibleMobileView {
           display: block !important;
         }
-        .responsive {
-          margin-top: 15px;
-          position: relative;
-          padding-bottom: 20px;
-          border-top: 1px solid #fff;
-        }
         .topnav .navBarUL {
           display: none;
-        }
-        .topnav.responsive .navBarUL {
-          display: block;
-          text-align: left;
         }
         .hiddenMobile {
           display: none !important;

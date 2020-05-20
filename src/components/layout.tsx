@@ -9,7 +9,7 @@ import Sidebar from "./sidebar";
 import RightSidebar from "./rightSidebar";
 import Toc from "../types/toc";
 
-import GlobalStyles from "../styles/global";
+import GlobalStyles from "./styles/global";
 
 const Wrapper = styled("div")<{ theme: Theme }>`
   display: flex;
@@ -73,13 +73,13 @@ const Layout = ({ children, toc }: LayoutProps) => (
     <MDXProvider components={mdxComponents}>
       <Wrapper>
         <GlobalStyles />
-        <LeftSideBarWidth className={"hiddenMobile"}>
+        <LeftSideBarWidth className="hiddenMobile">
           <Sidebar />
         </LeftSideBarWidth>
         <Content>
           <MaxWidth>{children}</MaxWidth>
         </Content>
-        <RightSideBarWidth className={"hiddenMobile"}>
+        <RightSideBarWidth className="hiddenMobile">
           <RightSidebar toc={toc} />
         </RightSideBarWidth>
       </Wrapper>

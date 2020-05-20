@@ -7,7 +7,7 @@ import Sidebar from "../sidebar";
 
 import LanguagePicker from "./languagePicker";
 
-import { visibleMobile } from "../../styles/responsive";
+import { visibleMobile } from "../styles/responsive";
 
 import {
   StyledNavBar,
@@ -18,18 +18,6 @@ import {
 } from "./styles";
 
 import Search from "../search";
-
-function toggleNav() {
-  const x = document.getElementById("navbar");
-
-  if (x) {
-    if (x.className === "topnav") {
-      x.className += " responsive";
-    } else {
-      x.className = "topnav";
-    }
-  }
-}
 
 interface HeaderProps {
   isDarkThemeActive?: boolean;
@@ -65,7 +53,7 @@ const Header = ({ isDarkThemeActive = false, toggleActiveTheme }: HeaderProps) =
       </div>
     </StyledNavBar>
     <StyledBgDiv isDarkThemeActive={isDarkThemeActive}>
-      <StyledNavbarToggle onClick={toggleNav} onKeyDown={toggleNav} role="button" tabIndex={0}>
+      <StyledNavbarToggle role="button" tabIndex={0}>
         <span />
         <span />
         <span />

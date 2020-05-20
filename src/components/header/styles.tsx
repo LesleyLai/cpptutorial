@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import breakpoints from "../../styles/breakpoints";
+import breakpoints from "../styles/breakpoints";
 
 import { Link } from "gatsby";
 

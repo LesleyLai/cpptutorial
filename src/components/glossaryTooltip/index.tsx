@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 import { Maybe } from "../../../graphql-types";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { Theme } from "../theme";
-import breakpoints from "../../styles/breakpoints";
+import breakpoints from "../styles/breakpoints";
 
 type GlossaryTooltipProps = {
   title: string;
