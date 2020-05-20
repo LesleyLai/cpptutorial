@@ -62,23 +62,6 @@ export default () => (
         /* position: absolute;
       right: 30px; */
       }
-      .githubIcon {
-        width: 15px;
-        margin-right: 5px;
-      }
-
-      .githubSection {
-        display: flex;
-        align-items: center;
-        color: #000;
-        opacity: 0.7;
-      }
-
-      .githubSection:hover {
-        text-decoration: none;
-        opacity: 1;
-      }
-
       .navbar-default .navbar-toggle .icon-bar {
         background-color: #fff !important;
       }
