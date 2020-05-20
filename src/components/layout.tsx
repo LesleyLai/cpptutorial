@@ -16,15 +16,6 @@ const Wrapper = styled("div")<{ theme: Theme }>`
   justify-content: space-between;
   background: ${({ theme }) => theme.colors.background};
 
-  .sideBarUL li a {
-    color: ${({ theme }) => theme.colors.primaryText};
-  }
-
-  .sideBarUL .item > a:hover {
-    background-color: ${({ theme }) => theme.colors.sidebarHighlight};
-    color: #fff;
-  }
-
   @media only screen and (max-width: 767px) {
     display: block;
   }

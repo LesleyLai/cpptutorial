@@ -1,11 +1,11 @@
 import React from "react";
-import Link from "./link";
+import Link from "../link";
 
-import { StyledNextPrevious } from "./styles/PageNavigationButtons";
+import { StyledNextPrevious } from "./style";
 
 import _ from "lodash";
 
-import { Maybe, Mdx } from "../../graphql-types";
+import { Maybe, Mdx } from "../../../graphql-types";
 
 interface NextPreviousProps {
   mdx: Mdx;

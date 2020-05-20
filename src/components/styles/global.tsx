@@ -39,19 +39,7 @@ export default () => (
       a:hover {
         text-decoration: none;
       }
-      .displayInline {
-        display: inline-block;
-      }
 
-      .diffNewLine {
-        color: #22863a;
-        background-color: #f0fff4;
-      }
-
-      .diffRemoveLine {
-        color: red;
-        background-color: #ffcccc;
-      }
       .navBarParent {
         width: 100%;
         float: left;
@@ -78,7 +66,6 @@ export default () => (
         align-items: center;
       }
 
-      /* Header section starts here */
       .navBarUL li {
         list-style-type: none;
       }
@@ -97,63 +84,6 @@ export default () => (
         padding: 0px 0px 0px 12px;
         border-left: 4px solid rgb(230, 236, 241);
         border-color: rgb(230, 236, 241);
-      }
-      /* Header section ends here */
-      .sideBarShow {
-        display: none;
-      }
-
-      .greenCircle {
-        width: 8px;
-        height: 8px;
-        background-color: #1cd3c6;
-        border-radius: 50%;
-        margin: 0 12px;
-      }
-
-      .headerNav {
-        font-family: "Roboto";
-        padding: 0px 24px;
-        color: #001933;
-        font-size: 16px;
-        font-weight: 500;
-        line-height: 1em;
-      }
-
-      .headerNav a {
-        color: #001933;
-        text-decoration: none;
-      }
-
-      .headerNav a:hover {
-        text-decoration: none;
-      }
-
-      .logoWrapper img {
-        width: 40px;
-      }
-
-      .sideBarUL {
-        margin-top: 50px;
-      }
-
-      .sideBarUL li {
-        list-style-type: none;
-        width: auto;
-      }
-
-      .sideBarUL li a,
-      .sideBarUL li span {
-        /* color: #fff; */
-        font-size: 14px;
-        font-weight: 500;
-        line-height: 1.5;
-        padding: 7px 24px 7px 16px;
-        padding-left: 10px;
-        padding-right: 25px;
-        border-style: solid none solid solid;
-        border-width: 1px 0px 1px 1px;
-        border-color: transparent currentcolor transparent transparent;
       }
 
       .titleWrapper {

@@ -85,7 +85,6 @@ const TreeNode = ({
 
     ul .item > a,
     ul .item > span {
-      color: #cccccc;
       text-decoration: none;
       display: flex;
       align-items: center;
