@@ -23,12 +23,14 @@ interface NavItem {
   url: string;
 }
 
-const flattenTree = (node: TreeNodeData): Array<NavItem | undefined> => {
+const flattenTree = (node: TreeNodeData, prependUrl = ""): Array<NavItem | undefined> => {
   const { items, ...clone } = node;
 
+  const url = clone.url ? `${prependUrl}${clone.url}` : prependUrl;
+
   return [
-    clone.url ? { title: clone.title, url: clone.url } : undefined,
-    ...(items ? items.flatMap(flattenTree) : []),
+    clone.title ? { title: clone.title, url: url } : undefined,
+    ...(items ? items.flatMap((item) => flattenTree(item, url)) : []),
   ];
 };
 
@@ -55,6 +57,9 @@ export default class MDXRuntimeTest extends Component<DocProps> {
       .filter((item) => !!item)
       .filter((item): item is NavItem => existingPagePathsWithoutLang.has(item?.url))
       .map((item) => ({ ...item, url: `/en${item.url}` }));
+
+    const nav2 = data.allTocYaml.edges?.flatMap(({ node }) => flattenTree(node as TreeNodeData));
+    console.log(nav2);
 
     // meta tags
     const metaTitle = mdx?.frontmatter?.metaTitle;

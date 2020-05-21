@@ -29,10 +29,13 @@
         - url: "/operators"
           title: "Operators"
           upcoming: true
-    - url: "/fundamentals/testing"
+        - url: "/tetris"
+          title: "Project 1: Tetris"
+          upcoming: true
+    - url: "/testing"
       title: "Chapter 2: Testing"
       upcoming: true
-    - url: "/testing"
+    - url: "/error"
       title: "Chapter 3: Error-handling"
       upcoming: true
 - url: "/lang"
