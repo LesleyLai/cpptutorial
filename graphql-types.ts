@@ -615,10 +615,10 @@ export type FileFieldsEnum =
   | 'childMdx___wordCount___sentences'
   | 'childMdx___wordCount___words'
   | 'childMdx___fields___pathWithoutLang'
-  | 'childMdx___fields___slug'
   | 'childMdx___fields___mdxType'
   | 'childMdx___fields___id'
   | 'childMdx___fields___title'
+  | 'childMdx___fields___slug'
   | 'childMdx___id'
   | 'childMdx___parent___id'
   | 'childMdx___parent___parent___id'
@@ -891,10 +891,10 @@ export type MdxEdge = {
 
 export type MdxFields = {
   pathWithoutLang?: Maybe<Scalars['String']>;
-  slug?: Maybe<Scalars['String']>;
   mdxType?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
+  slug?: Maybe<Scalars['String']>;
 };
 
 export type MdxFieldsEnum = 
@@ -919,10 +919,10 @@ export type MdxFieldsEnum =
   | 'wordCount___sentences'
   | 'wordCount___words'
   | 'fields___pathWithoutLang'
-  | 'fields___slug'
   | 'fields___mdxType'
   | 'fields___id'
   | 'fields___title'
+  | 'fields___slug'
   | 'id'
   | 'parent___id'
   | 'parent___parent___id'
@@ -1012,10 +1012,10 @@ export type MdxFieldsEnum =
 
 export type MdxFieldsFilterInput = {
   pathWithoutLang?: Maybe<StringQueryOperatorInput>;
-  slug?: Maybe<StringQueryOperatorInput>;
   mdxType?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
+  slug?: Maybe<StringQueryOperatorInput>;
 };
 
 export type MdxFilterInput = {
@@ -1274,7 +1274,7 @@ export type QueryAllSitePageArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
-  port?: Maybe<IntQueryOperatorInput>;
+  port?: Maybe<DateQueryOperatorInput>;
   host?: Maybe<StringQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
@@ -1385,7 +1385,7 @@ export type QueryAllSitePluginArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
-  port?: Maybe<Scalars['Int']>;
+  port?: Maybe<Scalars['Date']>;
   host?: Maybe<Scalars['String']>;
   pathPrefix?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
@@ -1397,6 +1397,14 @@ export type Site = Node & {
 
 
 export type SiteBuildTimeArgs = {
+  formatString?: Maybe<Scalars['String']>;
+  fromNow?: Maybe<Scalars['Boolean']>;
+  difference?: Maybe<Scalars['String']>;
+  locale?: Maybe<Scalars['String']>;
+};
+
+
+export type SitePortArgs = {
   formatString?: Maybe<Scalars['String']>;
   fromNow?: Maybe<Scalars['Boolean']>;
   difference?: Maybe<Scalars['String']>;
@@ -1684,7 +1692,7 @@ export type SiteFieldsEnum =
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
-  port?: Maybe<IntQueryOperatorInput>;
+  port?: Maybe<DateQueryOperatorInput>;
   host?: Maybe<StringQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
