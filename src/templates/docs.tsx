@@ -58,9 +58,6 @@ export default class MDXRuntimeTest extends Component<DocProps> {
       .filter((item): item is NavItem => existingPagePathsWithoutLang.has(item?.url))
       .map((item) => ({ ...item, url: `/en${item.url}` }));
 
-    const nav2 = data.allTocYaml.edges?.flatMap(({ node }) => flattenTree(node as TreeNodeData));
-    console.log(nav2);
-
     // meta tags
     const metaTitle = mdx?.frontmatter?.metaTitle;
     const metaDescription = mdx?.frontmatter?.metaDescription;

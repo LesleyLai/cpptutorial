@@ -4,7 +4,7 @@ import { addDecorator, addParameters } from "@storybook/react";
 import { withA11y } from "@storybook/addon-a11y";
 import { action } from "@storybook/addon-actions";
 
-import GlobalStyle from "../src/styles/global";
+import GlobalStyle from "../src/components/styles/global";
 import { ThemeProvider } from "emotion-theming";
 import { lightTheme } from "../src/components/theme";
 

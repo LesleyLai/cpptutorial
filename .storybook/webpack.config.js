@@ -36,6 +36,7 @@ module.exports = ({ config }) => {
         require.resolve("@babel/preset-typescript"),
         require.resolve("@emotion/babel-preset-css-prop"),
       ],
+      plugins: [require.resolve("babel-plugin-remove-graphql-queries")],
     },
   });
   config.resolve.extensions.push(".ts", ".tsx");

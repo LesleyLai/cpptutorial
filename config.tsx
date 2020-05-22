@@ -14,9 +14,7 @@ export default {
   },
   siteMetadata: {
     title: "C++ Tutorial",
-    description: "Documentation built with mdx. Powering hasura.io/learn ",
-    ogImage: undefined,
-    favicon: "https://graphql-engine-cdn.hasura.io/img/hasura_icon_black.svg",
+    description: "C++ Tutorial",
   },
   pwa: {
     enabled: false, // disabling this will also remove the existing service worker.
