@@ -15,7 +15,6 @@
   items:
     - url: "/basics"
       title: "Chapter 1: Basic Concepts"
-      upcoming: true
       items:
         - url: "/variables"
           title: "Variables and Fundamentals Types"
