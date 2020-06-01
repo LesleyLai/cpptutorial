@@ -15,6 +15,7 @@ import {
   StyledNavBarHeader,
   StyledHeaderTitle,
   StyledBgDiv,
+  NewDiv,
 } from "./styles";
 
 import Search from "../search";
@@ -52,13 +53,31 @@ const Header = ({ isDarkThemeActive = false, toggleActiveTheme }: HeaderProps) =
         </ul>
       </div>
     </StyledNavBar>
-    <StyledBgDiv isDarkThemeActive={isDarkThemeActive}>
-      <StyledNavbarToggle role="button" tabIndex={0}>
-        <span />
-        <span />
-        <span />
-      </StyledNavbarToggle>
-    </StyledBgDiv>
+    <NewDiv>
+      <input type="checkbox" className="toggle" id="toggle" />
+      <div className="toggle-wrapper">
+        {/*difference between {}*/}
+        <label htmlFor="toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+      </div>
+
+      <div className="menu">
+        <ul>
+          <li>
+            <Search />
+          </li>
+          <li>
+            <Sidebar />
+          </li>
+          <li>
+            <LanguagePicker />
+          </li>
+        </ul>
+      </div>
+    </NewDiv>
   </header>
 );
 

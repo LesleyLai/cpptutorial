@@ -109,4 +109,76 @@ export const StyledNavbarToggle = styled.span`
   @media (min-width: ${breakpoints.md}) {
     display: none;
   }
+
+  }
+`;
+
+export const NewDiv = styled.div`
+  .toggle-wrapper {
+    background-color: #ededed;
+    padding: 15px, 30px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    left: 0;
+    transition: 0.3s left;
+  }
+
+  .toggle {
+    display: none;
+  }
+
+  .menu {
+    position: fixed;
+    left: -240px;
+    top: 0;
+    bottom: 0;
+    width: 240px;
+    background-color: #fff;
+    transition: 0.3s left;
+    z-index: 3;
+    overflow-x: hidden;
+  }
+  .menu ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .menu > ul > li > a {
+    text-decoration: none;
+    display: block;
+    padding: 15px 20px;
+    color: #fff;
+  }
+
+  .menu > ul > li > a:hover {
+    background-color: #0f2944;
+  }
+
+  .toggle:checked ~ .menu {
+    left: 0;
+  }
+  .toggle:checked ~ .toggle-wrapper {
+    left: 240px;
+  }
+
+  label[for="toggle"] {
+    cursor: pointer;
+    display: flex;
+    height: 30px;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  label[for="toggle"] span {
+    display: block;
+    height: 4px;
+    width: 36px;
+    border-radius: 2px;
+    background-color: #6c6c6c;
+  }
+  @media only screen and (min-width: ${breakpoints.md}) {
+    display: none;
+  }
 `;

@@ -386,8 +386,8 @@ export type File = Node & {
   parent?: Maybe<Node>;
   children: Array<Node>;
   internal: Internal;
-  childMdx?: Maybe<Mdx>;
   childrenTocYaml?: Maybe<Array<Maybe<TocYaml>>>;
+  childMdx?: Maybe<Mdx>;
 };
 
 
@@ -594,69 +594,6 @@ export type FileFieldsEnum =
   | 'internal___mediaType'
   | 'internal___owner'
   | 'internal___type'
-  | 'childMdx___rawBody'
-  | 'childMdx___fileAbsolutePath'
-  | 'childMdx___frontmatter___title'
-  | 'childMdx___frontmatter___cppreference'
-  | 'childMdx___frontmatter___type'
-  | 'childMdx___frontmatter___token'
-  | 'childMdx___frontmatter___metaTitle'
-  | 'childMdx___frontmatter___metaDescription'
-  | 'childMdx___body'
-  | 'childMdx___excerpt'
-  | 'childMdx___headings'
-  | 'childMdx___headings___value'
-  | 'childMdx___headings___depth'
-  | 'childMdx___html'
-  | 'childMdx___mdxAST'
-  | 'childMdx___tableOfContents'
-  | 'childMdx___timeToRead'
-  | 'childMdx___wordCount___paragraphs'
-  | 'childMdx___wordCount___sentences'
-  | 'childMdx___wordCount___words'
-  | 'childMdx___fields___pathWithoutLang'
-  | 'childMdx___fields___mdxType'
-  | 'childMdx___fields___id'
-  | 'childMdx___fields___title'
-  | 'childMdx___fields___slug'
-  | 'childMdx___id'
-  | 'childMdx___parent___id'
-  | 'childMdx___parent___parent___id'
-  | 'childMdx___parent___parent___children'
-  | 'childMdx___parent___children'
-  | 'childMdx___parent___children___id'
-  | 'childMdx___parent___children___children'
-  | 'childMdx___parent___internal___content'
-  | 'childMdx___parent___internal___contentDigest'
-  | 'childMdx___parent___internal___description'
-  | 'childMdx___parent___internal___fieldOwners'
-  | 'childMdx___parent___internal___ignoreType'
-  | 'childMdx___parent___internal___mediaType'
-  | 'childMdx___parent___internal___owner'
-  | 'childMdx___parent___internal___type'
-  | 'childMdx___children'
-  | 'childMdx___children___id'
-  | 'childMdx___children___parent___id'
-  | 'childMdx___children___parent___children'
-  | 'childMdx___children___children'
-  | 'childMdx___children___children___id'
-  | 'childMdx___children___children___children'
-  | 'childMdx___children___internal___content'
-  | 'childMdx___children___internal___contentDigest'
-  | 'childMdx___children___internal___description'
-  | 'childMdx___children___internal___fieldOwners'
-  | 'childMdx___children___internal___ignoreType'
-  | 'childMdx___children___internal___mediaType'
-  | 'childMdx___children___internal___owner'
-  | 'childMdx___children___internal___type'
-  | 'childMdx___internal___content'
-  | 'childMdx___internal___contentDigest'
-  | 'childMdx___internal___description'
-  | 'childMdx___internal___fieldOwners'
-  | 'childMdx___internal___ignoreType'
-  | 'childMdx___internal___mediaType'
-  | 'childMdx___internal___owner'
-  | 'childMdx___internal___type'
   | 'childrenTocYaml'
   | 'childrenTocYaml___id'
   | 'childrenTocYaml___parent___id'
@@ -706,7 +643,70 @@ export type FileFieldsEnum =
   | 'childrenTocYaml___items___items___upcoming'
   | 'childrenTocYaml___items___url'
   | 'childrenTocYaml___items___title'
-  | 'childrenTocYaml___upcoming';
+  | 'childrenTocYaml___upcoming'
+  | 'childMdx___rawBody'
+  | 'childMdx___fileAbsolutePath'
+  | 'childMdx___frontmatter___title'
+  | 'childMdx___frontmatter___cppreference'
+  | 'childMdx___frontmatter___type'
+  | 'childMdx___frontmatter___token'
+  | 'childMdx___frontmatter___metaTitle'
+  | 'childMdx___frontmatter___metaDescription'
+  | 'childMdx___body'
+  | 'childMdx___excerpt'
+  | 'childMdx___headings'
+  | 'childMdx___headings___value'
+  | 'childMdx___headings___depth'
+  | 'childMdx___html'
+  | 'childMdx___mdxAST'
+  | 'childMdx___tableOfContents'
+  | 'childMdx___timeToRead'
+  | 'childMdx___wordCount___paragraphs'
+  | 'childMdx___wordCount___sentences'
+  | 'childMdx___wordCount___words'
+  | 'childMdx___fields___pathWithoutLang'
+  | 'childMdx___fields___slug'
+  | 'childMdx___fields___mdxType'
+  | 'childMdx___fields___id'
+  | 'childMdx___fields___title'
+  | 'childMdx___id'
+  | 'childMdx___parent___id'
+  | 'childMdx___parent___parent___id'
+  | 'childMdx___parent___parent___children'
+  | 'childMdx___parent___children'
+  | 'childMdx___parent___children___id'
+  | 'childMdx___parent___children___children'
+  | 'childMdx___parent___internal___content'
+  | 'childMdx___parent___internal___contentDigest'
+  | 'childMdx___parent___internal___description'
+  | 'childMdx___parent___internal___fieldOwners'
+  | 'childMdx___parent___internal___ignoreType'
+  | 'childMdx___parent___internal___mediaType'
+  | 'childMdx___parent___internal___owner'
+  | 'childMdx___parent___internal___type'
+  | 'childMdx___children'
+  | 'childMdx___children___id'
+  | 'childMdx___children___parent___id'
+  | 'childMdx___children___parent___children'
+  | 'childMdx___children___children'
+  | 'childMdx___children___children___id'
+  | 'childMdx___children___children___children'
+  | 'childMdx___children___internal___content'
+  | 'childMdx___children___internal___contentDigest'
+  | 'childMdx___children___internal___description'
+  | 'childMdx___children___internal___fieldOwners'
+  | 'childMdx___children___internal___ignoreType'
+  | 'childMdx___children___internal___mediaType'
+  | 'childMdx___children___internal___owner'
+  | 'childMdx___children___internal___type'
+  | 'childMdx___internal___content'
+  | 'childMdx___internal___contentDigest'
+  | 'childMdx___internal___description'
+  | 'childMdx___internal___fieldOwners'
+  | 'childMdx___internal___ignoreType'
+  | 'childMdx___internal___mediaType'
+  | 'childMdx___internal___owner'
+  | 'childMdx___internal___type';
 
 export type FileFilterInput = {
   sourceInstanceName?: Maybe<StringQueryOperatorInput>;
@@ -747,8 +747,8 @@ export type FileFilterInput = {
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
-  childMdx?: Maybe<MdxFilterInput>;
   childrenTocYaml?: Maybe<TocYamlFilterListInput>;
+  childMdx?: Maybe<MdxFilterInput>;
 };
 
 export type FileGroupConnection = {
@@ -891,10 +891,10 @@ export type MdxEdge = {
 
 export type MdxFields = {
   pathWithoutLang?: Maybe<Scalars['String']>;
+  slug?: Maybe<Scalars['String']>;
   mdxType?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
-  slug?: Maybe<Scalars['String']>;
 };
 
 export type MdxFieldsEnum = 
@@ -919,10 +919,10 @@ export type MdxFieldsEnum =
   | 'wordCount___sentences'
   | 'wordCount___words'
   | 'fields___pathWithoutLang'
+  | 'fields___slug'
   | 'fields___mdxType'
   | 'fields___id'
   | 'fields___title'
-  | 'fields___slug'
   | 'id'
   | 'parent___id'
   | 'parent___parent___id'
@@ -1012,10 +1012,10 @@ export type MdxFieldsEnum =
 
 export type MdxFieldsFilterInput = {
   pathWithoutLang?: Maybe<StringQueryOperatorInput>;
+  slug?: Maybe<StringQueryOperatorInput>;
   mdxType?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
   title?: Maybe<StringQueryOperatorInput>;
-  slug?: Maybe<StringQueryOperatorInput>;
 };
 
 export type MdxFilterInput = {
@@ -1183,8 +1183,8 @@ export type QueryFileArgs = {
   parent?: Maybe<NodeFilterInput>;
   children?: Maybe<NodeFilterListInput>;
   internal?: Maybe<InternalFilterInput>;
-  childMdx?: Maybe<MdxFilterInput>;
   childrenTocYaml?: Maybe<TocYamlFilterListInput>;
+  childMdx?: Maybe<MdxFilterInput>;
 };
 
 
