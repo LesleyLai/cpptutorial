@@ -98,36 +98,6 @@ export default () => (
         padding: 50px 0;
       }
 
-      .preRightWrapper {
-        display: block;
-        margin: 0px;
-        flex: 1 1 0%;
-        padding: 16px;
-        text-align: right;
-      }
-
-      .smallContent {
-        display: block;
-        margin: 0px;
-        padding: 0px;
-        color: #6e6e6e;
-      }
-
-      .smallContent span {
-        font-size: 12px;
-        line-height: 1.625;
-        font-weight: 400;
-      }
-
-      /* **************************** */
-
-      .nextRightWrapper {
-        display: block;
-        margin: 0px;
-        padding: 16px;
-        flex: 1 1 0%;
-      }
-
       /* tables.css */
       table {
         padding: 0;

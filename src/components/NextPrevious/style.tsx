@@ -11,28 +11,7 @@ export const StyledNextPrevious = styled("div")<{ theme: Theme }>`
   column-gap: 24px;
   grid-template-columns: calc(50% - 8px) calc(50% - 8px);
 
-  .previousBtn {
-    cursor: pointer;
-    -moz-box-align: center;
-    -moz-box-direction: normal;
-    -moz-box-orient: horizontal;
-    margin: 0px;
-    padding: 0px;
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    place-self: stretch;
-    border-radius: 3px;
-    border: 1px solid rgb(230, 236, 241);
-    transition: border 200ms ease 0s;
-    box-shadow: rgba(116, 129, 141, 0.1) 0px 3px 8px 0px;
-    text-decoration: none;
-
-    background-color: ${(props) => props.theme.colors.background};
-    color: ${(props) => props.theme.colors.primaryText};
-  }
-
+  .previousBtn,
   .nextBtn {
     cursor: pointer;
     -moz-box-align: center;
@@ -99,6 +78,34 @@ export const StyledNextPrevious = styled("div")<{ theme: Theme }>`
     font-size: 16px;
     line-height: 1.5;
     font-weight: 500;
+  }
+
+  .preRightWrapper {
+    display: block;
+    margin: 0px;
+    flex: 1 1 0%;
+    padding: 16px;
+    text-align: right;
+  }
+
+  .nextRightWrapper {
+    display: block;
+    margin: 0px;
+    padding: 16px;
+    flex: 1 1 0%;
+  }
+
+  .smallContent {
+    display: block;
+    margin: 0px;
+    padding: 0px;
+    color: #6e6e6e;
+  }
+
+  .smallContent span {
+    font-size: 12px;
+    line-height: 1.625;
+    font-weight: 400;
   }
 
   @media (max-width: 767px) {

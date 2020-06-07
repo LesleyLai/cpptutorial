@@ -66,54 +66,7 @@ export const StyledHeaderTitle = styled(Link)<{ theme: Theme }>`
   }
 `;
 
-export const StyledBgDiv = styled.div<{ theme: Theme; isDarkThemeActive: boolean }>`
-  height: 60px;
-  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
-  background-color: #f8f8f8;
-  position: relative;
-  background: ${(props) => (props.isDarkThemeActive ? props.theme.colors.background : undefined)};
-  display: block;
-
-  @media (min-width: ${breakpoints.md}) {
-    display: none;
-  }
-`;
-
-export const StyledNavbarToggle = styled.span`
-  border: 0px solid #fff;
-  border-radius: 4px;
-  width: 36px;
-  height: 33px;
-  position: absolute;
-  right: 20px;
-  left: 11px;
-  top: 15px;
-  padding: 8px 5px;
-  display: block;
-  background: #fff;
-
-  span {
-    display: block;
-    width: 22px;
-    height: 2px;
-    border-radius: 1px;
-    margin: 0 auto;
-    margin-top: 4px;
-    background-color: #001934;
-  }
-
-  span:first-of-type {
-    margin-top: 0px;
-  }
-
-  @media (min-width: ${breakpoints.md}) {
-    display: none;
-  }
-
-  }
-`;
-
-export const NewDiv = styled.div`
+export const MobileNav = styled.div`
   .toggle-wrapper {
     background-color: #ededed;
     padding: 15px, 30px;

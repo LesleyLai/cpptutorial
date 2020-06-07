@@ -7,16 +7,7 @@ import Sidebar from "../sidebar";
 
 import LanguagePicker from "./languagePicker";
 
-import { visibleMobile } from "../styles/responsive";
-
-import {
-  StyledNavBar,
-  StyledNavbarToggle,
-  StyledNavBarHeader,
-  StyledHeaderTitle,
-  StyledBgDiv,
-  NewDiv,
-} from "./styles";
+import { StyledNavBar, StyledNavBarHeader, StyledHeaderTitle, MobileNav } from "./styles";
 
 import Search from "../search";
 
@@ -35,11 +26,6 @@ const Header = ({ isDarkThemeActive = false, toggleActiveTheme }: HeaderProps) =
       <Search />
 
       <div id="navbar" className={"topnav"}>
-        <div css={visibleMobile}>
-          <Sidebar />
-          <hr />
-        </div>
-
         <ul className={"navBarUL navBarNav navBarULRight"}>
           <li>
             <LanguagePicker />
@@ -53,10 +39,9 @@ const Header = ({ isDarkThemeActive = false, toggleActiveTheme }: HeaderProps) =
         </ul>
       </div>
     </StyledNavBar>
-    <NewDiv>
+    <MobileNav>
       <input type="checkbox" className="toggle" id="toggle" />
       <div className="toggle-wrapper">
-        {/*difference between {}*/}
         <label htmlFor="toggle">
           <span></span>
           <span></span>
@@ -77,7 +62,7 @@ const Header = ({ isDarkThemeActive = false, toggleActiveTheme }: HeaderProps) =
           </li>
         </ul>
       </div>
-    </NewDiv>
+    </MobileNav>
   </header>
 );
 

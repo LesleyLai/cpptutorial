@@ -1,0 +1,650 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Passes snapshot test 1`] = `
+Array [
+  .emotion-0 {
+  margin: 0px;
+  padding: 0px;
+  width: auto;
+  display: grid;
+  grid-template-rows: auto;
+  -webkit-column-gap: 24px;
+  column-gap: 24px;
+  grid-template-columns: calc(50% - 8px) calc(50% - 8px);
+}
+
+.emotion-0 .previousBtn,
+.emotion-0 .nextBtn {
+  cursor: pointer;
+  -moz-box-align: center;
+  -moz-box-direction: normal;
+  -moz-box-orient: horizontal;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  place-self: stretch;
+  border-radius: 3px;
+  border: 1px solid rgb(230,236,241);
+  -webkit-transition: border 200ms ease 0s;
+  transition: border 200ms ease 0s;
+  box-shadow: rgba(116,129,141,0.1) 0px 3px 8px 0px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: #ffffff;
+  color: #3B454E;
+}
+
+.emotion-0 .nextBtn:hover,
+.emotion-0 .previousBtn:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  border: 1px solid #3884C7;
+}
+
+.emotion-0 .nextBtn:hover .rightArrow,
+.emotion-0 .previousBtn:hover .leftArrow {
+  color: #3884C7 !important;
+}
+
+.emotion-0 .leftArrow {
+  display: block;
+  margin: 0px;
+  color: rgb(157,170,182);
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  font-size: 24px;
+  -webkit-transition: color 200ms ease 0s;
+  transition: color 200ms ease 0s;
+  padding: 16px;
+  padding-right: 16px;
+}
+
+.emotion-0 .rightArrow {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  font-size: 24px;
+  -webkit-transition: color 200ms ease 0s;
+  transition: color 200ms ease 0s;
+  padding: 16px;
+  padding-left: 16px;
+  display: block;
+  margin: 0px;
+  color: rgb(157,170,182);
+}
+
+.emotion-0 .nextPreviousTitle {
+  display: block;
+  margin: 0px;
+  padding: 0px;
+  -webkit-transition: color 200ms ease 0s;
+  transition: color 200ms ease 0s;
+}
+
+.emotion-0 .nextPreviousTitle span {
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.emotion-0 .preRightWrapper {
+  display: block;
+  margin: 0px;
+  -webkit-flex: 1 1 0%;
+  -ms-flex: 1 1 0%;
+  flex: 1 1 0%;
+  padding: 16px;
+  text-align: right;
+}
+
+.emotion-0 .nextRightWrapper {
+  display: block;
+  margin: 0px;
+  padding: 16px;
+  -webkit-flex: 1 1 0%;
+  -ms-flex: 1 1 0%;
+  flex: 1 1 0%;
+}
+
+.emotion-0 .smallContent {
+  display: block;
+  margin: 0px;
+  padding: 0px;
+  color: #6e6e6e;
+}
+
+.emotion-0 .smallContent span {
+  font-size: 12px;
+  line-height: 1.625;
+  font-weight: 400;
+}
+
+@media (max-width:767px) {
+  .emotion-0 {
+    display: block;
+    padding: 0 15px;
+  }
+
+  .emotion-0 .previousBtn {
+    margin-bottom: 20px;
+  }
+}
+
+<div
+    className="emotion-0 emotion-1"
+  >
+    <a
+      className="nextBtn"
+      href="/page2"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <div
+        className="nextRightWrapper"
+      >
+        <div
+          className="smallContent"
+        >
+          <span>
+            Next
+          </span>
+        </div>
+        <div
+          className="nextPreviousTitle"
+        >
+          <span>
+            Page 2
+          </span>
+        </div>
+      </div>
+      <div
+        className="rightArrow"
+      >
+        <svg
+          fill="none"
+          height="1em"
+          preserveAspectRatio="xMidYMid meet"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g>
+            <line
+              x1="5"
+              x2="19"
+              y1="12"
+              y2="12"
+            />
+            <polyline
+              points="12 5 19 12 12 19"
+            />
+          </g>
+        </svg>
+      </div>
+    </a>
+  </div>,
+  .emotion-0 {
+  margin: 0px;
+  padding: 0px;
+  width: auto;
+  display: grid;
+  grid-template-rows: auto;
+  -webkit-column-gap: 24px;
+  column-gap: 24px;
+  grid-template-columns: calc(50% - 8px) calc(50% - 8px);
+}
+
+.emotion-0 .previousBtn,
+.emotion-0 .nextBtn {
+  cursor: pointer;
+  -moz-box-align: center;
+  -moz-box-direction: normal;
+  -moz-box-orient: horizontal;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  place-self: stretch;
+  border-radius: 3px;
+  border: 1px solid rgb(230,236,241);
+  -webkit-transition: border 200ms ease 0s;
+  transition: border 200ms ease 0s;
+  box-shadow: rgba(116,129,141,0.1) 0px 3px 8px 0px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: #ffffff;
+  color: #3B454E;
+}
+
+.emotion-0 .nextBtn:hover,
+.emotion-0 .previousBtn:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  border: 1px solid #3884C7;
+}
+
+.emotion-0 .nextBtn:hover .rightArrow,
+.emotion-0 .previousBtn:hover .leftArrow {
+  color: #3884C7 !important;
+}
+
+.emotion-0 .leftArrow {
+  display: block;
+  margin: 0px;
+  color: rgb(157,170,182);
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  font-size: 24px;
+  -webkit-transition: color 200ms ease 0s;
+  transition: color 200ms ease 0s;
+  padding: 16px;
+  padding-right: 16px;
+}
+
+.emotion-0 .rightArrow {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  font-size: 24px;
+  -webkit-transition: color 200ms ease 0s;
+  transition: color 200ms ease 0s;
+  padding: 16px;
+  padding-left: 16px;
+  display: block;
+  margin: 0px;
+  color: rgb(157,170,182);
+}
+
+.emotion-0 .nextPreviousTitle {
+  display: block;
+  margin: 0px;
+  padding: 0px;
+  -webkit-transition: color 200ms ease 0s;
+  transition: color 200ms ease 0s;
+}
+
+.emotion-0 .nextPreviousTitle span {
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.emotion-0 .preRightWrapper {
+  display: block;
+  margin: 0px;
+  -webkit-flex: 1 1 0%;
+  -ms-flex: 1 1 0%;
+  flex: 1 1 0%;
+  padding: 16px;
+  text-align: right;
+}
+
+.emotion-0 .nextRightWrapper {
+  display: block;
+  margin: 0px;
+  padding: 16px;
+  -webkit-flex: 1 1 0%;
+  -ms-flex: 1 1 0%;
+  flex: 1 1 0%;
+}
+
+.emotion-0 .smallContent {
+  display: block;
+  margin: 0px;
+  padding: 0px;
+  color: #6e6e6e;
+}
+
+.emotion-0 .smallContent span {
+  font-size: 12px;
+  line-height: 1.625;
+  font-weight: 400;
+}
+
+@media (max-width:767px) {
+  .emotion-0 {
+    display: block;
+    padding: 0 15px;
+  }
+
+  .emotion-0 .previousBtn {
+    margin-bottom: 20px;
+  }
+}
+
+<div
+    className="emotion-0 emotion-1"
+  >
+    <a
+      className="previousBtn"
+      href="/page1"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <div
+        className="leftArrow"
+      >
+        <svg
+          fill="none"
+          height="1em"
+          preserveAspectRatio="xMidYMid meet"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g>
+            <line
+              x1="19"
+              x2="5"
+              y1="12"
+              y2="12"
+            />
+            <polyline
+              points="12 19 5 12 12 5"
+            />
+          </g>
+        </svg>
+      </div>
+      <div
+        className="preRightWrapper"
+      >
+        <div
+          className="smallContent"
+        >
+          <span>
+            Previous
+          </span>
+        </div>
+        <div
+          className="nextPreviousTitle"
+        >
+          <span>
+            Page 1
+          </span>
+        </div>
+      </div>
+    </a>
+    <a
+      className="nextBtn"
+      href="/page3"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <div
+        className="nextRightWrapper"
+      >
+        <div
+          className="smallContent"
+        >
+          <span>
+            Next
+          </span>
+        </div>
+        <div
+          className="nextPreviousTitle"
+        >
+          <span>
+            Page 3
+          </span>
+        </div>
+      </div>
+      <div
+        className="rightArrow"
+      >
+        <svg
+          fill="none"
+          height="1em"
+          preserveAspectRatio="xMidYMid meet"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g>
+            <line
+              x1="5"
+              x2="19"
+              y1="12"
+              y2="12"
+            />
+            <polyline
+              points="12 5 19 12 12 19"
+            />
+          </g>
+        </svg>
+      </div>
+    </a>
+  </div>,
+  .emotion-0 {
+  margin: 0px;
+  padding: 0px;
+  width: auto;
+  display: grid;
+  grid-template-rows: auto;
+  -webkit-column-gap: 24px;
+  column-gap: 24px;
+  grid-template-columns: calc(50% - 8px) calc(50% - 8px);
+}
+
+.emotion-0 .previousBtn,
+.emotion-0 .nextBtn {
+  cursor: pointer;
+  -moz-box-align: center;
+  -moz-box-direction: normal;
+  -moz-box-orient: horizontal;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  place-self: stretch;
+  border-radius: 3px;
+  border: 1px solid rgb(230,236,241);
+  -webkit-transition: border 200ms ease 0s;
+  transition: border 200ms ease 0s;
+  box-shadow: rgba(116,129,141,0.1) 0px 3px 8px 0px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  background-color: #ffffff;
+  color: #3B454E;
+}
+
+.emotion-0 .nextBtn:hover,
+.emotion-0 .previousBtn:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  border: 1px solid #3884C7;
+}
+
+.emotion-0 .nextBtn:hover .rightArrow,
+.emotion-0 .previousBtn:hover .leftArrow {
+  color: #3884C7 !important;
+}
+
+.emotion-0 .leftArrow {
+  display: block;
+  margin: 0px;
+  color: rgb(157,170,182);
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  font-size: 24px;
+  -webkit-transition: color 200ms ease 0s;
+  transition: color 200ms ease 0s;
+  padding: 16px;
+  padding-right: 16px;
+}
+
+.emotion-0 .rightArrow {
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto;
+  font-size: 24px;
+  -webkit-transition: color 200ms ease 0s;
+  transition: color 200ms ease 0s;
+  padding: 16px;
+  padding-left: 16px;
+  display: block;
+  margin: 0px;
+  color: rgb(157,170,182);
+}
+
+.emotion-0 .nextPreviousTitle {
+  display: block;
+  margin: 0px;
+  padding: 0px;
+  -webkit-transition: color 200ms ease 0s;
+  transition: color 200ms ease 0s;
+}
+
+.emotion-0 .nextPreviousTitle span {
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.emotion-0 .preRightWrapper {
+  display: block;
+  margin: 0px;
+  -webkit-flex: 1 1 0%;
+  -ms-flex: 1 1 0%;
+  flex: 1 1 0%;
+  padding: 16px;
+  text-align: right;
+}
+
+.emotion-0 .nextRightWrapper {
+  display: block;
+  margin: 0px;
+  padding: 16px;
+  -webkit-flex: 1 1 0%;
+  -ms-flex: 1 1 0%;
+  flex: 1 1 0%;
+}
+
+.emotion-0 .smallContent {
+  display: block;
+  margin: 0px;
+  padding: 0px;
+  color: #6e6e6e;
+}
+
+.emotion-0 .smallContent span {
+  font-size: 12px;
+  line-height: 1.625;
+  font-weight: 400;
+}
+
+@media (max-width:767px) {
+  .emotion-0 {
+    display: block;
+    padding: 0 15px;
+  }
+
+  .emotion-0 .previousBtn {
+    margin-bottom: 20px;
+  }
+}
+
+<div
+    className="emotion-0 emotion-1"
+  >
+    <a
+      className="previousBtn"
+      href="/page2"
+      onClick={[Function]}
+      onMouseEnter={[Function]}
+    >
+      <div
+        className="leftArrow"
+      >
+        <svg
+          fill="none"
+          height="1em"
+          preserveAspectRatio="xMidYMid meet"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g>
+            <line
+              x1="19"
+              x2="5"
+              y1="12"
+              y2="12"
+            />
+            <polyline
+              points="12 19 5 12 12 5"
+            />
+          </g>
+        </svg>
+      </div>
+      <div
+        className="preRightWrapper"
+      >
+        <div
+          className="smallContent"
+        >
+          <span>
+            Previous
+          </span>
+        </div>
+        <div
+          className="nextPreviousTitle"
+        >
+          <span>
+            Page 2
+          </span>
+        </div>
+      </div>
+    </a>
+  </div>,
+]
+`;
