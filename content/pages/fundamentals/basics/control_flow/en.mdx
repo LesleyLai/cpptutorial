@@ -1,0 +1,318 @@
+---
+title: "Control Flow"
+---
+
+Deciding run a piece of code conditionally by `if` or
+running a piece of code repeatedly through loops is the basic building block of
+the most structured programming languages.
+C++ provides several facilities for control flows.
+You are probably already familiar with those constructs from other languages,
+so you just need to see the syntax.
+
+
+## Branching with `if` statement
+
+The `if` statement enables you to execute some part of the code conditionally.
+
+```cpp
+#include <cstdio>
+
+auto main() -> int {
+  int x = 1;
+  if (x < 5) {
+    std::puts("The condition is met.");
+  }
+  std::puts("Goodbye");
+}
+```
+
+The above program should print the lines `The condition is met` and `Goodbye`.
+If you change `x` to `6`, only `Goodbye` will be printed.
+
+You can have an optional `else` branch:
+
+```cpp
+#include <cstdio>
+
+auto main() -> int {
+  int x = 1;
+  if (x < 5) {
+    std::puts("The condition is met.");
+  } else {
+    std::puts("The condition is not met.");
+  }
+  std::puts("Good bye");
+}
+```
+
+Furthermore, you can chain multiple `if-else` statements together to handle multiple conditions.
+For example:
+
+```cpp
+#include <cstdio>
+
+auto main() -> int {
+  int x = 6;
+  if (x % 2 == 0) {
+    std::puts("x is divisible by 2");
+  } else if (x % 3 == 0) {
+    std::puts("x is divisible by 3");
+  } else if (x % 5 == 0) {
+    std::puts("x is divisible by 5");
+  } else {
+    std::puts("x is not divisible by 2, 3, or 5");
+  }
+}
+```
+
+Try to change the value of `x` to `1`, `3`, `5`, and `10`,
+and see if the result is what you expected.
+
+## Iterative process
+
+You may come from a programming language with no dedicated iterative (looping) constructs
+to operate repeatedly.
+In those languages,
+the primary method to implement iteration is recursion.
+You can do the same thing in C++.
+
+Here is an example of using recursion to calculate
+the [*greatest common divisor*](https://en.wikipedia.org/wiki/Greatest_common_divisor)
+for two integers:
+
+```cpp
+#include <iostream>
+
+auto gcd(int a, int b) -> int
+{
+  if (a == 0) {
+      return b;
+  }
+  
+  return gcd(b % a, a);
+}
+
+auto main() -> int {
+  std::cout << "gcd(3, 5) = " << gcd(3, 5) << '\n'; // 1
+  std::cout << "gcd(35, 15) = " << gcd(35, 15) << '\n'; // 5
+}
+```
+
+<Info>
+
+Writing `gcd` ourselves is a decent exercise.
+On the other hand, the C++ standard library `<numeric>` header already provides an `std::gcd` function,
+so you should consider using it for real-world applications.
+
+</Info>
+
+Using recursion as an iterative process has a lot of problems.
+It is harder to understand a complicated recursive function then more dedicated constructs;
+also, without carefully constructs the recursion to be *tail-recursive*,
+each recursive calls will allocate some memory on the *call stack* and
+it blows-up the stack pretty quickly.
+
+<Info>
+
+Worse, the C++ standard does not guarantee the tail call optimization.
+Even though all the major C++ compilers implement this optimization,
+it is not performed when the optimization level is zero (what "debug build" usually does.)
+
+</Info>
+
+Thus, C++ and many other imperative languages
+use loops as the standard way to represent iteration processes.
+C++ provides while loops, for loops, and range-based for loops.
+We cover while and for loops here,
+and the range-based for loop in the next section when we introduce containers.
+
+### while loop
+
+The while loop is one of the many ways C++ provides to repeat an operation.
+The syntax is `while (condition) body`.
+
+The while loop checks the condition before entering the loop.
+If the condition is false, the body will never be executed.
+After acting each time, 
+while rechecks the condition to see if the loop needs to continue.
+
+Below is the implementation of function `gcd` using the while loop:
+
+```cpp
+#include <utility>
+#include <iostream>
+
+auto gcd(int a, int b) -> int
+{
+  while (a != 0) {
+    b = std::exchange(a, b % a);
+  }
+  return b;
+}
+```
+
+In the above snippet,
+I used a standard library function `std::exchange`,
+which replaces the value of `a` with `b % a` and returns the old value of `a`.
+Without the standard library function,
+we need to write the following:
+
+```cpp
+auto gcd(int a, int b) -> int
+{
+  while (a != 0) {
+-    b = std::exchange(a, b % a);
++    int temp = b % a;
++    b = a;
++    a = temp;
+  }
+  return b;
+}
+```
+
+<Info>
+
+It is a recurrent theme in C++ where we use the standard library facilities
+to implement dedicated language features in other languages.
+If you are familiar with the Python programming language,
+you may know the tuple unpacking feature, which lets you write code such as `a, b = b, b % a`.
+C++ does not provide this language feature, but we can use the standard library to express it.
+
+</Info>
+
+There is also a more rarely seen constructs called do-while loop,
+which operates at least once and then check the condition.
+The syntax is `do body while(condition);`.
+
+For example,
+the following function will print a number at least once
+even if you pass a large number such as 100.
+
+```cpp
+auto print_numbers(int n) -> void {
+  do {
+    std::cout << n << '\n';
+    ++n;
+  } while (n < 10);
+}
+```
+
+### Break statement
+
+You can early exit the loop by a break statement.
+For example, the above do while example can also be implemented
+by a regular while loop and a `break`:
+
+```cpp
+auto print_numbers(int n) -> void {
+  while(true) {
+      std::cout << n << '\n';
+      ++n;
+      if (n >= 10) break;
+  }
+}
+```
+
+### For loop
+
+The for loop is similar to while loop in term of the purpose
+— to perform an operation over and over again.
+For example, the below snippet prints the integers from 0 to 9.
+
+```cpp
+for (int i = 0; i < 10; ++i) {
+  std::cout << i << '\n';
+}
+```
+
+The syntax is a bit more complicated than the while loop, as there are three parts in the parentheses.
+The three parts are separated by semicolumns`;`.
+The `int i = 0` part is the *initializer*
+which initializes the variable `i`; `i` is only in scope inside the for loop.
+The `i < 10` part is the condition similar to the condition of the while loop.
+And the `++i` part is the *loop expression*, which runs each iteration after the loop body's execution.
+
+If you are performing an operation based on a count,
+for loop express your intention clearer than the `while` loop.
+For example,
+the while loop counterpart of the above for loop is
+
+```cpp
+{
+  int i = 0;
+  while (i < 10) {
+    std::cout << i << '\n';
+    ++i;
+  }
+}
+```
+
+<Info>
+
+Notice the explicit curly braces here since I want to restrict the scope of the variable `i`.
+
+</Info>
+
+### Continue statement
+
+When a continue statement is encountered inside a loop,
+the control jumps to the start of the next iteration of the loop,
+and skip the execution of the remaining body of the current iteration.
+Continue can be a useful device to skip some iteration of a loop.
+The below snippet print integers from 0 to 9, excluding 5.
+
+```cpp
+auto print_numbers_no_5(int n) -> void {
+for (int i = 0; i < 10; ++i) {
+  if (i == 5) continue;
+  std::cout << i << '\n';
+}
+}
+```
+
+## Ternary expressions
+
+In expression-oriented programming languages such as ML or Rust,
+you can write "if-expression" and get the result as a value.
+`if` is not an expression in C++,
+but the same thing is achieved by the ternary expression.
+
+The syntax of a ternary expression is `condition ? truecase : falsecase`;
+if the condition is true, the true case get evaluated as the result,
+otherwise, the false case gets evaluated.
+
+For example, say you have a function that returns "even" for even numbers and "odd" for add numbers:
+
+```cpp
+auto is_even_string(int n) -> std::string {
+  if (n % 2 == 0) {
+      return "even";
+  } else {
+      return "odd";
+  }
+}
+```
+
+`std::string` is the C++ way to represent a string of characters.
+We will talk about it extensively later.
+
+Using ternary expression, you can write:
+
+```cpp
+auto is_even_string(int n) -> std::string {
+  return n % 2 == 0 ? "even" : "odd";
+}
+```
+
+You can nest ternary expression, just like how you use other expressions.
+For example, the classic "Fizzbuzz" game can be implemented as:
+
+```cpp
+auto fizzbuzz(int n) -> std::string {
+  return
+    (n % 15 == 0) ? "FizzBuzz" :
+    (n % 3 == 0) ? "Fizz" :
+    (n % 5 == 0) ? "Buzz" :
+    std::to_string(n);
+}
+```

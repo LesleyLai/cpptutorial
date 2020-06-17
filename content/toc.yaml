@@ -19,42 +19,37 @@
         - url: "/variables"
           title: "Variables and Fundamentals Types"
           upcoming: true
+        - url: "/functions"
+          title: "Functions"
         - url: "/control_flow"
           title: "Control Flow"
-          upcoming: true
-        - url: "/control_flow"
-          title: "Functions"
-          upcoming: true
         - url: "/operators"
           title: "Operators"
           upcoming: true
-        - url: "/tetris"
-          title: "Project 1: Tetris"
+        - url: "/containers"
+          title: "Containers"
           upcoming: true
-    - url: "/testing"
-      title: "Chapter 2: Testing"
+        - url: "/guessing_game"
+          title: "Project 1: Guessing Game"
+          upcoming: true
+    - url: "/udts"
+      title: "Chapter 2: User Defined Types"
       upcoming: true
-    - url: "/error"
-      title: "Chapter 3: Error-handling"
+    - url: "/lang/indirection"
+      title: "Chapter 3: Indirection"
       upcoming: true
-- url: "/lang"
-  title: "Part 2: The C++ Core Language"
+- url: "/productive"
+  title: "Part 2: Getting productive with C++"
   upcoming: true
   items:
-    - url: "/lang/expressions"
-      title: "Expressions"
+    - url: "/file-programs-and-build"
+      title: "Chapter 4: Files, Programs, and Build System"
       upcoming: true
-    - url: "/lang/statements"
-      title: "Statements"
+    - url: "/testing"
+      title: "Chapter 5: Testing"
       upcoming: true
-    - url: "/lang/functions"
-      title: "Functions and Program Structure"
-      upcoming: true
-    - url: "/lang/reference"
-      title: "References and Pointers"
-      upcoming: true
-    - url: "/lang/classes"
-      title: "Classes"
+    - url: "/error"
+      title: "Chapter 6: Error-handling"
       upcoming: true
 - url: "/std"
   title: "Part 3: Standard Library"

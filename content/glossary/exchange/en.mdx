@@ -1,0 +1,22 @@
+---
+title: "std::exchange"
+cppreference: "cpp/utility/exchange"
+type: "Utilities library"
+token: "exchange"
+header: "<utility>"
+---
+
+`a = exchange(b, c)` replaces the value of a with the value of `b`,
+and replace the value of `b` with the value of `c`.
+
+Example usage:
+
+```cpp notip=true
+auto fibonacci(int count) -> int {
+    int a = 0, b = 1;
+    for (int i = 0; i < count; ++i) {
+        a = std::exchange(b, a + b);
+    }
+    return a;
+}
+```

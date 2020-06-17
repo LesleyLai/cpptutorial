@@ -1,0 +1,42 @@
+---
+title: "Containers"
+---
+
+**Containers**, also called *collections* in some other programming languages,
+are data structures that contains a group of objects.
+
+We haven't talk about any containers yet,
+but the simplest one in C++ is the static contiguous array.
+To use array, we need to include the `<array>` header.
+For example,
+
+```cpp
+#include <array>
+
+std::array arr {1, 2, 3, 4, 5};
+```
+
+creates an integer array with size 5.
+
+## Looping Through a Container with ranged `for` loop
+
+#### What is containers
+
+We could use while/for
+
+Error prone/indexing
+
+A more concise way to iterate through the array is the *range-based for loop*.
+
+```cpp
+#include <iostream>
+#include <array>
+
+auto main() -> int {
+  std::array arr {1, 2, 3, 4, 5};
+
+  for (auto elem: arr) {
+    std::cout << elem << '\n';
+  }
+}
+```
