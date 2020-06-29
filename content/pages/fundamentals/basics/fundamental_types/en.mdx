@@ -1,0 +1,53 @@
+---
+title: "Fundamental Types"
+---
+
+There are several **fundamental types** (also sometimes called *builtin-types*) built into the C++ compiler.
+TODO: more tips
+
+Contrase to
+`struct` `class` and `union`
+
+## Fundamental Types
+
+### The Integer types
+
+`int`
+
+#### Integer Overflow
+
+### The Floating-Point Types
+
+### The Boolean Type
+
+
+
+## Casting
+
+TODO
+Narrowing/widening
+
+- Compilers implicit convert types (sometimes with warning)
+- Casting make it explicit
+- This can backfire
+
+C++ has a set of casts, ... TODO
+They are intentionally designed to be long and ugly because the language designer's distaste of cast.
+
+Those casts are safer than the "parentheses cast" and make the semantics of cast clear.
+
+<Info>
+
+With "parentheses cast", it is not clear if you mean a type conversion function or bit reintepretation.
+`static_cast` always means former, and `std::bit_cast` always means later.
+
+</Info>
+
+The rule is simple, use cast only when nessesory, and never use "parentheses cast."
+
+TODO: cast can means "I am Ok with information loss"
+
+## Value Semantics
+
+Primitive vs. Reference Data Types
+"Do as the ints do"

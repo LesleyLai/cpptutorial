@@ -1,0 +1,56 @@
+---
+title: "Variables"
+---
+
+C++ is *statically-typed*,
+which means that a variable can only hold one particular type during its lifetime.
+For example, if a variable hold an integer, you cannot change it to hold a string later.
+
+As a consequence, when you declare a variable, you must supply a type to the compiler.
+For example,
+
+```cpp
+int x;
+```
+
+declare an integer `x`.
+
+If you come from a language where you can put an integer to a variable and later assign a string to it,
+then those languages are said to be *dynamically-typed*.
+The static typing sounds constrictive,
+but throughout the book we will show you how the static *type system* can save us from a lot of trouble.
+furthermore, a lot of optimizations are only possible because of static typing,
+so static-typed languages such as C++ and Java tend to be faster then dynamically-typed languages.
+
+Define
+
+```cpp
+int x = 42;
+```
+
+When we define a variable from a expression with known type,
+the compiler is smart enough to *infer* the type of that variable.
+
+```cpp
+-int x = 42;
++auto x = 42;
+```
+
+The usage of `auto` above shows little advantage, but there are cases where using explicit type is either annoying or even impossible.
+
+## Scopes
+
+TODO
+
+<Info>
+
+Different programming languages have vastly different opinions on variable shadowing.
+Some languages, for example, [Elm](https://elm-lang.org/), ban all forms of variable shadowing.
+Other languages, such as [Ocaml](https://ocaml.org/) and [Rust](https://www.rust-lang.org/),
+allow more form of variable shadowing than most languages do.
+The C++ language allows you to use name shadowing,
+but it is generally frowned upon,
+and compilers and linters may warn you about it.
+
+
+</Info>

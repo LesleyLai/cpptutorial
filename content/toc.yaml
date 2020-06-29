@@ -18,20 +18,18 @@
       items:
         - url: "/variables"
           title: "Variables and Fundamentals Types"
-          upcoming: true
         - url: "/functions"
           title: "Functions"
         - url: "/control_flow"
           title: "Control Flow"
         - url: "/operators"
           title: "Operators"
-          upcoming: true
-        - url: "/containers"
-          title: "Containers"
-          upcoming: true
         - url: "/guessing_game"
           title: "Project 1: Guessing Game"
           upcoming: true
+    - url: "/containers"
+      title: "Chapter 2: Standard Containers"
+      upcoming: true
     - url: "/udts"
       title: "Chapter 2: User Defined Types"
       upcoming: true
@@ -55,9 +53,6 @@
   title: "Part 3: Standard Library"
   upcoming: true
   items:
-    - url: "/std/containers"
-      title: "STL Containers"
-      upcoming: true
     - url: "/std/iterators"
       title: "STL Iterators"
       upcoming: true
