@@ -1,0 +1,165 @@
+---
+title: "Struct"
+---
+
+A `struct` is the primary way in C++ to introduce user-defined type.
+
+The definition of a struct type is straightforward.
+We use `struct` keyword, give the struct a name, and put the body of the structure inside.
+In the following case, we created a struct for a 2-dimensional point.
+
+```cpp
+struct Point2 {
+    int x;
+    int y;
+};
+```
+
+<Info>
+
+Notice the last semicolon in the above code.
+Adding a semicolon to the end of a struct definition is required in C++.
+
+</Info>
+
+We create a struct variable just like how we create variables for fundamental types:
+
+```cpp
+Point2 p;
+// p = {???, ???}
+```
+
+# The dot syntax
+
+Similar to variables of fundamental types, this struct is *uninitialized*.
+Struct initialization is a surprisingly complex topic,
+and we will discuss them more in-depth later.
+For now, we can initialize each individual *data members* of this struct by using the dot syntax:
+
+<Info>
+
+Sometimes data members are colloquially called *fields*.
+This book uses the two terms interchangeably.
+
+</Info>
+
+```cpp
+Point2 p;
++p.x = 0;
++p.y = 0;
+// p = {0, 0}
+```
+
+Now the point `p` is initialized with both `x` and `y` data members set to `0`.
+
+We can use the dot syntax to *mutate* the struct further:
+
+```cpp
+Point2 p;
+p.x = 0;
+p.y = 0;
+// p = {0, 0}
++p.x = 42;
++p.y = 55;
+// p = {42, 55}
+```
+
+# `struct` initialization
+
+Having uninitialized variables is an undesirable situation.
+And there are several ways where we can make the above code a little bit better.
+
+First, it is possible to initialize data members in the struct by the `=` syntax:
+
+```cpp
+struct Point2 {
++    int x = 0;
++    int y = 0;
+};
+
+Point2 p;
+// p = {0, 0}
+```
+
+## Aggregate initialization
+
+What if we don't want the defaulted values of data members that we put in the struct definition?
+We can still explicitly modify our point `p` by the dot syntax after initialization.
+But a better way is to use the language *aggregate initialization* facility:
+
+```cpp
+Point p {42, 55};
+// p = {42, 55}
+```
+
+<Info>
+
+In the C programming language,
+the aggregate initialization syntax contains an additional `=` sign:
+
+```cpp
+Point p = {42, 55};
+```
+
+This syntax still works in C++ and is equivalent to the code above.
+
+</Info>
+
+You don't need to initialize all data members in the aggregate initialization.
+In this case the remaining fields get *value initialized*:
+
+```cpp
+Point p1 {42};
+// Ok, p1.y is value initialization to zero
+// p1 = {42, 0}
+Point p2 {};
+// Ok, both fields of p2 is value initialization to zero
+// p2 = {0, 0}
+```
+
+This value initialization behavior can be especially useful when the struct definition does not provide a default value for data members,
+which is common in existing C code:
+
+```cpp
+struct Point2 {
+    int x;
+    int y;
+};
+
+Point2 bad_point; // bad_point = {???, ???}
+Point2 good_point {}; // good_point = {0, 0}
+```
+
+## Designated initializers
+
+If you want to initialize the data members with explicit fields names,
+you can use *designated initializers*:
+
+```cpp
+Point p {.x = 42, .y = 55};
+// p = {42, 55}
+```
+
+<Info>
+
+Designated initializer is a feature added in C++20,
+so make sure to enable C++20 in your compiler options.
+
+</Info>
+
+In designated initializer, each *designator* must name a data member of our struct.
+We can omit some data members,
+and in this case, those data members get *value-initialized* to a default value.
+
+```cpp
+Point p {.y = 55};
+// Ok, p.x = 0
+```
+
+On the other hand, unlike the C language counterpart, 
+all designators in the C++ designated initializer must appear in the same order as the data members.
+
+```cpp
+Point p {.y = 55, .x = 42};
+// Error
+```

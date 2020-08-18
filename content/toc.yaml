@@ -34,7 +34,9 @@
           upcoming: true
     - url: "/udts"
       title: "Chapter 2: User Defined Types"
-      upcoming: true
+      items:
+        - url: "/struct"
+          title: "Structs"
     - url: "/lang/indirection"
       title: "Chapter 3: Indirection"
       upcoming: true
