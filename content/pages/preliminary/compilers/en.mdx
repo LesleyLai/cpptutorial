@@ -1,0 +1,66 @@
+---
+title: "Install a C++ compiler"
+---
+
+C++ programs are usually composing from *sources files*.
+To run such program, you need a *compiler* that compiles those sources files into object files.
+And object files are linked together by a *linker* to create an executable file or a library.
+
+Compilers and linkers are usually distributed together as a toolchain,
+so you only need to install one package.
+As currently, there are three major compiler toolchains that you can choose:
+- Microsoft Visual C++ (As part of Microsoft visual studio, Windows only)
+- g++ (Part of GCC)
+- clang++ (Part of the llvm project)
+
+# Install a compiler
+
+The following instruction shows how to install a compiler on Windows, Linux, or MacOS.
+
+<Info>
+
+### About Outdated Compilers
+
+This tutorial expects a relevant recent version of a C++ compiler.
+If you have GCC 8 or earlier, Clang 8 or earlier, or Visual Studio 2019 16.7 or earlier,
+it would be best if you upgraded your toolchain to a newer version.
+
+</Info>
+
+## Windows
+
+On Windows, we will install Microsoft Visual Studio.
+You can find a link to download the latest Visual Studio Community edition at [visualstudio.microsoft.com](https://visualstudio.microsoft.com/).
+When installing, be sure to enable the C++ support option.
+If you already have a Visual Studio installed without C++ support,
+you can still use the Visual Studio Installer to add C++ toolchain.
+TODO: Check version
+
+## Linux
+
+On Linux, use your package manager to install either GCC or Clang.
+The usage two tools are mostly compatible,
+so I will use GCC as an example.
+
+For example, on Ubuntu, you can run the following line in the terminal:
+
+```sh
+$ sudo apt install build-essential
+```
+
+The `build-essential` package contains `gcc`, `g++` and a bunch of other build tools.
+If you use Ubuntu on your development machine,
+it is likely that you have already installed this package.
+
+Then you can use `$gcc --version` to make sure your GCC version is up-to-date.
+
+<Warning>
+
+Some Linux distributions ships outdated compilers in their package manager by default.
+Be sure to install a relevant recent version.
+
+</Warning>
+
+## MacOS
+
+TODO

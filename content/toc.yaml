@@ -5,8 +5,10 @@
   items:
     - upcoming: true
       items:
+        - url: "/compilers"
+          title: "Install a C++ Compiler"
         - url: "/qt_creator"
-          title: "Using Qt Creator"
+          title: "Using Qt Creator IDE"
           upcoming: true
         - url: "/hello"
           title: "Hello World"
