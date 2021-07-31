@@ -19,7 +19,9 @@
       title: "Chapter 1: Basic Concepts"
       items:
         - url: "/variables"
-          title: "Variables and Fundamentals Types"
+          title: "Variables"
+        - url: "/fundamental_types"
+          title: "Fundamental Types"
         - url: "/functions"
           title: "Functions"
         - url: "/control_flow"
@@ -37,6 +39,8 @@
       items:
         - url: "/struct"
           title: "Structs"
+        - url: "/class"
+          title: "Access Control, Constructors, and Classes"
     - url: "/lang/indirection"
       title: "Chapter 3: Indirection"
       upcoming: true
@@ -57,13 +61,12 @@
   title: "Part 3: Standard Library"
   upcoming: true
   items:
-    - url: "/std/iterators"
+    - url: "/iterators"
       title: "STL Iterators"
       upcoming: true
-    - url: "/std/algorithms"
+    - url: "/algorithms"
       title: "STL Algorithms"
-      upcoming: true
-    - url: "/std/vocabulary"
+    - url: "/vocabulary"
       title: "Vocabulary"
       upcoming: true
     - url: "/utilities"

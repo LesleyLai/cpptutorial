@@ -1,0 +1,37 @@
+---
+title: "STL Algorithms"
+---
+
+Consider the following two piece of code:
+
+```cpp
+#include <cstring>
+#include <span>
+
+void move_zeroes(std::span<int> nums) {
+  int last_non_zero_index = 0;
+  for (int i = 0; i < nums.size(); ++i) {
+    if (nums[i] != 0) {
+      nums[last_non_zero_index++] = nums[i];
+    }
+  }
+  std::memset(&nums[last_non_zero_index], 0,
+              sizeof(int) * (nums.size()-last_non_zero_index));
+}
+```
+
+```cpp
+#include <algorithms>
+#include <span>
+
+void move_zeroes(std::span<int> nums) {
+  const auto last_non_zero = std::remove(nums.begin(), nums.end(), 0);
+  std::fill(last_non_zero, nums.end(), 0);
+}
+```
+
+Both code performs the same thing —
+moving all the zeros in a `span` to its end.
+Yet, the second version is shorter, easier to understand, and can be easily parallelized.
+
+This chapter will enable you to understand and write code in the style of the second code snippet.

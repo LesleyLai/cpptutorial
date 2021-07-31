@@ -1,0 +1,52 @@
+---
+title: "Access Control, Constructors, and Classes"
+---
+
+
+```cpp
+struct Temperature {
+    double kelvin = 0;
+};
+```
+
+Breaking:
+
+```cpp
+Temperature t;
+t.kelvin = -1; // oops
+```
+
+## Access Control
+
+```cpp
+struct Temperature {
+private:
+    double kelvin_ = 0;
+public:
+    auto kelvin() const -> double {
+        return kelvin_;
+    }
+
+    void set_kelvin(double new_kelvin) {
+        if (new_kelvin < 0) new_kelvin = 0;
+        kelvin_ = new_kelvin;
+    }
+};
+```
+
+## Constructors
+
+## Keyword `class`
+
+C++ actually has another keyword for user defined types, `class`.
+Unlike a lot of other programming languages, `struct` and `class` creates the same kind of types.
+They can both have constructors, and access control specifiers.
+The only difference is that in `class`,
+visibility of every members is `private` by default.
+
+For example: TODO
+
+`struct` and `class` can always be used interchangably with minor modification.
+However they do communicate meaning to humans.
+I prefer to use the `struct` keyword on data with no business logic and invariant,
+and to use `class` on more complicated types.
