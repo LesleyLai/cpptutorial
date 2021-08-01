@@ -1,10 +1,10 @@
 ---
-title: "Struct"
+title: "Structures"
 ---
 
-A `struct` is the primary way in C++ to introduce user-defined type.
+A structure is the primary way in C++ to introduce user-defined type.
 
-The definition of a struct type is straightforward.
+The definition of a structure is straightforward.
 We use `struct` keyword, give the struct a name, and put the body of the structure inside.
 In the following case, we created a struct for a 2-dimensional point.
 
@@ -18,11 +18,11 @@ struct Point {
 <Info>
 
 Notice the last semicolon in the above code.
-Adding a semicolon to the end of a struct definition is required in C++.
+Adding a semicolon to the end of a structure definition is required in C++.
 
 </Info>
 
-We create a struct variable just like how we create variables for fundamental types:
+We create a structure variable just like how we create variables for fundamental types:
 
 ```cpp
 Point p;
@@ -31,10 +31,10 @@ Point p;
 
 # The dot syntax
 
-Similar to variables of fundamental types, this struct is *uninitialized*.
-Struct initialization is a surprisingly complex topic,
+Similar to variables of fundamental types, this structure is *uninitialized*.
+Structure initialization is a surprisingly complex topic,
 and we will discuss them more in-depth later.
-For now, we can initialize each individual *data members* of this struct by using the dot syntax:
+For now, we can initialize each individual *data members* of this structure by using the dot syntax:
 
 <Info>
 
@@ -52,7 +52,7 @@ Point p;
 
 Now the point `p` is initialized with both `x` and `y` data members set to `0`.
 
-We can use the dot syntax to *mutate* the struct further:
+We can use the dot syntax to *mutate* the structure further:
 
 ```cpp
 Point p;
@@ -64,12 +64,12 @@ p.y = 0;
 // p = {42, 55}
 ```
 
-# `struct` initialization
+# Structure initialization
 
 Having uninitialized variables is an undesirable situation.
 And there are several ways where we can make the above code a little bit better.
 
-First, it is possible to initialize data members in the struct by the `=` syntax:
+First, it is possible to initialize data members in the structure by the `=` syntax:
 
 ```cpp
 struct Point {
@@ -83,7 +83,7 @@ Point p;
 
 ## Aggregate initialization
 
-What if we don't want the defaulted values of data members that we put in the struct definition?
+What if we don't want the defaulted values of data members that we put in the structure definition?
 We can still explicitly modify our point `p` by the dot syntax after initialization.
 But a better way is to use the language *aggregate initialization* facility:
 
@@ -117,7 +117,7 @@ Point p2 {};
 // p2 = {0, 0}
 ```
 
-This value initialization behavior can be especially useful when the struct definition does not provide a default value for data members,
+This value initialization behavior can be especially useful when the structure definition does not provide a default value for data members,
 which is common in existing C code:
 
 ```cpp
@@ -147,7 +147,7 @@ so make sure to enable C++20 in your compiler options.
 
 </Info>
 
-In designated initializer, each *designator* must name a data member of our struct.
+In designated initializer, each *designator* must name a data member of our structure.
 We can omit some data members,
 and in this case, those data members get *value-initialized* to a default value.
 
