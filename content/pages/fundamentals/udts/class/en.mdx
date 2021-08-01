@@ -2,6 +2,17 @@
 title: "Access Control, Constructors, and Classes"
 ---
 
+So far, we are able to define "plain structures" and define separate functions for them.
+Having "dumb data" separates from operations has its merit since
+We can use data in an arbitrary way.
+However, sometimes a tighter connection between the data representation and operations is beneficial.
+In particular, we want to keep the data representation from the user of a type from time to time.
+This kind of **encapsulation** can make our types safer,
+easier to use and make it possible for us to extend or modify the underlying data representation in the future.
+To achieve these, we need to distinguish between the interface (which can be used in everywhere) of a type and its implementation (which is hidden and can only be used as internals). 
+
+One of the most important ways to achieve encapsulation in C++ is public/private accessing control.
+We put the interface as the `public` members of a structure, and the implementation becomes private members.
 
 ```cpp
 struct Temperature {
@@ -38,7 +49,7 @@ public:
 
 ## Keyword `class`
 
-C++ actually has another keyword for user defined types, `class`.
+C++  has another keyword for user defined types, `class`.
 Unlike a lot of other programming languages, `struct` and `class` creates the same kind of types.
 They can both have constructors, and access control specifiers.
 The only difference is that in `class`,

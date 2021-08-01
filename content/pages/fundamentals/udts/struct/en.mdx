@@ -9,7 +9,7 @@ We use `struct` keyword, give the struct a name, and put the body of the structu
 In the following case, we created a struct for a 2-dimensional point.
 
 ```cpp
-struct Point2 {
+struct Point {
     int x;
     int y;
 };
@@ -25,7 +25,7 @@ Adding a semicolon to the end of a struct definition is required in C++.
 We create a struct variable just like how we create variables for fundamental types:
 
 ```cpp
-Point2 p;
+Point p;
 // p = {???, ???}
 ```
 
@@ -44,7 +44,7 @@ This book uses the two terms interchangeably.
 </Info>
 
 ```cpp
-Point2 p;
+Point p;
 +p.x = 0;
 +p.y = 0;
 // p = {0, 0}
@@ -55,7 +55,7 @@ Now the point `p` is initialized with both `x` and `y` data members set to `0`.
 We can use the dot syntax to *mutate* the struct further:
 
 ```cpp
-Point2 p;
+Point p;
 p.x = 0;
 p.y = 0;
 // p = {0, 0}
@@ -72,12 +72,12 @@ And there are several ways where we can make the above code a little bit better.
 First, it is possible to initialize data members in the struct by the `=` syntax:
 
 ```cpp
-struct Point2 {
+struct Point {
 +    int x = 0;
 +    int y = 0;
 };
 
-Point2 p;
+Point p;
 // p = {0, 0}
 ```
 
@@ -121,13 +121,13 @@ This value initialization behavior can be especially useful when the struct defi
 which is common in existing C code:
 
 ```cpp
-struct Point2 {
+struct Point {
     int x;
     int y;
 };
 
-Point2 bad_point; // bad_point = {???, ???}
-Point2 good_point {}; // good_point = {0, 0}
+Point bad_point; // bad_point = {???, ???}
+Point good_point {}; // good_point = {0, 0}
 ```
 
 ## Designated initializers
@@ -162,4 +162,20 @@ all designators in the C++ designated initializer must appear in the same order 
 ```cpp
 Point p {.y = 55, .x = 42};
 // Error
+```
+
+## Structures and functions
+
+We use structures in the same way as using fundamental types.
+For example, we can create functions that take and return structures.
+Below are some functions that might be useful for our `Point`:
+
+Below is a function that moves a point by `dx` alone the x-axis and `dy` alone the y-axis.
+It returns a new point as an result and does not change the original point.
+
+```cpp
+auto point_translate(Point p, int dx, int dy) -> Point
+{
+  return Point {.x = p.x + dx, .y = p.y + dy};
+}
 ```
