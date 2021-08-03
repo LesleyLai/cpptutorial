@@ -65,7 +65,7 @@
       title: "STL Iterators"
       upcoming: true
     - url: "/algorithms"
-      title: "STL Algorithms"
+      title: "Standard Algorithms"
     - url: "/vocabulary"
       title: "Vocabulary"
       upcoming: true

@@ -1,16 +1,16 @@
 ---
-title: "STL Algorithms"
+title: "Standard Algorithms"
 ---
 
-Consider the following two piece of code:
+Consider the following piece of code:
 
 ```cpp
 #include <cstring>
 #include <span>
 
-void move_zeroes(std::span<int> nums) {
-  int last_non_zero_index = 0;
-  for (int i = 0; i < nums.size(); ++i) {
+void move_zeros(std::span<int> nums) {
+  std::size_t last_non_zero_index = 0;
+  for (std::size_t i = 0; i < nums.size(); ++i) {
     if (nums[i] != 0) {
       nums[last_non_zero_index++] = nums[i];
     }
@@ -20,18 +20,57 @@ void move_zeroes(std::span<int> nums) {
 }
 ```
 
+It moves all the zeros in a `span` to its end.
+However, if you find the above code a bit more intimidating than the simple task it is trying to perform,
+you are not alone. Consider our loop:
 ```cpp
-#include <algorithms>
+std::size_t last_non_zero_index = 0;
+for (std::size_t i = 0; i < nums.size(); ++i) {
+  if (nums[i] != 0) {
+    nums[last_non_zero_index++] = nums[i];
+  }
+}
+```
+
+Altogether the intuitive understanding of that loop is just "shifting all non-zero elements up,"
+the way that the code is written is
+"for each number `i` from zero until the size of `num`,
+if the `i`-th element is not zero,
+move it to the `last_non_zero_index`-th element,
+and then increase `last_non_zero_index`."
+
+There are two reasons that this loop is harder to understand than it should.
+First, it feels very mechanical.
+Our intuitive understanding of the process is simple,
+yet the code is step-by-step instructions on manipulating the elements.
+Second, the code *mutates* the value of `last_non_zero_index` inside the loop,
+which means we need to reason its value step-by-step in our head.
+All things considered, it is hard to understand the loop as a whole without tracing its execution by steps.
+
+Now consider the following program that performs the same operation:
+
+```cpp
+#include <algorithm>
 #include <span>
 
-void move_zeroes(std::span<int> nums) {
+void move_zeros(std::span<int> nums) {
   const auto last_non_zero = std::remove(nums.begin(), nums.end(), 0);
   std::fill(last_non_zero, nums.end(), 0);
 }
 ```
 
-Both code performs the same thing —
-moving all the zeros in a `span` to its end.
-Yet, the second version is shorter, easier to understand, and can be easily parallelized.
+This version uses the standard library algorithms `remove` and `fill`.
+It is significantly shorter, directly expresses our intent, and can also be easily parallelized.
+This chapter will enable you to understand and write code in style empowered by standard algorithms.
 
-This chapter will enable you to understand and write code in the style of the second code snippet.
+<Info>
+
+## Simplicity vs familiarity
+
+If you feel that the first snippet is more straightforward, you are also certainly not alone.
+Sometimes it is hard to see whether a pattern is simple or not when we spend enough time with it.
+
+I hope this chapter can at least get you familiar with the standard algorithms,
+and it is up to you to make educated decisions on when to use them.
+
+</Info>
