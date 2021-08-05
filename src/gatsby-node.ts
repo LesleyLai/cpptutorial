@@ -2,8 +2,6 @@ import { GatsbyNode, Page } from "gatsby";
 import path from "path";
 import _ from "lodash";
 
-import { PagesQuery } from "../graphql-types";
-
 import { languages } from "./utils/translations";
 
 export const createPages: GatsbyNode["createPages"] = ({ graphql, actions }) => {
@@ -19,7 +17,7 @@ export const createPages: GatsbyNode["createPages"] = ({ graphql, actions }) => 
 
   return new Promise((resolve, reject) => {
     resolve(
-      graphql<PagesQuery>(
+      graphql<any>(
         `
           query Pages {
             allMdx(filter: { fields: { mdxType: { eq: "page" } } }) {

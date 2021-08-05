@@ -66,6 +66,33 @@
       upcoming: true
     - url: "/algorithms"
       title: "Standard Algorithms"
+      items:
+      - url: "/reduce"
+        title: "Your first algorithm: reduce"
+      - url: "/conventions"
+        title: "Algorithms naming conventions"
+        upcoming: true
+      - url: "/sorting"
+        title: "Sorting"
+        upcoming: true
+      - url: "/searching"
+        title: "Searching"
+        upcoming: true
+      - url: "/manipulating_collections"
+        title: "Manipulating Collections"
+        upcoming: true
+      - url: "/others"
+        title: "Other useful algorithms"
+        upcoming: true
+      - url: "/case_study"
+        title: "Case Study: ???"
+        upcoming: true
+      - url: "/conclusion"
+        title: "Conclusion"
+        upcoming: true
+      - url: "/problems"
+        title: "Practice Problems"
+        upcoming: true
     - url: "/vocabulary"
       title: "Vocabulary"
       upcoming: true
