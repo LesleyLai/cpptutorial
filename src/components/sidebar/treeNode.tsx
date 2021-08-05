@@ -100,26 +100,13 @@ const TreeNode = ({
   `;
 
   const depth1Style = css`
-    margin-top: 1em;
-
-    > a {
-      font-size: 30px;
-    }
-  `;
-
-  const depth2Style = css`
     ul > .item {
       margin-left: 30px;
       border-left: 1px solid #e6ecf1;
     }
   `;
 
-  const style =
-    depth === 1
-      ? [allDepthstyle, depth1Style]
-      : depth === 2
-      ? [allDepthstyle, depth2Style]
-      : allDepthstyle;
+  const style = depth === 1 ? [allDepthstyle, depth1Style] : allDepthstyle;
 
   return (
     <li css={style} className={calculatedClassName}>
@@ -127,7 +114,7 @@ const TreeNode = ({
         if (title) {
           const titleComponents = (
             <>
-              {title + (upcoming ? " (upcoming)" : "")}
+              {title}
               {title && hasChildren && (
                 <button onClick={collapse} aria-label="collapse" className="collapser">
                   {!isCollapsed ? <OpenedSvg /> : <ClosedSvg />}

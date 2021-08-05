@@ -1,158 +1,130 @@
 - url: "/"
   title: "Introduction"
 - url: "/preliminary"
-  title: "Part 0: Up and Running"
+  title: "Chapter 0: Up and Running"
   items:
-    - upcoming: true
-      items:
-        - url: "/compilers"
-          title: "Install a C++ Compiler"
-        - url: "/qt_creator"
-          title: "Using Qt Creator IDE"
-          upcoming: true
-        - url: "/hello"
-          title: "Hello World"
-- url: "/fundamentals"
-  title: "Part 1: Start Writing C++"
+    - url: "/compilers"
+      title: "Install a C++ Compiler"
+    - url: "/qt_creator"
+      title: "Using Qt Creator IDE"
+      upcoming: true
+    - url: "/hello"
+      title: "Hello World"
+- url: "/basics"
+  title: "Chapter 1: Basic Concepts"
   items:
-    - url: "/basics"
-      title: "Chapter 1: Basic Concepts"
-      items:
-        - url: "/variables"
-          title: "Variables"
-        - url: "/fundamental_types"
-          title: "Fundamental Types"
-        - url: "/functions"
-          title: "Functions"
-        - url: "/control_flow"
-          title: "Control Flow"
-        - url: "/operators"
-          title: "Operators"
-        - url: "/guessing_game"
-          title: "Project 1: Guessing Game"
-          upcoming: true
-    - url: "/containers"
-      title: "Chapter 2: Standard Containers"
-      upcoming: true
-    - url: "/udts"
-      title: "Chapter 2: User Defined Types"
-      items:
-        - url: "/struct"
-          title: "Structs"
-        - url: "/class"
-          title: "Access Control, Constructors, and Classes"
-    - url: "/lang/indirection"
-      title: "Chapter 3: Indirection"
-      upcoming: true
-- url: "/productive"
-  title: "Part 2: Getting productive with C++"
+    - url: "/variables"
+      title: "Variables"
+    - url: "/fundamental_types"
+      title: "Fundamental Types"
+    - url: "/functions"
+      title: "Functions"
+    - url: "/control_flow"
+      title: "Control Flow"
+    - url: "/operators"
+      title: "Operators"
+- url: "/string_array_and_vector"
+  title: "Chapter 2: Strings, Arrays, and Vectors"
+  upcoming: true
+- url: "/udts"
+  title: "Chapter 3: User Defined Types"
+  items:
+    - url: "/struct"
+      title: "Structs"
+    - url: "/class"
+      title: "Access Control, Constructors, and Classes"
+- url: "/lang/indirection"
+  title: "Chapter 4: Indirection"
+  upcoming: true
+- url: "/file-programs-and-build"
+  title: "Chapter 5: Files, Programs, and Build System"
+  upcoming: true
+- url: "/testing"
+  title: "Chapter 6: Testing"
+  upcoming: true
+- url: "/error"
+  title: "Chapter 7: Error-handling"
+  upcoming: true
+- url: "/iterators"
+  title: "Iterators"
+  upcoming: true
+- url: "/algorithms"
+  title: "Standard Algorithms"
+  items:
+  - url: "/reduce"
+    title: "Your first algorithm: reduce"
+  - url: "/conventions"
+    title: "Algorithms naming conventions"
+    upcoming: true
+  - url: "/sorting"
+    title: "Sorting"
+    upcoming: true
+  - url: "/searching"
+    title: "Searching"
+    upcoming: true
+  - url: "/manipulating_collections"
+    title: "Manipulating Collections"
+    upcoming: true
+  - url: "/others"
+    title: "Other useful algorithms"
+    upcoming: true
+  - url: "/case_study"
+    title: "Case Study: ???"
+    upcoming: true
+  - url: "/conclusion"
+    title: "Conclusion"
+    upcoming: true
+  - url: "/problems"
+    title: "Practice Problems"
+    upcoming: true
+- url: "/resource/lifetime"
+  title: "The Object lifetime cycle"
+  upcoming: true
+- url: "/type/move"
+  title: "Move Semantics"
+  upcoming: true
+- url: "/resource/smart_ptr"
+  title: "Smart Pointers"
+  upcoming: true
+- url: "/utilities"
+  title: "Standard Library Utilities"
   upcoming: true
   items:
-    - url: "/file-programs-and-build"
-      title: "Chapter 4: Files, Programs, and Build System"
-      upcoming: true
-    - url: "/testing"
-      title: "Chapter 5: Testing"
-      upcoming: true
-    - url: "/error"
-      title: "Chapter 6: Error-handling"
-      upcoming: true
-- url: "/std"
-  title: "Part 3: Standard Library"
-  upcoming: true
-  items:
-    - url: "/iterators"
-      title: "STL Iterators"
-      upcoming: true
-    - url: "/algorithms"
-      title: "Standard Algorithms"
-      items:
-      - url: "/reduce"
-        title: "Your first algorithm: reduce"
-      - url: "/conventions"
-        title: "Algorithms naming conventions"
-        upcoming: true
-      - url: "/sorting"
-        title: "Sorting"
-        upcoming: true
-      - url: "/searching"
-        title: "Searching"
-        upcoming: true
-      - url: "/manipulating_collections"
-        title: "Manipulating Collections"
-        upcoming: true
-      - url: "/others"
-        title: "Other useful algorithms"
-        upcoming: true
-      - url: "/case_study"
-        title: "Case Study: ???"
-        upcoming: true
-      - url: "/conclusion"
-        title: "Conclusion"
-        upcoming: true
-      - url: "/problems"
-        title: "Practice Problems"
-        upcoming: true
-    - url: "/vocabulary"
-      title: "Vocabulary"
-      upcoming: true
-    - url: "/utilities"
-      title: "Utilities"
-      upcoming: true
-      items:
-      - url: "/random"
-        title: "Pseudo-random number generation"
-        upcoming: true
-      - url: "/chrono"
-        title: "Time manipulation with the chrono library"
-        upcoming: true
-      - url: "/filesystem"
-        title: "Filesystem"
-        upcoming: true
-    - url: "/std/string"
-      title: "String"
-      upcoming: true
-- url: "/resource"
-  title: "Part 4: Resource Management"
-  upcoming: true
-  items:
-    - url: "/resource/lifetime"
-      title: "The Object lifetime cycle"
-      upcoming: true
-    - url: "/resource/smart_ptr"
-      title: "Smart Pointers"
-      upcoming: true
+  - url: "/optional"
+    title: "Standard optional"
+    upcoming: true
+  - url: "/variant"
+    title: "Standard variant"
+    upcoming: true
+  - url: "/random"
+    title: "Pseudo-random number generation"
+    upcoming: true
+  - url: "/chrono"
+    title: "Time manipulation with the chrono library"
+    upcoming: true
+  - url: "/filesystem"
+    title: "Filesystem"
+    upcoming: true
 - url: "/generic"
-  title: "Part 5: Generic Programming"
+  title: "Generic Programming"
   upcoming: true
-- url: "/type"
-  title: "Part 6: Type Design"
+- url: "/type/exceptions"
+  title: "Exceptions"
   upcoming: true
-  items:
-    - url: "/type/move"
-      title: "Move Semantics"
-      upcoming: true
-    - url: "/type/class-design"
-      title: "Class Design"
-      upcoming: true
-    - url: "/type/exceptions"
-      title: "Exceptions"
-      upcoming: true
-- url: "/oop"
-  title: "Part 7: Object-oriented Programming"
+- url: "/oop/inheritance"
+  title: "Inheritance"
   upcoming: true
-  items:
-  - url: "/oop/inheritance"
-    title: "Inheritance"
-    upcoming: true
-  - url: "/oop/virtual"
-    title: "Virtual Functions"
-    upcoming: true
+- url: "/oop/virtual"
+  title: "Virtual Functions"
+  upcoming: true
 - url: "/concurrency"
-  title: "Part 8: Concurrency and Parallelism"
+  title: "Concurrency and Parallelism"
+  upcoming: true
+- url: "/performance"
+  title: "Performance"
   upcoming: true
 - url: "/real-world"
-  title: "Part 9: Writing \"Real-world\" Application"
+  title: "Writing \"Real-world\" Application"
   upcoming: true
 - url: "/afterward"
   title: "Where to go from here"

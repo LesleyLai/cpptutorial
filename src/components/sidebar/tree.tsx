@@ -36,11 +36,6 @@ const Tree = () => {
                   url
                   title
                   upcoming
-                  items {
-                    url
-                    title
-                    upcoming
-                  }
                 }
               }
             }

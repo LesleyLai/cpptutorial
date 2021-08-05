@@ -118,7 +118,7 @@ const UL = styled.ul<{ theme: Theme }>`
 
   span {
     color: ${({ theme }) => theme.colors.primaryText};
-    opacity: 80%;
+    opacity: 40%;
   }
 
   .item > a:hover {

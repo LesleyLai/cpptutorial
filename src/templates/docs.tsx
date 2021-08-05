@@ -140,11 +140,6 @@ export const pageQuery = graphql`
             url
             title
             upcoming
-            items {
-              url
-              title
-              upcoming
-            }
           }
         }
       }
