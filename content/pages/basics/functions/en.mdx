@@ -9,7 +9,7 @@ and are the backbone of *Procedural programming*.
 Here is a C++ function that doubles a number and prints the result to the standard output:
 
 ```cpp
-auto double_and_print(int x) -> void {
+void double_and_print(int x) {
     std::cout << (2 * x) << '\n';
 }
 ```
@@ -24,7 +24,7 @@ and finally, the function body enclosed by `{}`.
 
 You already have seen a few function calls in the tutorial so far,
 as almost all the snippets use some standard library input/output functions such as `std::puts`.
-To call a function, we pass *arguments* that match the parameter list of the function.
+To call a function, we pass *arguments* that match the parameters of the function.
 In this case, we need to pass an `int` argument:
 
 ```cpp
@@ -63,6 +63,48 @@ auto main() -> int {
 }
 ```
 
+
+## Function declaration and definition
+
+So far, we have seen function definitions,
+where we provide function name, type, and its body.
+In C++, unlike in some other languages,
+you can call a function without providing its definition beforehand.
+When you compile the program, the linker finds the definition of functions in the whole program.
+
+However, since C++ is a statically typed language,
+the call sites need to know the types of functions.
+Thus, C++ provides a lightweight alternative to definitions called declarations.
+You cannot call a function without declaring it first.
+
+A function declaration consists of the name and type of a function. For example:
+
+```cpp
+auto square(double x) -> double; // square takes a double and returns a double
+```
+
+With that declaration in place, we can already call the function `square` in our program:
+
+```cpp
+auto square(double x) -> double;
+
+auto main() -> int
+{
+  std::cout << square(4); // print 16
+}
+```
+
+We do need to define our function *somewhere* in our program;
+otherwise, the linker will complain when we compile our program.
+
+```cpp
+// It is okay to define this function body after call sites
+auto square(double x) -> double
+{
+  return x * x;
+}
+```
+
 ## Function arguments
 
 Now let's talk about what happens to arguments passed-in to a function.
@@ -97,3 +139,9 @@ auto main() -> int {
 ```
 
 You will notice that the value of `x` remains at `6`.
+
+## Overloading
+TODO
+
+## Default parameters
+TODO

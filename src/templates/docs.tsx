@@ -83,7 +83,7 @@ export default class MDXRuntimeTest extends Component<DocProps> {
           <StyledHeading>{mdx?.fields?.title}</StyledHeading>
           <Edit className={"mobileView"}>
             {githubUrl && mdx?.parent && (
-              <Link to={`${githubUrl}/tree/master/content/${mdx.parent.relativePath}`}>
+              <Link to={`${githubUrl}/tree/main/content/${mdx.parent.relativePath}`}>
                 <img src={gitHub} alt={"Github logo"} /> Edit on GitHub
               </Link>
             )}

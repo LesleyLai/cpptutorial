@@ -15,35 +15,14 @@ One of the most important ways to achieve encapsulation in C++ is public/private
 We put the interface as the `public` members of a structure, and the implementation becomes private members.
 
 ```cpp
-struct Temperature {
-    double kelvin = 0;
+struct UnitVector {
+  double x;
+  double y;
+  double z;
 };
-```
-
-Breaking:
-
-```cpp
-Temperature t;
-t.kelvin = -1; // oops
 ```
 
 ## Access Control
-
-```cpp
-struct Temperature {
-private:
-    double kelvin_ = 0;
-public:
-    auto kelvin() const -> double {
-        return kelvin_;
-    }
-
-    void set_kelvin(double new_kelvin) {
-        if (new_kelvin < 0) new_kelvin = 0;
-        kelvin_ = new_kelvin;
-    }
-};
-```
 
 ## Constructors
 

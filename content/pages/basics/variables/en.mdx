@@ -1,6 +1,12 @@
 ---
-title: "Variables"
+title: "Variables and Scopes"
 ---
+
+Variables associate a *value* with a name.
+They are perhaps the most basic idea in programming.
+Without variables,
+there is no way to store a piece of information and extract them later,
+and the expression power of a programming language would be severely degraded.
 
 C++ is *statically-typed*,
 which means that a variable can only hold one particular type during its lifetime.
@@ -18,15 +24,17 @@ declare an integer `x`.
 If you come from a language where you can put an integer to a variable and later assign a string to it,
 then those languages are said to be *dynamically-typed*.
 The static typing sounds constrictive,
-but throughout the book we will show you how the static *type system* can save us from a lot of trouble.
+but throughout the tutorial we will show you how the static *type system* can save us from a lot of trouble.
 furthermore, a lot of optimizations are only possible because of static typing,
-so static-typed languages such as C++ and Java tend to be faster then dynamically-typed languages.
+so static-typed languages such as C++ and Java tend to be faster than dynamically-typed languages.
 
 Define
 
 ```cpp
 int x = 42;
 ```
+
+## Type inference with `auto`
 
 When we define a variable from a expression with known type,
 the compiler is smart enough to *infer* the type of that variable.
@@ -36,7 +44,8 @@ the compiler is smart enough to *infer* the type of that variable.
 +auto x = 42;
 ```
 
-The usage of `auto` above shows little advantage, but there are cases where using explicit type is either annoying or even impossible.
+The usage of `auto` above does not have much advantage,
+but there are cases where using explicit type is either annoying or even impossible.
 
 ## Scopes
 

@@ -14,7 +14,7 @@
   title: "Chapter 1: Basic Concepts"
   items:
     - url: "/variables"
-      title: "Variables"
+      title: "Variables and Scopes"
     - url: "/fundamental_types"
       title: "Fundamental Types"
     - url: "/functions"
@@ -23,6 +23,10 @@
       title: "Control Flow"
     - url: "/operators"
       title: "Operators"
+    - url: "/constants"
+      title: "Constants"
+    - url: "/practices"
+      title: "Practices"
 - url: "/string_array_and_vector"
   title: "Chapter 2: Strings, Arrays, and Vectors"
   upcoming: true
@@ -30,9 +34,15 @@
   title: "Chapter 3: User Defined Types"
   items:
     - url: "/struct"
-      title: "Structs"
+      title: "Structures"  
     - url: "/class"
       title: "Access Control, Constructors, and Classes"
+    - url: "/enum"
+      title: "Enumerations"
+      upcoming: true
+    - url: "/union"
+      title: "Unions"
+      upcoming: true
 - url: "/lang/indirection"
   title: "Chapter 4: Indirection"
   upcoming: true
@@ -51,8 +61,8 @@
 - url: "/algorithms"
   title: "Standard Algorithms"
   items:
-  - url: "/reduce"
-    title: "Your first algorithm: reduce"
+  - url: "/accumulate"
+    title: "Your first algorithm: accumulate"
   - url: "/conventions"
     title: "Algorithms naming conventions"
     upcoming: true

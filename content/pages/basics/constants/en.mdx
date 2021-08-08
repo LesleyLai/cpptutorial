@@ -1,0 +1,14 @@
+---
+title: "Constants"
+---
+
+C++ provides two distinct features for immutable variables.
+
+- `constexpr` means "this value is evaluated at compile time." It is a shorthand for the term "constant expression." It is used for specific constants in a program.
+- `const` roughly means "I promise not to mutate this value later." The value of a `const` variable can be evaluated at runtime.
+
+If you want to create some "global constant," it is very likely that you need `constexpr`. For example:
+
+TODO
+
+## `const` is a Type Qualifier
