@@ -7,8 +7,7 @@ running a piece of code repeatedly through loops is the basic building block of
 the most structured programming languages.
 C++ provides several facilities for control flows.
 You are probably already familiar with those constructs from other languages,
-so you just need to see the syntax.
-
+and this section will show you the C++ syntax.
 
 ## Branching with `if` statement
 
@@ -101,8 +100,7 @@ auto main() -> int {
 <Info>
 
 Writing `gcd` ourselves is a decent exercise.
-On the other hand, the C++ standard library `<numeric>` header already provides an `std::gcd` function,
-so you should consider using it for real-world applications.
+On the other hand, the C++ standard library `<numeric>` header already provides an `std::gcd` function.
 
 </Info>
 
@@ -120,11 +118,11 @@ it is not performed when the optimization level is zero (what "debug build" usua
 
 </Info>
 
-Thus, C++ and many other imperative languages
+C++ and many other imperative languages
 use loops as the standard way to represent iteration processes.
 C++ provides while loops, for loops, and range-based for loops.
 We cover while and for loops here,
-and the range-based for loop in the next section when we introduce containers.
+and the range-based for loop in the next chapter when we introduce containers.
 
 ### while loop
 
@@ -185,11 +183,11 @@ which operates at least once and then check the condition.
 The syntax is `do body while(condition);`.
 
 For example,
-the following function will print a number at least once
+the following function will print at least one number
 even if you pass a large number such as 100.
 
 ```cpp
-auto print_numbers(int n) -> void {
+void print_numbers(int n) {
   do {
     std::cout << n << '\n';
     ++n;
@@ -204,7 +202,7 @@ For example, the above do while example can also be implemented
 by a regular while loop and a `break`:
 
 ```cpp
-auto print_numbers(int n) -> void {
+void print_numbers(int n) {
   while(true) {
       std::cout << n << '\n';
       ++n;
@@ -232,7 +230,7 @@ which initializes the variable `i`; `i` is only in scope inside the for loop.
 The `i < 10` part is the condition similar to the condition of the while loop.
 And the `++i` part is the *loop expression*, which runs each iteration after the loop body's execution.
 
-If you are performing an operation based on a count,
+If you are performing an operation based on a count or an index,
 for loop express your intention clearer than the `while` loop.
 For example,
 the while loop counterpart of the above for loop is
@@ -262,7 +260,7 @@ Continue can be a useful device to skip some iteration of a loop.
 The below snippet print integers from 0 to 9, excluding 5.
 
 ```cpp
-auto print_numbers_no_5(int n) -> void {
+void print_numbers_no_5(int n) {
 for (int i = 0; i < 10; ++i) {
   if (i == 5) continue;
   std::cout << i << '\n';

@@ -1,0 +1,25 @@
+---
+title: "std::remove"
+cppreference: "cpp/algorithm/remove"
+type: "Algorithm library"
+token: "remove"
+header: "<algorithm>"
+---
+
+`std::remove` *shifts* elements that **are not** equal to the provided value to the **beginning** of a range
+ and leaves the remaining part of the range in an unspecified state.
+It returns an iterator at the beginning of the "remaining part of the range".
+
+This function will not shrink a container by itself,
+but is often combined with containers' `.erase()` member function to remove elements from a container (*Erase–remove idiom*).
+
+Example usage:
+
+```cpp notip=true
+std::vector<int> v = {1, 2, 1, 2, 1};
+auto p = std::remove(std::begin(v), std::end(v), 1);
+// v = { 2, 2, ?, ?, ? }
+// p ----------^
+v.erase(p, std::end(v));
+// v = { 2, 2 }
+```

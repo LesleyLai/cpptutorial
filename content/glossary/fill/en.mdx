@@ -1,0 +1,17 @@
+---
+title: "std::fill"
+cppreference: "cpp/algorithm/fill"
+type: "Algorithm library"
+token: "fill"
+header: "<algorithm>"
+---
+
+`std::fill` fills all the elements in a range with a specific value.
+
+Example usage:
+
+```cpp notip=true
+int arr[3] = {};
+std::fill(std::begin(arr), std::end(arr), 42);
+// arr = {42, 42, 42}
+```

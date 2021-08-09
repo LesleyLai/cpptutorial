@@ -27,9 +27,11 @@
       title: "Constants"
     - url: "/practices"
       title: "Practices"
-- url: "/string_array_and_vector"
-  title: "Chapter 2: Strings, Arrays, and Vectors"
-  upcoming: true
+- url: "/strings_and_vectors"
+  title: "Chapter 2: Strings and Vectors"
+  items:
+    - url: "/std_string"
+      title: "std::string"
 - url: "/udts"
   title: "Chapter 3: User Defined Types"
   items:
@@ -54,6 +56,9 @@
   upcoming: true
 - url: "/error"
   title: "Chapter 7: Error-handling"
+  upcoming: true
+- url: "/containers"
+  title: "Standard Containers"
   upcoming: true
 - url: "/iterators"
   title: "Iterators"

@@ -1,0 +1,18 @@
+---
+title: "std::memset"
+cppreference: "cpp/string/byte/memset"
+type: "C String library"
+token: "memset"
+header: "<cstring>"
+---
+
+`std::memset(ptr, c, n)` fills the first n bytes of the memory area pointed by `ptr` with the value of `c`.
+It returns `ptr`.
+
+Example usage:
+
+```cpp notip=true
+std::int32_t x;
+std::memset(&x, 0xdf, sizeof x);
+std::cout << "0x" << std::hex << x; // 0xdfdfdfdf
+```
