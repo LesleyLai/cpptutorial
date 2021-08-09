@@ -14,6 +14,12 @@ To achieve these, we need to distinguish between the interface (which can be use
 One of the most important ways to achieve encapsulation in C++ is public/private accessing control.
 We put the interface as the `public` members of a structure, and the implementation becomes private members.
 
+
+In the following example, we try to define a type that represents a unit vector.
+Its data representation is cartesian coordinate `x`, `y`, and `z`,
+but that is not the end of the story. Our type has a constraint where its length ($x^2 + y^2 + z^2$) is equal to 1.
+And we call this kind of constraint *invariant*.
+
 ```cpp
 struct UnitVector {
   double x;
@@ -22,14 +28,51 @@ struct UnitVector {
 };
 ```
 
-## Access Control
+To maintain the invariant of this type, we need to create dedicated functions to operate on it.
+For example, if we want to create a unit vector from an arbitrary coordinate, we must normalize the result;
+otherwise, it would not be a unit vector.
+
+TODO: an illustration
+
+```cpp
+auto create_unit_vector(double x, double y, double z) -> UnitVector {
+  auto length = std::sqrt(x * x + y * y + z * z);
+  return {.x = x / length, .y = y / length, .z = z / length};
+}
+```
+
+And we cannot use the `UnitVector` freely.
+For example, we can't initialize unit vectors on our own or modify its data member directly,
+even though nothing will prevent us from doing it.
+
+```cpp
+UnitVector v1 {1, 2, 3}; // oops
+
+auto v2 = create_unit_vector(1, 2, 3);
+v2.x = 2; // oops
+```
+
+It is unlikely for anyone to write code as preposterous as above.
+However, it is easy to make mistakes when the program gets more complex,
+especially when you are not the original author as a type and do not have a solid grasp on its implementation.
+Still, since we don't have anything to prevent invariant violations,
+we need to rely on comments to caution our future selves and other people:
+
+```cpp
+// Warning: do not ever create UnitVector or mutate its x/y/z value directly!
+// Always use it with dedicated functions!
+```
+
+Unfortunately, we programmers are terrible at reading comments.
 
 ## Constructors
 
+## Access Control
+
 ## Keyword `class`
 
-C++  has another keyword for user defined types, `class`.
-Unlike a lot of other programming languages, `struct` and `class` creates the same kind of types.
+C++ has another keyword for user defined types, `class`.
+Unlike a lot of other programming languages, `struct` and `class` defines the same kind of types in C++.
 They can both have constructors, and access control specifiers.
 The only difference is that in `class`,
 visibility of every members is `private` by default.

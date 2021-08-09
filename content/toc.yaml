@@ -77,8 +77,8 @@
   - url: "/searching"
     title: "Searching"
     upcoming: true
-  - url: "/manipulating_collections"
-    title: "Manipulating Collections"
+  - url: "/manipulating_containers"
+    title: "Manipulating Containers"
     upcoming: true
   - url: "/others"
     title: "Other useful algorithms"

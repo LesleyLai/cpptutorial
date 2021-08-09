@@ -22,7 +22,8 @@ void move_zeros(std::span<int> nums) {
 
 It moves all the zeros in a `span` to its end.
 However, if you find the above code a bit more intimidating than the simple task it is trying to perform,
-you are not alone. Consider our loop:
+you are not alone. Think about our loop:
+
 ```cpp
 std::size_t last_non_zero_index = 0;
 for (std::size_t i = 0; i < nums.size(); ++i) {
@@ -45,9 +46,9 @@ Our intuitive understanding of the process is simple,
 yet the code is step-by-step instructions on manipulating the elements.
 Second, the code *mutates* the value of `last_non_zero_index` inside the loop,
 which means we need to reason its value step-by-step in our head.
-All things considered, it is hard to understand the loop as a whole without tracing its execution by steps.
+As a result, it is hard to understand the loop as a whole without tracing its execution by steps.
 
-Now consider the following program that performs the same operation:
+Now read the following program that performs the same operation:
 
 ```cpp
 #include <algorithm>
@@ -61,7 +62,6 @@ void move_zeros(std::span<int> nums) {
 
 This version uses the standard library algorithms `remove` and `fill`.
 It is significantly shorter, directly expresses our intent, and can also be easily parallelized.
-This chapter will enable you to understand and write code in style empowered by standard algorithms.
 
 <Info>
 
@@ -74,3 +74,5 @@ I hope this chapter can at least get you familiar with the standard algorithms,
 and it is up to you to make educated decisions on when to use them.
 
 </Info>
+
+This chapter will enable you to understand and write code in style empowered by standard algorithms.
