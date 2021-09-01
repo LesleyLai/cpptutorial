@@ -41,24 +41,29 @@
       title: "Access Control, Constructors, and Classes"
     - url: "/enum"
       title: "Enumerations"
-      upcoming: true
     - url: "/union"
       title: "Unions"
+- url: "/modularity"
+  title: "Chapter 4: Modularity"
+  upcoming: true
+  items:
+    - url: "/seperate_compilation"
+      title: "Seperate Compilation"
       upcoming: true
-- url: "/indirection"
-  title: "Chapter 4: Indirection"
-  upcoming: true
-- url: "/file-programs-and-build"
-  title: "Chapter 5: Files, Programs, and Build System"
-  upcoming: true
+    - url: "/cmake"
+      title: "A detour to CMake"
+      upcoming: true
+    - url: "/namespaces"
+      title: "Namespaces"
+      upcoming: true
 - url: "/testing"
-  title: "Chapter 6: Testing"
+  title: "Chapter 5: Testing"
   upcoming: true
 - url: "/error"
-  title: "Chapter 7: Error-handling"
+  title: "Chapter 6: Error-handling"
   upcoming: true
 - url: "/arrays_and_pointers"
-  title: "Chapter 8: Array and Pointers"
+  title: "Chapter 7: Array and Pointers"
   upcoming: true
 - url: "/memory"
   title: "Memory Management"
