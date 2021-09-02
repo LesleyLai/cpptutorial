@@ -27,11 +27,22 @@
       title: "Constants"
     - url: "/practices"
       title: "Practices"
-- url: "/strings_and_vectors"
-  title: "Chapter 2: Strings and Vectors"
+- url: "/multiple_values"
+  title: "Chapter 2: Handle Multiple Values"
   items:
-    - url: "/std_string"
-      title: "std::string"
+    - url: "/string"
+      title: "string"
+    - url: "/vector"
+      title: "vector"
+      upcoming: true
+    - url: "/array"
+      title: "array"
+      upcoming: true
+    - url: "/references"
+      title: "References"
+    - url: "/non-owning"
+      title: "Non-owning Types: string_view and span"
+      upcoming: true
 - url: "/udts"
   title: "Chapter 3: User Defined Types"
   items:
@@ -62,8 +73,8 @@
 - url: "/error"
   title: "Chapter 6: Error-handling"
   upcoming: true
-- url: "/arrays_and_pointers"
-  title: "Chapter 7: Array and Pointers"
+- url: "/indirection"
+  title: "Chapter 7: Pointers and Arrays"
   upcoming: true
 - url: "/memory"
   title: "Memory Management"
