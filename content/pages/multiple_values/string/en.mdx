@@ -4,7 +4,7 @@ title: "Strings"
 
 Characters are not that useful in isolation.
 Instead, we often need to group characters into a sequence.
-And in programming, we call such a sequence of characters "string".
+And in programming, we call such a sequence of characters a /string/.
 
 Due to their use in almost all applications, almost all programming languages provide support for strings.
 And the C++ programming language provide a sofisticated `std::string` standard library type.
@@ -28,6 +28,9 @@ which is enclosed by double quotes in C++:
 const std::string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 ```
 
+The string library also provides a set of operations to help string processing,
+and we will talk about some of the most common ones below.
+
 ### Query size of a string
 
 If you try to perform more complicated opeartions with string,
@@ -42,7 +45,28 @@ const auto chars_count = std::string_length(s);
 ```
 
 As the bug icon emphasized, the code above is incorrect in C++.
-TODO: an explaination of *member functions*
+that the `std::string` type is an example of a /class/,
+which can be informally defined as a description of a set of values bundles together with its operations.
+
+TODO: explaination of objects?
+
+The opeartions that applied to the instance of a class is called *member functions* (some other programming languages call similar constructs *methods*).
+member functions behave mostly like normal functions,
+though they are tightly coupled with the classes they belong to.
+In case where it is useful to distinguish,
+we call a function that is not an member function *free function*.
+
+To invoke a member function,
+we need to use the following syntax:
+
+```cpp
+object.function_name(args)
+```
+
+For example,
+to get the size of a `std::string`,
+we need to use the `std::string::size()` member function as following:
+
 
 ```cpp
 const auto chars_count = s.size();
@@ -68,8 +92,14 @@ Another common operations of strings is concatenation,
 which is accompalished by operators `+` and `+=`.
 
 ```cpp
-
+std::string hello = "hello";
+const std::string world = ", world!";
+const std::string hello_world = hello + world; // "hello, world!"
+hello += world; // Now hello is "hello, world!"
 ```
+
+### Comparing string
+TODO
 
 ### Select character from a string
 
@@ -77,9 +107,20 @@ which is accompalished by operators `+` and `+=`.
 
 ### Extracting part of a string
 
-### Searching within a string
-
 ## Numeric conversions
+It is a common opeartion to convert string from or to numerical values.
+The C++ standard library provides those operations as free functions in the `<string>` header.
+
+To convert a numerical value to string, we use the `std::to_string` function:
+
+```cpp
+const int x = 42;
+const auto x_str = std::to_string(x); // "42"
+const double pi = 3.1415926;
+const auto pi_str = std::to_string(pi); // "3.1415926"
+```
+
+TODO: convert from string
 
 ## C-style strings
 

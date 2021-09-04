@@ -33,15 +33,14 @@
     - url: "/string"
       title: "Strings"
     - url: "/vector"
-      title: "Vector"
-      upcoming: true
+      title: "Vectors"
     - url: "/array"
-      title: "Array"
+      title: "Arrays"
       upcoming: true
     - url: "/references"
       title: "References"
-    - url: "/non-owning"
-      title: "Non-owning Types: string_view and span"
+    - url: "/string_view_and_span"
+      title: "string_view and span"
       upcoming: true
 - url: "/udts"
   title: "Chapter 3: User Defined Types"
@@ -70,6 +69,16 @@
 - url: "/testing"
   title: "Chapter 5: Testing"
   upcoming: true
+  items:
+    - url: "/catch2"
+      title: "Assertion-based testing with Catch2"
+      upcoming: true
+    - url: "/organize_tests"
+      title: "Organize Tests"
+      upcoming: true
+    - url: "/approval_test"
+      title: "Approval Test"
+      upcoming: true
 - url: "/error"
   title: "Chapter 6: Error-handling"
   upcoming: true
