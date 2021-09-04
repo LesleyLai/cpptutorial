@@ -1,0 +1,112 @@
+---
+title: "Strings"
+---
+
+Characters are not that useful in isolation.
+Instead, we often need to group characters into a sequence.
+And in programming, we call such a sequence of characters "string".
+
+Due to their use in almost all applications, almost all programming languages provide support for strings.
+And the C++ programming language provide a sofisticated `std::string` standard library type.
+
+The fact that string is a standard library type rather than a primitive does have implications.
+To use the `std::string` in our code, we need to `#include` the approprate header:
+
+```cpp
+#include <string>
+```
+
+## String Operations
+
+For the most part,
+you can use `std::string` much like the fundamental types such as `int` and `double`.
+You can, for example, declare a `std::string` variable and initialize it with an initial value.
+When you create a string, you often specify its initial value as a *string literal*, 
+which is enclosed by double quotes in C++:
+
+```cpp
+const std::string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+```
+
+### Query size of a string
+
+If you try to perform more complicated opeartions with string,
+you will find that its usage is not exactly the same as those fundamental types.
+One of the big differences is the function call syntax.
+For example, it is a common operation to query the length of a string,
+and you probably expect a function like this:
+
+TODO: bug icon
+```cpp
+const auto chars_count = std::string_length(s);
+```
+
+As the bug icon emphasized, the code above is incorrect in C++.
+TODO: an explaination of *member functions*
+
+```cpp
+const auto chars_count = s.size();
+```
+
+<Info>
+
+You will notice that I use the `auto` keyword here rather than an `int`.
+That is because that the return type of `s.size()` is `std::string::size_type`,
+which is an alias defined as `std::size_t`.
+You need to write `std::size_t` if you want to be explicit about the type of `chars_count`.
+
+```cpp
+-const auto chars_count = s.size();
++const std::size_t chars_count = s.size();
+```
+
+</Info>
+
+### Concatenation
+
+Another common operations of strings is concatenation,
+which is accompalished by operators `+` and `+=`.
+
+```cpp
+
+```
+
+### Select character from a string
+
+### String assignment
+
+### Extracting part of a string
+
+### Searching within a string
+
+## Numeric conversions
+
+## C-style strings
+
+In the early years, a large portion of C++'s success can be attribute to its ability to use C code directly.
+As a result, C++ inherits almost all the features in C, including C's way of handling string.
+C-style string are low-level array of characters.
+And it lack the convinience of string manipulation that `std::string` possess.
+
+Having multiple string types certainly increases the conceptural complexity of C++ and makes it harder to learn.
+Nevertheless, the C compatibility requirement of C++ design means C++ must support multiple styles of string.
+Consequently, having an understanding of C-style strings is still important in C++.
+
+String literals, for example, has the type of an array of characters.
+And you cannot use operations for `std::string`, such as `+`, for string literals:
+
+todo: bug icon
+```cpp
+const std::string s = "Hello, " + "world";
+```
+
+To circumvent this limitation, you need to explicitly convert `"Hello, "` to a `std::string`:
+
+```cpp
+const std::string s = std::string{"Hello, "} + "world";
+```
+
+Another problem that arise is when certain libraries require the usage of C-style strings.
+If you use those libraries with `std::string`,
+at some point you need to convert the string representation to its C-style string counterpart.
+Fortunately, `std::string` provides an `c_str` member function to perform this task for you.

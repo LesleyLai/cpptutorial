@@ -31,12 +31,12 @@
   title: "Chapter 2: Handle Multiple Values"
   items:
     - url: "/string"
-      title: "string"
+      title: "Strings"
     - url: "/vector"
-      title: "vector"
+      title: "Vector"
       upcoming: true
     - url: "/array"
-      title: "array"
+      title: "Array"
       upcoming: true
     - url: "/references"
       title: "References"
