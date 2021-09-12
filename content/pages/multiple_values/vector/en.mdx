@@ -1,3 +1,84 @@
 ---
 title: "Vectors"
 ---
+
+TODO: intro
+
+## Declaring a vector
+One of the design principles for C++ containers is that they behave similarly to fundamental types.
+Thus, just as you can declare an integer value as
+```cpp
+int x;
+```
+you can declare a vector as
+```cpp
+std::vector<int> vec;
+```
+This declaration introduces a new variable `vec`,
+which is a vector of integers as the type parameter suggests.
+
+## Manipulating a vector
+When you declare a vector as above, it start out empty.
+Since empty vectors are not particularly useful,
+the first thing we will learn is how to add elements to a vector object.
+
+When you declare a vector as above, it starts empty.
+Since empty vectors are not particularly useful,
+the first thing you will learn is how to add elements to a vector object.
+The usual approach is to invoke the `push_back` member function,
+which adds new elements to the end of a vector (thus the name `push_back`).
+
+For example, if `vec` is an empty vector of integers as declared above,
+executing code
+
+```cpp
+vec.push_back(1);
+vec.push_back(1);
+vec.push_back(2);
+```
+
+changes `vec` to a three elements vector that contains the sequence `1`, `1`, and `2`.
+
+The size of a vector is not fixed, which means you can continue to add elements to it:
+```cpp
+vec.push_back(3);
+vec.push_back(5);
+```
+
+And now our vector will contain `1`, `1`, `2`, `3`, and `5`.
+
+TODO: `pop_back`
+
+Just like `std::string`, to select and modify elements in a vector, we use the `[]` opeartor.
+For example, 
+```cpp
+vec[1] = vec[2];
+```
+sets the value at index 1 from `1` to the value at index 2 (`2`).
+
+## Selecting elements from a vector
+
+The `[]` opeartor does not check whether the index you provide is valid.
+Using `[]` with a wrong index causes undefined behavior:
+
+TODO: bug icon
+```cpp
+vec[6] = 8; // undefined behavior
+```
+
+The operation of testing whether an index is valid is called *bounds checking*.
+To access vectors with bound-checking, we can use the `at` member function:
+```cpp
+vec.at(6) = 8; // The program reports out-of-bound access
+```
+
+## Creating a vector of a predefined size
+
+## Other constructors of vector
+
+Creating an empty vector and then pushing several elements into it is cumbersome.
+Because it is such a common operation,
+`std::vector` provides us a convenient way to initialize a vector with a sequence of values at once:
+```cpp
+std::vector<int> vec {1, 1, 2, 3, 5};
+```

@@ -82,17 +82,13 @@
 - url: "/error"
   title: "Chapter 6: Error-handling"
   upcoming: true
-- url: "/indirection"
-  title: "Chapter 7: Pointers and Arrays"
-  upcoming: true
+- url: "/pointers"
+  title: "Chapter 7: Pointers"
 - url: "/memory"
-  title: "Memory Management"
+  title: "Chapter 8: Memory Management"
   upcoming: true
-- url: "/resource/lifetime"
+- url: "/lifetime"
   title: "The Object lifetime cycle"
-  upcoming: true
-- url: "/type/move"
-  title: "Move Semantics"
   upcoming: true
 - url: "/containers"
   title: "Standard Containers"

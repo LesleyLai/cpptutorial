@@ -11,5 +11,5 @@ TODO
 
 `union` is hard to use correctly,
 and using `union`s improperly can easily cause bugs.
-We consider the usage of `union` to be an advanced topic and discuss it furthur in this tutorial.
+We consider the usage of `union` to be an advanced topic and will not discuss it furthur in this tutorial.
 For many use cases, using alternatives such as `std::variant` can be simpler and safer (we will talk about `std::variant` much later in the tutorial).
