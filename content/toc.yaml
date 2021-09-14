@@ -73,6 +73,9 @@
     - url: "/catch2"
       title: "Assertion-based testing with Catch2"
       upcoming: true
+    - url: "/example"
+      title: "An example: ???"
+      upcoming: true
     - url: "/organize_tests"
       title: "Organize Tests"
       upcoming: true
@@ -88,7 +91,10 @@
   title: "Chapter 8: Memory Management"
   upcoming: true
 - url: "/lifetime"
-  title: "The Object lifetime cycle"
+  title: "Chapter 9: The Object lifetime cycle"
+  upcoming: true
+- url: "/Stream"
+  title: "Standard Library Streams"
   upcoming: true
 - url: "/containers"
   title: "Standard Containers"
@@ -146,6 +152,9 @@
     upcoming: true
 - url: "/generic"
   title: "Generic Programming"
+  upcoming: true
+- url: "/concept"
+  title: "Concept"
   upcoming: true
 - url: "/type/exceptions"
   title: "Exceptions"
