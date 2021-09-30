@@ -89,16 +89,52 @@ auto x;
 
 ## Scopes
 
-TODO
+Every variable in C++ lives in some *scope*.
+In C++, a *block* (delimited by `{ }`) is a primary way to introduce a scope.
+Variables in a block have the scope that extends from their declaration to the end of a block.
+
+You can only use a variable when it is in the scope. For example:
+
+```cpp
+auto main() -> int
+{
+  std::cout << x; // Error: x is out of scope
+  {
+    std::cout << x; // Error x is out of scope
+    int x = 42;
+    std::cout << x; // Ok, 42
+  }
+  std::cout << x; // Error x is out of scope
+}
+```
+
+You can declare a variable in the inner scope with the same name as another variable in the outer scope,
+this mechanism is called *variable shadowing*.
+When variable shadowing occurs,
+the compiler will always pick the variable available in the most inner scope.
+
+```cpp
+auto main() -> int
+{
+  int x = 5;
+  std::cout << x; // 5
+  {
+    int x = 10;
+    std::cout << x; // 10
+    x = 11;
+    std::cout << x; // 11
+  }
+  std::cout << x; // 5
+}
+```
 
 <Info>
 
 Different programming languages have vastly different opinions on variable shadowing.
-Some languages, for example, [Elm](https://elm-lang.org/), ban all forms of variable shadowing.
+Some languages, for example, [Elm](https://elm-lang.org/), ban all forms of shadowing.
 Other languages, such as [Ocaml](https://ocaml.org/) and [Rust](https://www.rust-lang.org/),
-allow more form of variable shadowing than most languages do.
-The C++ language allows you to use name shadowing,
-but it is generally frowned upon,
-and compilers and linters may warn you about it.
+allow more form of variable than most languages do.
+The C++ language allows you to use shadowing in a limited degree,
+but compilers and linters may warn you about it.
 
 </Info>
