@@ -8,36 +8,67 @@ Without variables,
 there is no way to store a piece of information and extract them later,
 and the expression power of a programming language would be severely degraded.
 
+Each variable has a *type*, such as `int`.
+The type specifies the set of valid values allowed for the variable, restricts supported operations, and provides semantic meaning for the underlying value.
+
+## Variable declaration and definition
+
 C++ is *statically-typed*,
 which means that a variable can only hold one particular type during its lifetime.
-For example, if a variable hold an integer, you cannot change it to hold a string later.
+For example, if a variable holds an integer, you cannot change it to store a string later.
 
-As a consequence, when you declare a variable, you must supply a type to the compiler.
-For example,
+Consequently, when you *declare* a variable, you need to supply a type to the compiler.
+A declaration in C++ introduces the variable and specifies its meaning and properties.
+For example, the following code declares an integer `x`.
 
 ```cpp
 int x;
 ```
 
-declare an integer `x`.
-
 If you come from a language where you can put an integer to a variable and later assign a string to it,
 then those languages are said to be *dynamically-typed*.
 The static typing sounds constrictive,
-but throughout the tutorial we will show you how the static *type system* can save us from a lot of trouble.
-furthermore, a lot of optimizations are only possible because of static typing,
+but we will show you how the static *type system* can save us from troubles throughout the tutorial.
+Furthermore, a lot of optimizations are only possible because of static typing,
 so static-typed languages such as C++ and Java tend to be faster than dynamically-typed languages.
 
-Define
+Some variable declarations in C++ also allocate storage,
+we call those declarations *definition*.
+We can initialize variables in their definition.
+For example, the following snippet initializes the `x` with value `42`.
 
 ```cpp
 int x = 42;
 ```
 
+<Info>
+
+It is usually a good idea to initialize variables.
+
+</Info>
+
+A variable can be declared an arbitrary number of times,
+but it can only be defined once.
+This rule is called the *One-Definition Rule*.
+
+We can declare a variable without defining them by the `extern` keyword, which indicates that the variable will be defined somewhere else.
+
+```c++
+extern int x; // declaration
+std::cout << x; // we can used the variable even with only declaration
+
+...
+
+int x = 42; // actual definition can be somewhere else
+```
+
+Using the `extern` keyword is not a very common practice in C++,
+but it is useful when we need to define a variable in a separate source file.
+
 ## Type inference with `auto`
 
-When we define a variable from a expression with known type,
-the compiler is smart enough to *infer* the type of that variable.
+When we define a variable from an expression with a known type,
+the compiler can *infer* the type of that variable.
 
 ```cpp
 -int x = 42;
@@ -46,6 +77,15 @@ the compiler is smart enough to *infer* the type of that variable.
 
 The usage of `auto` above does not have much advantage,
 but there are cases where using explicit type is either annoying or even impossible.
+
+The static-type property of C++ is still maintained when using `auto`. The C++ compiler sees the value `42` and infers that `x` is an `int`. In fact, `int x = 42` and `auto x = 42` does exact the same thing.
+
+As implied, it is impossible to use `auto` when we do not initialize a variable:
+
+Todo: bug icon
+```cpp
+auto x;
+```
 
 ## Scopes
 
@@ -60,6 +100,5 @@ allow more form of variable shadowing than most languages do.
 The C++ language allows you to use name shadowing,
 but it is generally frowned upon,
 and compilers and linters may warn you about it.
-
 
 </Info>
