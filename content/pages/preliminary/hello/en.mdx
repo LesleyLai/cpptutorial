@@ -8,10 +8,10 @@ Let's look at some simple C++ code.
 Below is a C++ program that prints `"Hello world!\n"` to the standard output.
 
 ```cpp
-#include <cstdio>
+#include <iostream>
 
 auto main() -> int {
-  std::puts("Hello world!");
+  std::cout << "Hello world!\n";
 }
 ```
 
@@ -19,7 +19,7 @@ auto main() -> int {
 
 This tutorial provides some documentation for certain terminologies and standard library facilities.
 They are always marked by an underscore.
-You can hover over `<cstdio>` or `puts` in the above snippet to see it in action.
+You can hover over `<iostream>` or `cout` in the above snippet to see it in action.
 
 </Info>
 
@@ -39,9 +39,9 @@ This program already composed some fundamental concepts in C++. Don’t be overw
 **`#include`**
 
 `#include` is a preprocessor instruction that includes other C++ source files into our current source file.
-In the "hello world" example, we `#include` the file `<cstdio>`.
-`<cstdio>` is the C-style input/output library,
-and contains the standard library function `puts` among many others.
+In the "hello world" example, we `#include` the file `<iostream>`.
+`<iostream>` is the C++ input/output library,
+and it contains the standard library facilities such as `std::cout`.
 
 **`auto main() -> int`**
 
@@ -55,8 +55,6 @@ Returning any numbers other than `0` tells the operating system that something i
 For example:
 
 ```cpp notip=true
-#include <cstdio>
-
 auto main() -> int {
   if (something_is_wrong()) {
     return 42;
@@ -70,11 +68,11 @@ The version of `main()` function showed above uses **trailing return type** synt
 This trailing return type version is equivalent to the following version:
 
 ```cpp notip=true
-#include <cstdio>
+#include <iostream>
 
 -auto main() -> int {
 +int main() {
-  std::puts("Hello world!");
+  std::cout << "Hello world!\n";
 }
 ```
 
@@ -85,9 +83,10 @@ The usage of the trailing return type is mainly for a stylish reason, but there 
 The curly braces `{` and `}` indicate the begin and end of the `main()` function.
 The pair of curly braces with function body following the function declaration turns it into a **function definition**.
 
-**`std::puts("Hello world!");`**
+**`std::cout << "Hello world!\n";`**
 
-`puts` outputs the string `"hello world!"` to the **standard output** and automatically append an end line character (`\n`) at the end of the output stream.
+`std::cout` outputs the string `"hello world!\n"` to the **standard output**.
+The `\n` character at the end of string is the end line character.
 
 As for `std`, it is a **namespace**, and all the symbols of the C++ standard library are declared in `std`.
 To call a standard library function, you need to *qualify* your function call with the namespace `std`.

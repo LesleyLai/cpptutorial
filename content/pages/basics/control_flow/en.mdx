@@ -14,14 +14,14 @@ and this section will show you the C++ syntax.
 The `if` statement enables you to execute some part of the code conditionally.
 
 ```cpp
-#include <cstdio>
+#include <iostream>
 
 auto main() -> int {
   int x = 1;
   if (x < 5) {
-    std::puts("The condition is met.");
+    std::cout << "The condition is met.\n";
   }
-  std::puts("Goodbye");
+  std::cout << "Goodbye\n";
 }
 ```
 
@@ -31,16 +31,16 @@ If you change `x` to `6`, only `Goodbye` will be printed.
 You can have an optional `else` branch:
 
 ```cpp
-#include <cstdio>
+#include <iostream>
 
 auto main() -> int {
   int x = 1;
   if (x < 5) {
-    std::puts("The condition is met.");
+    std::cout << "The condition is met.\n";
   } else {
-    std::puts("The condition is not met.");
+    std::cout << "The condition is not met.\n";
   }
-  std::puts("Good bye");
+  std::cout << "Good bye\n";
 }
 ```
 
@@ -48,18 +48,18 @@ Furthermore, you can chain multiple `if-else` statements together to handle mult
 For example:
 
 ```cpp
-#include <cstdio>
+#include <iostream>
 
 auto main() -> int {
   int x = 6;
   if (x % 2 == 0) {
-    std::puts("x is divisible by 2");
+    std::cout << "x is divisible by 2\n";
   } else if (x % 3 == 0) {
-    std::puts("x is divisible by 3");
+    std::cout << "x is divisible by 3\n";
   } else if (x % 5 == 0) {
-    std::puts("x is divisible by 5");
+    std::cout << "x is divisible by 5\n";
   } else {
-    std::puts("x is not divisible by 2, 3, or 5");
+    std::cout << "x is not divisible by 2, 3, or 5\n";
   }
 }
 ```
@@ -138,7 +138,6 @@ Below is the implementation of function `gcd` using the while loop:
 
 ```cpp
 #include <utility>
-#include <iostream>
 
 auto gcd(int a, int b) -> int
 {
@@ -204,9 +203,9 @@ by a regular while loop and a `break`:
 ```cpp
 void print_numbers(int n) {
   while(true) {
-      std::cout << n << '\n';
-      ++n;
-      if (n >= 10) break;
+    std::cout << n << '\n';
+    ++n;
+    if (n >= 10) break;
   }
 }
 ```
@@ -261,10 +260,10 @@ The below snippet print integers from 0 to 9, excluding 5.
 
 ```cpp
 void print_numbers_no_5(int n) {
-for (int i = 0; i < 10; ++i) {
-  if (i == 5) continue;
-  std::cout << i << '\n';
-}
+  for (int i = 0; i < 10; ++i) {
+    if (i == 5) continue;
+    std::cout << i << '\n';
+  }
 }
 ```
 
@@ -292,7 +291,8 @@ auto is_even_string(int n) -> std::string {
 ```
 
 `std::string` is the C++ way to represent a string of characters.
-We will talk about it extensively later.
+To use it, you need to `#include <string>`.
+We will talk about it extensively in the next chapter.
 
 Using ternary expression, you can write:
 

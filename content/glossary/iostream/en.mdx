@@ -1,0 +1,26 @@
+---
+title: "Header <iostream>"
+cppreference: "cpp/header/iostream"
+type: "I/O Library"
+token: "<iostream>"
+---
+
+provides I/O operations.
+
+Example usage:
+
+```cpp notip=true
+#include <iostream>
+#include <limits>
+
+auto main() -> int {
+  std::cout << "Please input an integer: ";
+  int x;
+  while (!(std::cin >> x)) {
+    std::cout << "\nThat is not an integer!";
+    std::cin.clear();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+  }
+  std::cout << "\nYou input " << x << '\n';
+}
+```

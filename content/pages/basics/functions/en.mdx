@@ -3,7 +3,7 @@ title: "Functions"
 ---
 
 **Functions**, also known as *procedurals* or *subroutines*,
-exist in almost all imperitive programming languages
+exist in almost all imperative programming languages
 and are the backbone of *Procedural programming*.
 
 Here is a C++ function that doubles a number and prints the result to the standard output:
@@ -20,10 +20,8 @@ We define most of our functions similarly,
 by specifying a function name,
 following by a *parameter list* enclosed in `()`,
 then the return type,
-and finally, the function body enclosed by `{}`.
+and finally, the function body is enclosed by `{}`.
 
-You already have seen a few function calls in the tutorial so far,
-as almost all the snippets use some standard library input/output functions such as `std::puts`.
 To call a function, we pass *arguments* that match the parameters of the function.
 In this case, we need to pass an `int` argument:
 
@@ -36,19 +34,9 @@ auto main() -> int {
 ## Functions that return a value
 
 Functions can return at most one single value to the caller.
-In trailing return type syntax,
+In *trailing return type* syntax,
 we declare the return type after an arrow (`->`).
 You mark the return type as `void` if the function does not return a value.
-
-<Info>
-
-`void` in C++ and `unit` in some other programming languages share a lot of similarities and use cases,
-but their semantics are not exactly the same.
-`void` indicate an absence of return values;
-on the other hand,
-`unit` is a type that contains only one value.
-
-</Info>
 
 You must use the `return` keyword to return from a function.
 For example, the below snippet should print `8`.
@@ -63,6 +51,13 @@ auto main() -> int {
 }
 ```
 
+<Info>
+
+Notice that the `main()` function is unique because you don't need to write `return` in it explicitly.
+If you don't explicitly return a value, `main` returns `0`.
+
+</Info>
+
 
 ## Function declaration and definition
 
@@ -70,12 +65,11 @@ So far, we have seen function definitions,
 where we provide function name, type, and its body.
 In C++, unlike in some other languages,
 you can call a function without providing its definition beforehand.
-When you compile the program, the linker finds the definition of functions in the whole program.
+When you compile the program, the *linker* finds the definition of functions in the whole program.
 
 However, since C++ is a statically typed language,
 the call sites need to know the types of functions.
-Thus, C++ provides a lightweight alternative to definitions called declarations.
-You cannot call a function without declaring it first.
+Thus, like variables, we need to *declare* the function first.
 
 A function declaration consists of the name and type of a function. For example:
 
@@ -107,13 +101,13 @@ auto square(double x) -> double
 
 ## Function arguments
 
-Now let's talk about what happens to arguments passed-in to a function.
+Now let's talk about what happens to arguments passed into a function.
 
-All arguments are **eagerly evaluated** and taken by copy.
-We call this evaluation strategy **pass by value**.
+All arguments are *eagerly evaluated* and taken by copy.
+We call this evaluation strategy *pass by value*.
 
 For example, consider the following function that
-adds `y` to `x` returns the final result.
+adds `y' to `x` returns the final result.
 
 ```cpp
 auto add(int x, int y) -> int {
@@ -122,7 +116,7 @@ auto add(int x, int y) -> int {
 }
 ```
 
-The argument `x` and `y` are taken by local copies of their values,
+The argument `x` and `y' are taken by local copies of their values,
 and what passed in is unchanged.
 
 If you try to call this function in the following program:
@@ -141,7 +135,37 @@ auto main() -> int {
 You will notice that the value of `x` remains at `6`.
 
 ## Overloading
-TODO
+You can define two functions with the same name but with different argument types. This mechanism is called *function overloading*.
 
-## Default parameters
-TODO
+The compiler will call the most appropriate version for each call based on the arguments you passed in. For example:
+
+```cpp
+void print(int x) {
+  std::cout << "int: " << x << '\n';
+}
+
+void print(double x) {
+  std::cout << "double: " << x << '\n';
+}
+
+auto main() -> int {
+  print(42); // int: 42
+  print(3.14); // double: 3.14
+}
+```
+
+If two alternatives can be called,
+but neither is better than the other,
+the function call is *ambiguous*, and the compiler will generate an error.
+
+For example, in the following code, the perfect match `print(int, int)` doesn't exist, and neither alternative is better than the other:
+
+Todo: bug icon
+```cpp
+void print(int x, double y);
+void print(double x, int y);
+
+auto main() -> int {
+  print(1, 1);
+}
+```
