@@ -94,6 +94,14 @@ function cleanTokens(tokens: Token[][]) {
   return tokens;
 }
 
+/** Trim end of a token and return whether it is trimmed or not */
+function trimToken(token: Token) {
+  const trimmedContent = token.content.trimEnd();
+  const trimmed = token.content === trimmedContent;
+  token.content = trimmedContent;
+  return trimmed;
+}
+
 interface CodeBlockProps {
   className: string;
   children: string;
@@ -135,26 +143,22 @@ const CodeBlock = ({ children: code, notip = false, className }: CodeBlockProps)
               {cleanTokens(tokens).map((line, i) => {
                 let lineClass = {};
 
-                let isDiff = false;
                 // If token is diff, set line color and trim the + or - sign
-                const isTokenDiff = (token: Token) => {
+                const handleDiffToken = (token: Token) => {
                   if (token.content[0] === "+") {
                     lineClass = { backgroundColor: "rgba(76, 175, 80, 0.3)" };
                     token.content = token.content.substring(1);
-                    return true;
                   } else if (token.content[0] === "-") {
                     lineClass = { backgroundColor: "rgba(244, 67, 54, 0.3)" };
                     token.content = token.content.substring(1);
-                    return true;
                   }
-                  return false;
                 };
 
                 if (line[0]) {
-                  if (line[0].content.length) {
-                    isDiff = isTokenDiff(line[0]);
+                  if (line[0].content.length != 0) {
+                    handleDiffToken(line[0]);
                   } else if (line[1]) {
-                    isDiff = isTokenDiff(line[1]);
+                    handleDiffToken(line[1]);
                   }
                 }
 
@@ -165,11 +169,19 @@ const CodeBlock = ({ children: code, notip = false, className }: CodeBlockProps)
                   <div {...lineProps} key={i}>
                     {line.map((token, key) => {
                       const tip = !notip && getTip(token, glossaries);
-                      return tip ? (
-                        <TokenWithTip tip={tip} {...getTokenProps({ token, key })} />
-                      ) : (
-                        <span {...getTokenProps({ token, key })} />
-                      );
+                      if (tip) {
+                        const trimmed = trimToken(token);
+                        return trimmed ? (
+                          <TokenWithTip tip={tip} {...getTokenProps({ token, key })} />
+                        ) : (
+                          <>
+                            <TokenWithTip tip={tip} {...getTokenProps({ token, key })} />
+                            <span className="token plain"> </span>
+                          </>
+                        );
+                      } else {
+                        return <span {...getTokenProps({ token, key })} />;
+                      }
                     })}
                   </div>
                 );
